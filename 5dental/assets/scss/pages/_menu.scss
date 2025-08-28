@@ -1,0 +1,2769 @@
+// 診療メニューページ
+.menu-fv {
+    position: relative;
+    min-height: 25rem; // 400px
+    background-color: #fff;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding: 5rem 0;
+
+    &__container {
+        @include container;
+        position: relative;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 15rem;
+    }
+
+    // 背景テキスト "Services"
+    &__bg-text {
+        position: absolute;
+        top: -3.5rem; // Adjust position down slightly
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        font-family: $font-family-script;
+        font-size: 9rem; // 144px from Figma
+        color: #e9ecf2;
+        z-index: 1;
+        line-height: 0.5;
+        white-space: nowrap;
+        pointer-events: none;
+        height: 100%;
+        padding-left: 2rem; // Left offset to match design
+
+        @include respond-below('lg') {
+            font-size: 7rem;
+            padding-left: 1.5rem;
+            top: -2.75rem;
+        }
+
+        @include respond-below('md') {
+            font-size: 5rem;
+            padding-left: 1rem;
+            top: -2rem;
+        }
+    }
+
+    // コンテンツエリア
+    &__content {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        align-items: flex-start;
+    }
+
+    // メインタイトル "診療メニュー"
+    &__title {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-black;
+        font-size: 3rem; // 48px from Figma
+        color: transparent;
+        background: linear-gradient(90deg, $color-primary-dark 0%, rgba($color-primary-dark, 0.8) 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        letter-spacing: 0.3rem; // 4.8px from Figma
+        line-height: 1.35;
+        margin: 0;
+
+        @include respond-below('lg') {
+            font-size: 2.5rem;
+            letter-spacing: 0.25rem;
+        }
+
+        @include respond-below('md') {
+            font-size: 2rem;
+            letter-spacing: 0.2rem;
+        }
+    }
+
+    // パンくずリスト
+    &__breadcrumb {
+        // No additional styling needed, just remove positioning
+    }
+}
+
+// パンくずリストのスタイル
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    &__item {
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        &:not(:last-child) {
+            margin-right: 2rem; // Spacing before arrow
+
+            // 矢印アイコン（SVG）
+            &::after {
+                content: '';
+                position: absolute;
+                right: -1.75rem; // Position between items
+                top: 50%;
+                transform: translateY(-50%);
+                width: 0.875rem; // 14px from Figma
+                height: 0.6875rem; // 11px from Figma
+                background-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="11" viewBox="0 0 14 11" fill="none"><mask id="mask0_136_17462" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="14" height="11"><rect width="14" height="11" fill="%23D9D9D9"/></mask><g mask="url(%23mask0_136_17462)"><path d="M0.5 10.5L13.5 0.5" stroke="%23787B83"/></g></svg>');
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                opacity: 0.6;
+            }
+        }
+
+        &--current {
+            .breadcrumb__text {
+                color: #787b83;
+                font-weight: $font-weight-bold;
+            }
+        }
+    }
+
+    &__link {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-bold;
+        font-size: 0.875rem; // 14px from Figma
+        color: #787b83;
+        text-decoration: none;
+        letter-spacing: 0.04375rem; // 0.7px from Figma
+        line-height: 1.35;
+        transition: color $transition-normal;
+
+        &:hover {
+            color: $color-primary-dark;
+        }
+    }
+
+    &__text {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-bold;
+        font-size: 0.875rem; // 14px from Figma
+        color: #787b83;
+        letter-spacing: 0.04375rem; // 0.7px from Figma
+        line-height: 1.35;
+    }
+}
+
+// メニューコンテンツエリア
+.menu-content {
+    padding: 5rem 0;
+    background-color: $color-white;
+
+    &__container {
+        @include container;
+    }
+}
+
+// メニューイントロダクション
+.menu-intro {
+    position: relative;
+    text-align: center;
+    margin-bottom: 5rem; // 80px
+
+    &__title {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-bold;
+        font-size: 2.25rem; // 36px from Figma
+        color: #737484;
+        letter-spacing: 0.1125rem; // 1.8px from Figma
+        line-height: 1.35;
+        margin: 0;
+        position: relative;
+        z-index: 2;
+    }
+
+    &__bg-text {
+        position: absolute;
+        top: 1.8125rem; // 29px offset from title
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: $font-family-script;
+        font-size: 2.5rem; // 40px from Figma
+        color: rgba(115, 116, 132, 0.2); // #737484 with 20% opacity
+        line-height: 0.5;
+        white-space: nowrap;
+        pointer-events: none;
+        z-index: 1;
+        margin-left: 6.375rem; // 102px right offset from center
+    }
+
+    &__description {
+        @include text-body;
+        font-size: $font-size-lg; // 18px
+        line-height: $line-height-normal;
+        color: $color-primary;
+        max-width: 50rem; // 800px
+        margin: 2rem auto 0;
+    }
+
+    @include respond-below('lg') {
+        margin-bottom: 3rem;
+
+        &__title {
+            font-size: 2rem; // Smaller on tablets
+        }
+
+        &__bg-text {
+            font-size: 2rem;
+            margin-left: 4rem;
+        }
+
+        &__description {
+            font-size: $font-size-base;
+        }
+    }
+
+    @include respond-below('md') {
+        &__title {
+            font-size: 1.75rem; // Smaller on mobile
+        }
+
+        &__bg-text {
+            font-size: 1.5rem;
+            margin-left: 2rem;
+        }
+    }
+}
+
+// メニューセクション
+.menu-section {
+    margin-bottom: 6.25rem; // 100px
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    &__header {
+        text-align: center;
+        margin-bottom: 3.75rem; // 60px
+    }
+
+    &__title {
+        @include text-title($font-size-5xl); // 40px
+        margin-bottom: 1rem; // 16px
+        position: relative;
+
+        // セクションタイトル下のライン
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -0.5rem; // 8px
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3.75rem; // 60px
+            height: 0.1875rem; // 3px
+            background: $gradient-laminate;
+            border-radius: $border-radius-base;
+        }
+    }
+
+    &__subtitle {
+        @include text-body;
+        font-size: $font-size-lg; // 18px
+        color: $color-primary;
+        margin: 0;
+    }
+
+    // セクション別カラーバリエーション
+    &--laminate {
+        .menu-section__title {
+            color: #595A5D;
+        }
+    }
+
+    &--aesthetic {
+        .menu-section__title {
+            color: #787B83;
+        }
+    }
+
+    &--general {
+        .menu-section__title {
+            color: #595A5D;
+        }
+    }
+
+    @include respond-below('lg') {
+        margin-bottom: 4rem;
+
+        &__header {
+            margin-bottom: 2.5rem;
+        }
+
+        &__title {
+            font-size: $font-size-4xl; // 32px
+        }
+
+        &__subtitle {
+            font-size: $font-size-base;
+        }
+    }
+
+    @include respond-below('md') {
+        &__title {
+            font-size: $font-size-3xl; // 28px
+        }
+    }
+}
+
+// メニューアイテムグリッド
+.menu-items {
+    @include grid-responsive(1, 2, 3);
+    gap: 2rem; // 32px
+
+    @include respond-to('md') {
+        gap: 2.5rem; // 40px
+    }
+
+    @include respond-to('lg') {
+        gap: 3rem; // 48px
+    }
+}
+
+// 個別メニューアイテム
+.menu-item {
+    background-color: $color-white;
+    border-radius: 1.25rem; // 20px
+    overflow: hidden;
+    box-shadow: 0 0.5rem 1.5rem rgba($color-primary, 0.08);
+    transition: $transition-normal;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    &:hover {
+        transform: translateY(-0.25rem); // 4px
+        box-shadow: 0 1rem 2.5rem rgba($color-primary, 0.15);
+    }
+
+    &__image {
+        width: 100%;
+        height: 12.5rem; // 200px
+        overflow: hidden;
+        position: relative;
+    }
+
+    &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: $transition-slow;
+
+        .menu-item:hover & {
+            transform: scale(1.05);
+        }
+    }
+
+    &__content {
+        padding: 1.875rem; // 30px
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__title {
+        @include text-title($font-size-xl); // 20px
+        margin-bottom: 1rem; // 16px
+        color: $color-primary-dark;
+        line-height: $line-height-tight;
+    }
+
+    &__description {
+        @include text-body;
+        font-size: $font-size-sm; // 13px
+        line-height: $line-height-normal;
+        color: $color-primary;
+        margin-bottom: 1.25rem; // 20px
+        flex: 1;
+    }
+
+    &__features {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem; // 8px
+        margin-bottom: 1.5rem; // 24px
+    }
+
+    &__feature {
+        background-color: rgba($color-primary, 0.08);
+        color: $color-primary-dark;
+        font-family: $font-family-primary;
+        font-weight: $font-weight-medium;
+        font-size: $font-size-xs; // 12px
+        padding: 0.375rem 0.75rem; // 6px 12px
+        border-radius: $border-radius-pill;
+        letter-spacing: $letter-spacing-tight;
+    }
+
+    &__button {
+        @include button-base;
+        background: $gradient-laminate;
+        color: $color-white;
+        border-radius: $border-radius-lg; // 8px
+        padding: 0.875rem 1.5rem; // 14px 24px
+        font-size: $font-size-sm; // 13px
+        letter-spacing: $letter-spacing-normal;
+        align-self: flex-start;
+        margin-top: auto;
+
+        &:hover {
+            transform: translateY(-0.125rem); // 2px
+            box-shadow: 0 0.5rem 1rem rgba($color-primary, 0.25);
+        }
+    }
+
+    @include respond-below('lg') {
+        &__image {
+            height: 10rem; // 160px
+        }
+
+        &__content {
+            padding: 1.5rem; // 24px
+        }
+
+        &__title {
+            font-size: $font-size-lg; // 18px
+        }
+
+        &__description {
+            font-size: $font-size-sm; // 13px
+        }
+    }
+
+    @include respond-below('md') {
+        &__image {
+            height: 8rem; // 128px
+        }
+
+        &__content {
+            padding: 1.25rem; // 20px
+        }
+
+        &__title {
+            font-size: $font-size-base; // 16px
+        }
+
+        &__features {
+            margin-bottom: 1rem;
+        }
+
+        &__feature {
+            font-size: 0.6875rem; // 11px
+            padding: 0.25rem 0.5rem; // 4px 8px
+        }
+    }
+}
+
+// メニューCTAセクション
+.menu-cta {
+    margin-top: 6.25rem; // 100px
+    padding: 3.75rem 2rem; // 60px 32px
+    background: linear-gradient(135deg, rgba($color-primary, 0.03) 0%, rgba($color-primary-dark, 0.05) 100%);
+    border-radius: 1.875rem; // 30px
+    text-align: center;
+
+    &__content {
+        max-width: 50rem; // 800px
+        margin: 0 auto;
+    }
+
+    &__title {
+        @include text-title($font-size-4xl); // 32px
+        margin-bottom: 1.5rem; // 24px
+        color: $color-primary-dark;
+    }
+
+    &__description {
+        @include text-body;
+        font-size: $font-size-lg; // 18px
+        color: $color-primary;
+        margin-bottom: 2.5rem; // 40px
+        line-height: $line-height-normal;
+    }
+
+    &__buttons {
+        display: flex;
+        gap: 1.5rem; // 24px
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    @include respond-below('lg') {
+        margin-top: 4rem;
+        padding: 2.5rem 1.5rem; // 40px 24px
+
+        &__title {
+            font-size: $font-size-3xl; // 28px
+        }
+
+        &__description {
+            font-size: $font-size-base;
+            margin-bottom: 2rem;
+        }
+
+        &__buttons {
+            gap: 1rem;
+        }
+    }
+
+    @include respond-below('md') {
+        margin-top: 3rem;
+        padding: 2rem 1rem; // 32px 16px
+
+        &__title {
+            font-size: $font-size-2xl; // 24px
+        }
+
+        &__buttons {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+}
+
+// 診療科目選択セクション
+.menu-selector {
+    padding: 5rem 0;
+    background-color: #f8f8f9;
+    
+    &__container {
+        @include container;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    &__description {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-medium;
+        font-size: 1rem; // 16px from Figma
+        color: #595a5d;
+        letter-spacing: 0.02rem; // 0.32px from Figma
+        line-height: 1.5;
+        margin-bottom: 4rem; // Spacing before buttons
+        max-width: 50rem; // 800px from Figma
+        text-align: center;
+        
+        @include respond-below('md') {
+            font-size: 0.875rem;
+            margin-bottom: 3rem;
+        }
+    }
+    
+    &__buttons {
+        display: flex;
+        gap: 1.5rem; // 24px gap between buttons
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        
+        @include respond-below('md') {
+            flex-direction: column;
+            gap: 1rem;
+            width: 100%;
+        }
+    }
+    
+    &__button {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 24.75rem; // 396px from Figma
+        height: 3.75rem; // 60px from Figma
+        background-color: #fcfcfe;
+        border: 0.09375rem solid #e8e8f0; // 1.5px border
+        border-radius: 0;
+        padding: 0 1.5rem;
+        cursor: pointer;
+        transition: all $transition-normal;
+        
+        &:hover {
+            background-color: #787b83;
+            border-color: #787b83;
+            
+            .menu-selector__button-text {
+                color: $color-white;
+            }
+            
+            .menu-selector__button-icon {
+                background-color: $color-white;
+            }
+            
+            .menu-selector__button-arrow {
+                filter: brightness(0) saturate(100%) invert(47%) sepia(8%) saturate(463%) hue-rotate(169deg) brightness(96%) contrast(89%);
+            }
+        }
+        
+        @include respond-below('md') {
+            width: 100%;
+            max-width: 24.75rem;
+        }
+    }
+    
+    &__button-text {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-black;
+        font-size: 1.25rem; // 20px from Figma
+        color: #787b83;
+        letter-spacing: 0.0625rem; // 1px from Figma
+        line-height: 1.35;
+        text-align: center;
+        white-space: nowrap;
+        transition: color $transition-normal;
+        
+        @include respond-below('md') {
+            font-size: 1.125rem;
+        }
+    }
+    
+    &__button-icon {
+        position: absolute;
+        right: 1.5rem; // Match button padding
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 0.9375rem; // 15px from Figma
+        height: 0.9375rem; // 15px from Figma
+        background-color: #e8e8f0;
+        border-radius: 50%;
+        transition: background-color $transition-normal;
+    }
+    
+    &__button-arrow {
+        width: 0.5625rem; // 9px from Figma  
+        height: 0.5625rem; // 9px from Figma
+        transform: rotate(45deg) scaleY(-1);
+        transition: filter $transition-normal;
+    }
+}
+
+// 審美歯科説明セクション
+.aesthetic-description {
+    max-width: 50rem; // 800px to match Figma content width
+    margin: 0 auto;
+    padding: 5rem 0 0;
+    
+    &__title {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-bold;
+        font-size: 1.5rem; // 24px from Figma
+        color: transparent;
+        background: linear-gradient(90deg, $color-primary-dark 0%, rgba($color-primary-dark, 0.8) 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        text-align: center;
+        letter-spacing: 0.15rem; // 2.4px from Figma
+        line-height: 1.35;
+        margin: 0 0 3.75rem; // 60px margin-bottom
+        
+        @include respond-below('lg') {
+            font-size: 1.375rem;
+            letter-spacing: 0.125rem;
+        }
+        
+        @include respond-below('md') {
+            font-size: 1.25rem;
+            letter-spacing: 0.1rem;
+            margin-bottom: 3rem;
+        }
+    }
+    
+    &__content {
+        position: relative;
+    }
+    
+    &__text {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-regular;
+        font-size: 1rem; // 16px from Figma
+        color: #595a5d; // txt-595A5D color from Figma
+        line-height: 1.5;
+        letter-spacing: 0.02rem; // 0.32px from Figma
+        margin-bottom: 1rem; // 16px spacing between paragraphs
+        position: relative;
+        
+        // Yellow highlight markers (positioned absolutely like in Figma)
+        &:nth-child(1) {
+            &::after {
+                content: '';
+                position: absolute;
+                background-color: #fffad7; // yellow-FFFAD7 from Figma
+                height: 0.625rem; // 10px
+                width: 12.25rem; // 196px from Figma marker width
+                top: 0.375rem; // Adjust position to align with text
+                left: 18rem; // 288px from left (based on Figma positioning)
+                z-index: -1;
+            }
+        }
+        
+        &:nth-child(2) {
+            &::after {
+                content: '';
+                position: absolute;
+                background-color: #fffad7;
+                height: 0.625rem;
+                width: 28.5625rem; // 457px from Figma
+                top: 0.375rem;
+                left: 21.125rem; // 338px from left
+                z-index: -1;
+            }
+        }
+        
+        &:nth-child(6) {
+            &::after {
+                content: '';
+                position: absolute;
+                background-color: #fffad7;
+                height: 0.625rem;
+                width: 29.4375rem; // 471px from Figma
+                top: 0.375rem;
+                left: 21.125rem; // 338px from left
+                z-index: -1;
+            }
+        }
+        
+        &:nth-child(11) {
+            &::after {
+                content: '';
+                position: absolute;
+                background-color: #fffad7;
+                height: 0.625rem;
+                width: 20.4375rem; // 327px from Figma
+                top: 0.375rem;
+                left: 38.9375rem; // 623px from left
+                z-index: -1;
+            }
+        }
+        
+        &:nth-child(12) {
+            &::after {
+                content: '';
+                position: absolute;
+                background-color: #fffad7;
+                height: 0.625rem;
+                width: 5.0625rem; // 81px from Figma
+                top: 2.5rem; // Second line position
+                left: 59.875rem; // 958px from left
+                z-index: -1;
+            }
+
+            &::before {
+                content: '';
+                position: absolute;
+                background-color: #fffad7;
+                height: 0.625rem;
+                width: 25.375rem; // 406px from Figma
+                top: 4rem; // Third line position  
+                left: 3.75rem; // 60px from left
+                z-index: -1;
+            }
+        }
+        
+        @include respond-below('lg') {
+            font-size: 0.9375rem;
+            
+            // Adjust marker positions for tablet
+            &:nth-child(1)::after,
+            &:nth-child(2)::after,
+            &:nth-child(6)::after,
+            &:nth-child(11)::after,
+            &:nth-child(12)::after,
+            &:nth-child(12)::before {
+                display: none; // Hide markers on smaller screens for better readability
+            }
+        }
+        
+        @include respond-below('md') {
+            font-size: 0.875rem;
+            margin-bottom: 1.25rem;
+        }
+    }
+    
+    @include respond-below('lg') {
+        max-width: 45rem;
+        padding: 4rem 0 0;
+    }
+    
+    @include respond-below('md') {
+        max-width: none;
+        padding: 3rem 1rem 0;
+    }
+}
+
+// 削らないラミネートベニアセクション
+.laminate-veneer-section {
+    margin-top: 5rem; // 80px from Figma
+    padding: 0;
+    
+    &__container {
+        max-width: 70rem; // 1120px from Figma
+        width: 100%;
+        margin: 0 auto;
+        background-color: #ffffff;
+        border-radius: 0;
+        box-shadow: 0.625rem 0.625rem 0.625rem 0 rgba(122, 134, 158, 0.03);
+        padding: 4rem; // 64px padding from Figma
+        display: grid;
+        grid-template-columns: 31.25rem 28.5rem; // 500px for content, 456px for images (from Figma)
+        gap: 2.5rem; // 40px gap between text and images
+        align-items: start;
+        
+        @include respond-below('lg') {
+            max-width: 90%;
+            padding: 3rem;
+            gap: 2rem;
+            grid-template-columns: 1fr 1fr;
+        }
+        
+        @include respond-below('md') {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            padding: 2rem;
+        }
+    }
+    
+    &__content {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    &__title {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-black;
+        font-size: 1.375rem; // 22px from Figma
+        color: #787b83; // main-787B83 from Figma
+        letter-spacing: 0.06875rem; // 1.1px from Figma
+        line-height: 1.35;
+        margin: 0 0 0.5rem;
+    }
+    
+    &__subtitle {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-black;
+        font-size: 0.875rem; // 14px from Figma
+        color: #787b83;
+        letter-spacing: 0.04375rem; // 0.7px from Figma
+        line-height: 1.35;
+        margin: 0;
+    }
+    
+    &__description {
+        margin: 1.5rem 0; // 24px top and bottom margin
+        position: relative;
+    }
+    
+    &__divider {
+        width: 100%;
+        height: 0.0625rem; // 1px
+        background: #E0E0E5;
+        margin: 1rem 0;
+        
+        &:first-child {
+            margin-top: 0;
+        }
+        
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    
+    &__lead {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-bold;
+        font-size: 1rem; // 16px from Figma
+        color: #787b83;
+        letter-spacing: 0.02rem; // 0.32px from Figma
+        line-height: 1.35;
+        margin: 1rem 0;
+        padding: 0;
+    }
+    
+    &__texts {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem; // 12px gap
+        margin-bottom: 2rem;
+    }
+    
+    &__text {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-regular;
+        font-size: 1rem; // 16px from Figma
+        color: #595a5d; // txt-595A5D from Figma
+        letter-spacing: 0.02rem; // 0.32px from Figma
+        line-height: 1.5;
+        margin: 0;
+        position: relative;
+        
+        // Yellow highlight markers (positioned according to Figma)
+        &:nth-child(2) {
+            &::after {
+                content: '';
+                position: absolute;
+                background-color: #fffad7; // yellow-FFFAD7 from Figma
+                height: 0.625rem; // 10px
+                width: 20.375rem; // 326px from Figma
+                top: 2.5rem; // Positioned for second line
+                left: 4.0625rem; // 65px offset from left
+                z-index: -1;
+            }
+        }
+        
+        &:nth-child(3) {
+            &::after {
+                content: '';
+                position: absolute;
+                background-color: #fffad7;
+                height: 0.625rem;
+                width: 12.25rem; // 196px from Figma
+                top: 6rem; // Positioned for specific line
+                left: 18.25rem; // 292px offset from left
+                z-index: -1;
+            }
+        }
+        
+        &:nth-last-child(1) {
+            &::after {
+                content: '';
+                position: absolute;
+                background-color: #fffad7;
+                height: 0.625rem;
+                width: 3.125rem; // 50px from Figma
+                top: 0.375rem;
+                left: 36.5rem; // 584px offset from left
+                z-index: -1;
+            }
+
+            &::before {
+                content: '';
+                position: absolute;
+                background-color: #fffad7;
+                height: 0.625rem;
+                width: 9.1875rem; // 147px from Figma
+                top: 1.5rem; // Next line position
+                left: 0;
+                z-index: -1;
+            }
+        }
+        
+        @include respond-below('lg') {
+            // Hide markers on smaller screens for better readability
+            &:nth-child(2)::after,
+            &:nth-child(3)::after,
+            &:nth-last-child(1)::after,
+            &:nth-last-child(1)::before {
+                display: none;
+            }
+        }
+    }
+    
+    &__button {
+        @extend .btn-section-cta;
+    }
+    
+    &__images {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem; // 16px gap between main image and before/after
+        position: relative;
+    }
+    
+    &__main-image {
+        width: 100%;
+        height: 18.75rem; // 300px height to match design proportions
+        border-radius: 0;
+        overflow: hidden;
+        position: relative;
+    }
+    
+    &__main-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+    
+    &__before-after {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.625rem; // 10px gap as requested
+        margin-top: 0;
+    }
+    
+    &__before,
+    &__after {
+        position: relative;
+        width: 100%;
+        height: 13.875rem; // 222px from Figma
+        border-radius: 0; // No border radius
+        overflow: hidden;
+    }
+    
+    &__before-img,
+    &__after-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+    
+    
+    @include respond-below('lg') {
+        margin-top: 4rem;
+        
+        &__title {
+            font-size: 1.25rem;
+        }
+        
+        &__subtitle {
+            font-size: 0.8125rem;
+        }
+        
+        &__lead {
+            font-size: 0.9375rem;
+        }
+        
+        &__text {
+            font-size: 0.9375rem;
+        }
+        
+        &__main-image {
+            height: 15rem;
+        }
+        
+        &__before,
+        &__after {
+            height: 10rem;
+        }
+    }
+    
+    @include respond-below('md') {
+        margin-top: 3rem;
+        
+        &__images {
+            order: -1; // Move images above content on mobile
+        }
+        
+        &__main-image {
+            height: 12rem;
+        }
+        
+        &__before,
+        &__after {
+            height: 8rem;
+        }
+        
+        &__button {
+            align-self: center;
+        }
+    }
+}
+
+// 二列審美治療セクション
+.aesthetic-treatments-section {
+    margin-top: 5rem; // 80px from Figma
+    padding: 0;
+    
+    &__container {
+        max-width: 75rem; // 1200px container width
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem; // 40px gap between columns
+        
+        @include respond-below('lg') {
+            gap: 2rem;
+        }
+        
+        @include respond-below('md') {
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+    }
+    
+    &__item {
+        position: relative;
+        height: 50.4375rem; // 807px from Figma
+        overflow: hidden;
+    }
+    
+    &__bg {
+        position: absolute;
+        inset: 0;
+        background-color: #ffffff;
+        box-shadow: 0.625rem 0.625rem 0.625rem 0 rgba(122, 134, 158, 0.03);
+        z-index: 1;
+    }
+    
+    &__content {
+        position: relative;
+        z-index: 2;
+        height: 100%;
+        padding: 3rem 2.5rem; // 48px padding from Figma
+        display: flex;
+        flex-direction: column;
+        
+        @include respond-below('lg') {
+            padding: 2.5rem 2rem;
+        }
+        
+        @include respond-below('md') {
+            padding: 2rem 1.5rem;
+        }
+    }
+    
+    &__header {
+        margin-bottom: 1.5rem; // 24px margin
+    }
+    
+    &__title {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-black;
+        font-size: 1.375rem; // 22px from Figma
+        color: #787b83; // main-787B83 from Figma
+        letter-spacing: 0.06875rem; // 1.1px from Figma
+        line-height: 1.35;
+        margin: 0 0 0.5rem;
+    }
+    
+    &__subtitle {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-black;
+        font-size: 0.875rem; // 14px from Figma
+        color: #787b83;
+        letter-spacing: 0.04375rem; // 0.7px from Figma
+        line-height: 1.35;
+        margin: 0;
+    }
+    
+    &__image {
+        width: 100%;
+        height: 13rem; // 208px approximated from design
+        margin-bottom: 1.5rem;
+        overflow: hidden;
+        position: relative;
+        
+        // Mask effect similar to Figma design
+        &::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0.3) 100%);
+            pointer-events: none;
+        }
+    }
+    
+    &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+    
+    &__description {
+        margin-bottom: 1.5rem;
+        position: relative;
+    }
+    
+    &__divider {
+        width: 100%;
+        height: 0.0625rem; // 1px
+        background: #E0E0E5;
+        margin: 1rem 0;
+        
+        &:first-child {
+            margin-top: 0;
+        }
+        
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    
+    &__lead {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-bold;
+        font-size: 1rem; // 16px from Figma
+        color: #787b83;
+        letter-spacing: 0.02rem; // 0.32px from Figma
+        line-height: 1.35;
+        margin: 1rem 0;
+        padding: 0;
+    }
+    
+    &__texts {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem; // 12px gap
+        margin-bottom: 2rem;
+        flex: 1; // Fill remaining space
+    }
+    
+    &__text {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-regular;
+        font-size: 1rem; // 16px from Figma
+        color: #595a5d; // txt-595A5D from Figma
+        letter-spacing: 0.02rem; // 0.32px from Figma
+        line-height: 1.5;
+        margin: 0;
+        position: relative;
+        
+        // Yellow highlight markers (positioned according to Figma)
+        // Left column (ceramic) markers
+        .aesthetic-treatments-section__item:first-child & {
+            &:nth-child(1) {
+                &::after {
+                    content: '';
+                    position: absolute;
+                    background-color: #fffad7; // yellow-FFFAD7 from Figma
+                    height: 0.625rem; // 10px
+                    width: 4.875rem; // 78px from Figma
+                    top: 1.625rem; // Second line positioning
+                    left: 1.125rem; // 18px offset from left
+                    z-index: -1;
+                }
+                
+                &::before {
+                    content: '';
+                    position: absolute;
+                    background-color: #fffad7;
+                    height: 0.625rem;
+                    width: 2.625rem; // 42px from Figma
+                    top: 2.25rem; // Third line positioning
+                    left: 12.9375rem; // 207px offset from left
+                    z-index: -1;
+                }
+            }
+        }
+        
+        // Right column (orthodontics) markers
+        .aesthetic-treatments-section__item:last-child & {
+            &:nth-child(2) {
+                &::after {
+                    content: '';
+                    position: absolute;
+                    background-color: #fffad7;
+                    height: 0.625rem;
+                    width: 6rem; // 96px from Figma
+                    top: 0.375rem; // First line
+                    left: 8.25rem; // 132px from left
+                    z-index: -1;
+                }
+                
+                &::before {
+                    content: '';
+                    position: absolute;
+                    background-color: #fffad7;
+                    height: 0.625rem;
+                    width: 8.125rem; // 130px from Figma
+                    top: 0.375rem;
+                    left: 23.125rem; // 370px from left
+                    z-index: -1;
+                }
+            }
+            
+            &:nth-child(3) {
+                &::after {
+                    content: '';
+                    position: absolute;
+                    background-color: #fffad7;
+                    height: 0.625rem;
+                    width: 13.25rem; // 212px from Figma
+                    top: 4rem; // Lower positioning
+                    left: 4.75rem; // 76px from left
+                    z-index: -1;
+                }
+            }
+        }
+        
+        @include respond-below('lg') {
+            // Hide markers on smaller screens for better readability
+            &::after,
+            &::before {
+                display: none;
+            }
+        }
+    }
+    
+    &__button {
+        @extend .btn-section-cta;
+        margin-top: auto; // Push to bottom
+    }
+    
+    @include respond-below('lg') {
+        margin-top: 4rem;
+        
+        &__title {
+            font-size: 1.25rem;
+        }
+        
+        &__subtitle {
+            font-size: 0.8125rem;
+        }
+        
+        &__lead {
+            font-size: 0.9375rem;
+        }
+        
+        &__text {
+            font-size: 0.9375rem;
+        }
+        
+        &__image {
+            height: 11rem;
+        }
+    }
+    
+    @include respond-below('md') {
+        margin-top: 3rem;
+        
+        &__image {
+            height: 10rem;
+        }
+        
+        &__button {
+            align-self: center;
+        }
+    }
+}
+
+// ホワイトニングセクション
+.whitening-section {
+    margin-top: 5rem; // 80px from Figma
+    padding: 0;
+    
+    &__container {
+        max-width: 70rem; // 1120px from Figma
+        width: 100%;
+        margin: 0 auto;
+        background-color: #ffffff;
+        border-radius: 0;
+        box-shadow: 0.625rem 0.625rem 0.625rem 0 rgba(122, 134, 158, 0.03);
+        padding: 4rem; // 64px padding from Figma
+        display: grid;
+        grid-template-columns: 31.25rem 28.5rem; // 500px for content, 456px for images (from Figma)
+        gap: 2.5rem; // 40px gap between text and images
+        align-items: start;
+        
+        @include respond-below('lg') {
+            max-width: 90%;
+            padding: 3rem;
+            gap: 2rem;
+            grid-template-columns: 1fr 1fr;
+        }
+        
+        @include respond-below('md') {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            padding: 2rem;
+        }
+    }
+    
+    &__content {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    &__header {
+        margin-bottom: 1.5rem;
+    }
+    
+    &__title {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-black;
+        font-size: 1.375rem; // 22px from Figma
+        color: #787b83; // main-787B83 from Figma
+        letter-spacing: 0.06875rem; // 1.1px from Figma
+        line-height: 1.35;
+        margin: 0 0 0.5rem;
+    }
+    
+    &__subtitle {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-black;
+        font-size: 0.875rem; // 14px from Figma
+        color: #787b83;
+        letter-spacing: 0.04375rem; // 0.7px from Figma
+        line-height: 1.35;
+        margin: 0;
+    }
+    
+    &__description {
+        margin: 1.5rem 0;
+        position: relative;
+    }
+    
+    &__divider {
+        width: 100%;
+        height: 0.0625rem; // 1px
+        background: #E0E0E5;
+        margin: 1rem 0;
+        
+        &:first-child {
+            margin-top: 0;
+        }
+        
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    
+    &__lead {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-bold;
+        font-size: 1rem; // 16px from Figma
+        color: #787b83;
+        letter-spacing: 0.02rem; // 0.32px from Figma
+        line-height: 1.35;
+        margin: 1rem 0;
+        padding: 0;
+    }
+    
+    &__texts {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem; // 12px gap
+        margin-bottom: 2rem;
+    }
+    
+    &__text {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-regular;
+        font-size: 1rem; // 16px from Figma
+        color: #595a5d; // txt-595A5D from Figma
+        letter-spacing: 0.02rem; // 0.32px from Figma
+        line-height: 1.5;
+        margin: 0;
+        position: relative;
+    }
+    
+    &__button {
+        @extend .btn-section-cta;
+    }
+    
+    &__side-content {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        position: relative;
+    }
+    
+    &__main-image {
+        width: 100%;
+        height: 15.5rem; // 248px from Figma (adjusted for mask)
+        position: relative;
+        overflow: hidden;
+        
+        // Mask effect based on Figma design
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            // SVG mask from Figma - creating a similar curved bottom shape
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0.4) 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+    }
+    
+    &__main-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+    
+    &__side-box {
+        position: relative;
+        width: 100%;
+        height: 23.25rem; // 372px from Figma
+        overflow: hidden;
+    }
+    
+    &__side-box-bg {
+        position: absolute;
+        inset: 0;
+        background-color: #e0e0e5;
+        opacity: 0.3;
+        z-index: 1;
+    }
+    
+    &__side-box-content {
+        position: relative;
+        z-index: 2;
+        height: 100%;
+        padding: 2.5rem; // 40px padding from Figma
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        
+        @include respond-below('lg') {
+            padding: 2rem;
+        }
+        
+        @include respond-below('md') {
+            padding: 1.5rem;
+        }
+    }
+    
+    &__side-box-title {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-black;
+        font-size: 1.125rem; // 18px from Figma
+        color: #595a5d; // txt-595A5D from Figma
+        letter-spacing: 0.0225rem; // 0.36px from Figma
+        line-height: 1.35;
+        margin: 0 0 1.5rem;
+    }
+    
+    &__side-box-texts {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem; // 12px gap between paragraphs
+    }
+    
+    &__side-box-text {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-regular;
+        font-size: 1rem; // 16px from Figma
+        color: #595a5d; // txt-595A5D from Figma
+        letter-spacing: 0.02rem; // 0.32px from Figma
+        line-height: 1.5;
+        margin: 0;
+    }
+    
+    @include respond-below('lg') {
+        margin-top: 4rem;
+        
+        &__title {
+            font-size: 1.25rem;
+        }
+        
+        &__subtitle {
+            font-size: 0.8125rem;
+        }
+        
+        &__lead {
+            font-size: 0.9375rem;
+        }
+        
+        &__text {
+            font-size: 0.9375rem;
+        }
+        
+        &__main-image {
+            height: 12rem;
+        }
+        
+        &__side-box {
+            height: 20rem;
+        }
+        
+        &__side-box-title {
+            font-size: 1rem;
+        }
+        
+        &__side-box-text {
+            font-size: 0.9375rem;
+        }
+    }
+    
+    @include respond-below('md') {
+        margin-top: 3rem;
+        
+        &__side-content {
+            order: -1; // Move images above content on mobile
+        }
+        
+        &__main-image {
+            height: 10rem;
+        }
+        
+        &__side-box {
+            height: 18rem;
+        }
+        
+        &__button {
+            align-self: center;
+        }
+    }
+}
+
+// 歯肉整形・ガミースマイル改善セクション
+.gingival-contouring-section {
+    margin-top: 5rem; // 80px from Figma
+    padding: 0;
+    
+    &__container {
+        max-width: 70rem; // 1120px from Figma
+        width: 100%;
+        margin: 0 auto;
+        background-color: #ffffff;
+        border-radius: 0;
+        box-shadow: 0.625rem 0.625rem 0.625rem 0 rgba(122, 134, 158, 0.03);
+        padding: 4rem; // 64px padding from Figma
+        display: grid;
+        grid-template-columns: 31.25rem 28.5rem; // 500px for content, 456px for images (from Figma)
+        gap: 2.5rem; // 40px gap between text and images
+        align-items: start;
+        
+        @include respond-below('lg') {
+            max-width: 90%;
+            padding: 3rem;
+            gap: 2rem;
+            grid-template-columns: 1fr 1fr;
+        }
+        
+        @include respond-below('md') {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            padding: 2rem;
+        }
+    }
+    
+    &__content {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    &__header {
+        margin-bottom: 1.5rem;
+    }
+    
+    &__title {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-black;
+        font-size: 1.375rem; // 22px from Figma
+        color: #787b83; // main-787B83 from Figma
+        letter-spacing: 0.06875rem; // 1.1px from Figma
+        line-height: 1.35;
+        margin: 0 0 0.5rem;
+    }
+    
+    &__subtitle {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-black;
+        font-size: 0.875rem; // 14px from Figma
+        color: #787b83;
+        letter-spacing: 0.04375rem; // 0.7px from Figma
+        line-height: 1.35;
+        margin: 0;
+    }
+    
+    &__description {
+        margin: 1.5rem 0;
+        position: relative;
+    }
+    
+    &__divider {
+        width: 100%;
+        height: 0.0625rem; // 1px
+        background: #E0E0E5;
+        margin: 1rem 0;
+        
+        &:first-child {
+            margin-top: 0;
+        }
+        
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    
+    &__lead {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-bold;
+        font-size: 1rem; // 16px from Figma
+        color: #787b83;
+        letter-spacing: 0.02rem; // 0.32px from Figma
+        line-height: 1.35;
+        margin: 1rem 0;
+        padding: 0;
+    }
+    
+    &__texts {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem; // 12px gap
+        margin-bottom: 2rem;
+    }
+    
+    &__text {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-regular;
+        font-size: 1rem; // 16px from Figma
+        color: #595a5d; // txt-595A5D from Figma
+        letter-spacing: 0.02rem; // 0.32px from Figma
+        line-height: 1.5;
+        margin: 0;
+        position: relative;
+    }
+    
+    &__button {
+        @extend .btn-section-cta;
+    }
+    
+    &__images {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem; // 16px gap between main image and before/after
+        position: relative;
+    }
+    
+    &__main-image {
+        width: 100%;
+        height: 18.75rem; // 300px height to match design proportions
+        border-radius: 0;
+        overflow: hidden;
+        position: relative;
+    }
+    
+    &__main-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+    
+    &__before-after {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.625rem; // 10px gap as requested
+        margin-top: 0;
+    }
+    
+    &__before,
+    &__after {
+        position: relative;
+        width: 100%;
+        height: 13.875rem; // 222px from Figma
+        border-radius: 0;
+        overflow: hidden;
+    }
+    
+    &__before-img,
+    &__after-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+    
+    
+    @include respond-below('lg') {
+        margin-top: 4rem;
+        
+        &__title {
+            font-size: 1.25rem;
+        }
+        
+        &__subtitle {
+            font-size: 0.8125rem;
+        }
+        
+        &__lead {
+            font-size: 0.9375rem;
+        }
+        
+        &__text {
+            font-size: 0.9375rem;
+        }
+        
+        &__main-image {
+            height: 15rem;
+        }
+        
+        &__before,
+        &__after {
+            height: 10rem;
+        }
+    }
+    
+    @include respond-below('md') {
+        margin-top: 3rem;
+        
+        &__images {
+            order: -1; // Move images above content on mobile
+        }
+        
+        &__main-image {
+            height: 12rem;
+        }
+        
+        &__before,
+        &__after {
+            height: 8rem;
+        }
+        
+        &__button {
+            align-self: center;
+        }
+    }
+}
+// 追加審美治療セクション（歯のマニキュア・ダイレクトボンディング）
+.additional-treatments-section {
+    margin-top: 5rem; // 80px from Figma
+    padding: 0;
+    
+    &__container {
+        max-width: 75rem; // 1200px container width
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem; // 40px gap from Figma
+        
+        @include respond-below('lg') {
+            max-width: 90%;
+            gap: 2rem;
+        }
+        
+        @include respond-below('md') {
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            padding: 0 1rem;
+        }
+    }
+    
+    &__item {
+        position: relative;
+        background-color: #ffffff;
+        border-radius: 0;
+        box-shadow: 0.625rem 0.625rem 0.625rem 0 rgba(122, 134, 158, 0.03);
+        overflow: hidden;
+    }
+    
+    &__bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: transparent;
+        z-index: 1;
+    }
+    
+    &__content {
+        position: relative;
+        z-index: 2;
+        padding: 4rem; // 64px padding from Figma
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        
+        @include respond-below('lg') {
+            padding: 3rem;
+        }
+        
+        @include respond-below('md') {
+            padding: 2rem;
+        }
+    }
+    
+    &__header {
+        margin-bottom: 1.5rem; // 24px from Figma
+    }
+    
+    &__title {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-black;
+        font-size: 1.375rem; // 22px from Figma
+        color: #787b83; // main-787B83 from Figma
+        letter-spacing: 0.06875rem; // 1.1px from Figma
+        line-height: 1.35;
+        margin: 0 0 0.5rem;
+    }
+    
+    &__subtitle {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-black;
+        font-size: 0.875rem; // 14px from Figma
+        color: #787b83;
+        letter-spacing: 0.04375rem; // 0.7px from Figma
+        line-height: 1.35;
+        margin: 0;
+    }
+    
+    &__image {
+        margin-bottom: 1.5rem; // 24px from Figma
+        height: 12rem; // 192px from Figma
+        border-radius: 0;
+        overflow: hidden;
+    }
+    
+    &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+    
+    &__description {
+        margin-bottom: 1.5rem; // 24px bottom margin
+        position: relative;
+    }
+    
+    &__divider {
+        width: 100%;
+        height: 0.0625rem; // 1px
+        background: #E0E0E5;
+        margin: 1rem 0;
+        
+        &:first-child {
+            margin-top: 0;
+        }
+        
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    
+    &__lead {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-bold;
+        font-size: 1rem; // 16px from Figma
+        color: #787b83;
+        letter-spacing: 0.02rem; // 0.32px from Figma
+        line-height: 1.35;
+        margin: 1rem 0;
+        padding: 0;
+    }
+    
+    &__texts {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem; // 12px gap
+        margin-bottom: 2rem; // 32px from Figma
+        flex-grow: 1;
+    }
+    
+    &__text {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-medium;
+        font-size: 0.9375rem; // 15px from Figma
+        color: #787b83;
+        letter-spacing: 0.01875rem; // 0.3px from Figma
+        line-height: 1.6; // 24px line height from Figma
+        margin: 0;
+    }
+    
+    &__button {
+        @extend .btn-section-cta;
+        align-self: flex-start;
+        flex-shrink: 0;
+        margin-top: auto; // Push to bottom
+        
+        @include respond-below('md') {
+            align-self: center;
+        }
+    }
+    
+    @include respond-below('lg') {
+        margin-top: 4rem;
+        
+        &__title {
+            font-size: 1.25rem;
+        }
+        
+        &__subtitle {
+            font-size: 0.8125rem;
+        }
+        
+        &__lead {
+            font-size: 0.9375rem;
+        }
+        
+        &__text {
+            font-size: 0.9375rem;
+        }
+        
+        &__image {
+            height: 10rem;
+        }
+    }
+    
+    @include respond-below('md') {
+        margin-top: 3rem;
+        
+        &__image {
+            height: 8rem;
+        }
+    }  
+}
+
+// その他の治療イントロセクション
+.other-treatments-intro {
+    position: relative;
+    text-align: center;
+    margin: 5rem auto; // 80px top and bottom margin
+    max-width: 50rem; // 800px max width from Figma
+    
+    &__title {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-bold;
+        font-size: 1.875rem; // 30px from Figma
+        color: #737484; // txt-737484 from Figma
+        letter-spacing: 0.09375rem; // 1.5px from Figma
+        line-height: 1.35;
+        margin: 0 0 1.5rem;
+        position: relative;
+        z-index: 2;
+    }
+    
+    &__description {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-regular;
+        font-size: 1rem; // 16px from Figma
+        color: #595a5d; // txt-595A5D from Figma
+        letter-spacing: 0.02rem; // 0.32px from Figma
+        line-height: 1.5;
+        margin: 0;
+        text-align: center;
+    }
+    
+    @include respond-below('lg') {
+        margin: 4rem auto;
+        
+        &__title {
+            font-size: 1.625rem; // Smaller on tablets
+        }
+        
+        &__description {
+            font-size: 0.9375rem;
+        }
+    }
+    
+    @include respond-below('md') {
+        margin: 3rem auto;
+        padding: 0 1rem;
+        
+        &__title {
+            font-size: 1.5rem; // Smaller on mobile
+        }
+        
+        &__description {
+            font-size: 0.875rem;
+        }
+    }
+}
+
+// リップアートメイク@DENTALセクション
+.lip-artmake-section {
+    margin-top: 5rem; // 80px from Figma
+    padding: 0;
+    
+    &__container {
+        max-width: 70rem; // 1120px from Figma
+        width: 100%;
+        margin: 0 auto;
+        background-color: #ffffff;
+        border-radius: 0;
+        box-shadow: 0.625rem 0.625rem 0.625rem 0 rgba(122, 134, 158, 0.03);
+        padding: 4rem; // 64px padding from Figma
+        display: grid;
+        grid-template-columns: 31.25rem 28.5rem; // 500px for content, 456px for images (from Figma)
+        gap: 2.5rem; // 40px gap between text and images
+        align-items: start;
+        
+        @include respond-below('lg') {
+            max-width: 90%;
+            padding: 3rem;
+            gap: 2rem;
+            grid-template-columns: 1fr 1fr;
+        }
+        
+        @include respond-below('md') {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            padding: 2rem;
+        }
+    }
+    
+    &__content {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    &__header {
+        margin-bottom: 1.5rem;
+    }
+    
+    &__title {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-black;
+        font-size: 1.375rem; // 22px from Figma
+        color: #787b83; // main-787B83 from Figma
+        letter-spacing: 0.06875rem; // 1.1px from Figma
+        line-height: 1.35;
+        margin: 0 0 0.5rem;
+    }
+    
+    &__subtitle {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-black;
+        font-size: 0.875rem; // 14px from Figma
+        color: #787b83;
+        letter-spacing: 0.04375rem; // 0.7px from Figma
+        line-height: 1.35;
+        margin: 0;
+    }
+    
+    &__description {
+        margin: 1.5rem 0;
+        position: relative;
+    }
+    
+    &__divider {
+        width: 100%;
+        height: 0.0625rem; // 1px
+        background: #E0E0E5;
+        margin: 1rem 0;
+        
+        &:first-child {
+            margin-top: 0;
+        }
+        
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    
+    &__lead {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-bold;
+        font-size: 1rem; // 16px from Figma
+        color: #787b83;
+        letter-spacing: 0.02rem; // 0.32px from Figma
+        line-height: 1.35;
+        margin: 1rem 0;
+        padding: 0;
+    }
+    
+    &__texts {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem; // 12px gap
+        margin-bottom: 2rem;
+    }
+    
+    &__text {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-regular;
+        font-size: 1rem; // 16px from Figma
+        color: #595a5d; // txt-595A5D from Figma
+        letter-spacing: 0.02rem; // 0.32px from Figma
+        line-height: 1.5;
+        margin: 0;
+        position: relative;
+        
+        // Yellow highlight markers from Figma design
+        &:nth-child(1) {
+            &::after {
+                content: '';
+                position: absolute;
+                background-color: #fffad7; // yellow-FFFAD7 from Figma
+                height: 0.625rem; // 10px
+                width: 12.8125rem; // 205px from Figma
+                top: 0.375rem;
+                left: 26.6875rem; // 427px from left
+                z-index: -1;
+            }
+        }
+        
+        &:nth-child(2) {
+            &::after {
+                content: '';
+                position: absolute;
+                background-color: #fffad7;
+                height: 0.625rem;
+                width: 9.1875rem; // 147px from Figma  
+                top: 1.5rem; // Second line
+                left: 0;
+                z-index: -1;
+            }
+        }
+        
+        &:nth-child(3) {
+            &::after {
+                content: '';
+                position: absolute;
+                background-color: #fffad7;
+                height: 0.625rem;
+                width: 7.1875rem; // 115px from Figma
+                top: 2.5rem; // Third line
+                left: 32.375rem; // 518px from left
+                z-index: -1;
+            }
+            
+            &::before {
+                content: '';
+                position: absolute;
+                background-color: #fffad7;
+                height: 0.625rem;
+                width: 9.125rem; // 146px from Figma
+                top: 3.125rem; // Fourth line
+                left: 0;
+                z-index: -1;
+            }
+        }
+        
+        &:nth-child(4) {
+            &::after {
+                content: '';
+                position: absolute;
+                background-color: #fffad7;
+                height: 0.625rem;
+                width: 5rem; // 80px from Figma
+                top: 2.5rem;
+                left: 34.5rem; // 552px from left
+                z-index: -1;
+            }
+            
+            &::before {
+                content: '';
+                position: absolute;
+                background-color: #fffad7;
+                height: 0.625rem;
+                width: 6.9375rem; // 111px from Figma
+                top: 3.125rem;
+                left: 0;
+                z-index: -1;
+            }
+        }
+        
+        @include respond-below('lg') {
+            // Hide markers on smaller screens for better readability
+            &::after,
+            &::before {
+                display: none;
+            }
+        }
+    }
+    
+    &__button {
+        @extend .btn-section-cta;
+    }
+    
+    &__images {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem; // 16px gap between main image and before/after
+        position: relative;
+    }
+    
+    &__main-image {
+        width: 100%;
+        height: 18.75rem; // 300px height to match design proportions
+        border-radius: 0;
+        overflow: hidden;
+        position: relative;
+        
+        // Mask effect from Figma - curved bottom
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 25%;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+    }
+    
+    &__main-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+    
+    &__before-after {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.625rem; // 10px gap
+        margin-top: 0;
+    }
+    
+    &__before,
+    &__after {
+        position: relative;
+        width: 100%;
+        height: 13.875rem; // 222px from Figma
+        border-radius: 0;
+        overflow: hidden;
+    }
+    
+    &__before-img,
+    &__after-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+    
+    
+    @include respond-below('lg') {
+        margin-top: 4rem;
+        
+        &__title {
+            font-size: 1.25rem;
+        }
+        
+        &__subtitle {
+            font-size: 0.8125rem;
+        }
+        
+        &__lead {
+            font-size: 0.9375rem;
+        }
+        
+        &__text {
+            font-size: 0.9375rem;
+        }
+        
+        &__main-image {
+            height: 15rem;
+        }
+        
+        &__before,
+        &__after {
+            height: 10rem;
+        }
+    }
+    
+    @include respond-below('md') {
+        margin-top: 3rem;
+        
+        &__images {
+            order: -1; // Move images above content on mobile
+        }
+        
+        &__main-image {
+            height: 12rem;
+        }
+        
+        &__before,
+        &__after {
+            height: 8rem;
+        }
+        
+        &__button {
+            align-self: center;
+        }
+    }
+}
+
+// 被せ物による治療イントロセクション
+.crown-treatments-intro {
+    position: relative;
+    text-align: center;
+    margin: 5rem auto; // 80px top and bottom margin
+    max-width: 50rem; // 800px max width from Figma
+    
+    &__title {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-bold;
+        font-size: 1.875rem; // 30px from Figma
+        color: #737484; // txt-737484 from Figma
+        letter-spacing: 0.1875rem; // 3px from Figma
+        line-height: 1.35;
+        margin: 0 0 1.5rem;
+        position: relative;
+        z-index: 2;
+    }
+    
+    &__description {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-regular;
+        font-size: 1rem; // 16px from Figma
+        color: #595a5d; // txt-595A5D from Figma
+        letter-spacing: 0.02rem; // 0.32px from Figma
+        line-height: 1.5;
+        margin: 0;
+        text-align: center;
+    }
+    
+    @include respond-below('lg') {
+        margin: 4rem auto;
+        
+        &__title {
+            font-size: 1.625rem; // Smaller on tablets
+        }
+        
+        &__description {
+            font-size: 0.9375rem;
+        }
+    }
+    
+    @include respond-below('md') {
+        margin: 3rem auto;
+        padding: 0 1rem;
+        
+        &__title {
+            font-size: 1.5rem; // Smaller on mobile
+        }
+        
+        &__description {
+            font-size: 0.875rem;
+        }
+    }
+}
+
+// 被せ物治療セクション（二列レイアウト）
+.crown-treatments-section {
+    margin-top: 5rem; // 80px from Figma
+    padding: 0;
+    
+    &__container {
+        max-width: 75rem; // 1200px container width
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: grid;
+        grid-template-columns: 46.1875rem 22.3125rem; // 739px for implant, 357px for denture (from Figma)
+        gap: 2.5rem; // 40px gap from Figma
+        
+        @include respond-below('lg') {
+            max-width: 90%;
+            gap: 2rem;
+            grid-template-columns: 1fr 1fr;
+        }
+        
+        @include respond-below('md') {
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            padding: 0 1rem;
+        }
+    }
+    
+    &__item {
+        position: relative;
+        background-color: #ffffff;
+        border-radius: 0;
+        box-shadow: 0.625rem 0.625rem 0.625rem 0 rgba(122, 134, 158, 0.03);
+        overflow: hidden;
+        min-height: 34.1875rem; // 547px from Figma
+        
+        // インプラント（左側）のスタイル
+        &--implant {
+            display: flex;
+            
+            .crown-treatments-section__content {
+                padding: 2.5rem; // 40px from Figma
+                display: flex;
+                flex-direction: row;
+                gap: 2rem;
+                width: 100%;
+                height: 100%;
+            }
+            
+            .crown-treatments-section__text-section {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+            
+            .crown-treatments-section__image {
+                height: 17.8125rem; // 285px from Figma
+                width: 17.8125rem; // 285px from Figma
+                border-radius: 0;
+                margin: 0;
+                flex-shrink: 0;
+            }
+        }
+        
+        // 入れ歯/ブリッジ（右側）のスタイル
+        &--denture {
+            .crown-treatments-section__content {
+                padding: 2rem; // 32px from Figma
+            }
+            
+            .crown-treatments-section__image {
+                height: 14.375rem; // 230px from Figma
+                width: 100%;
+                margin-bottom: 1.5rem;
+                border-radius: 0;
+            }
+        }
+    }
+    
+    &__bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: transparent;
+        z-index: 1;
+    }
+    
+    &__content {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        
+        @include respond-below('lg') {
+            padding: 2rem \!important;
+        }
+        
+        @include respond-below('md') {
+            padding: 1.5rem \!important;
+        }
+    }
+    
+    &__header {
+        margin-bottom: 1.5rem; // 24px from Figma
+    }
+    
+    &__title {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-black;
+        font-size: 1.375rem; // 22px from Figma
+        color: #787b83; // main-787B83 from Figma
+        letter-spacing: 0.06875rem; // 1.1px from Figma
+        line-height: 1.35;
+        margin: 0 0 0.5rem;
+    }
+    
+    &__subtitle {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-black;
+        font-size: 0.875rem; // 14px from Figma
+        color: #787b83;
+        letter-spacing: 0.04375rem; // 0.7px from Figma
+        line-height: 1.35;
+        margin: 0;
+    }
+    
+    &__image {
+        overflow: hidden;
+        position: relative;
+    }
+    
+    &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+    
+    &__image-overlay {
+        position: absolute;
+        inset: 0;
+        background-color: #efedf2;
+        opacity: 0.4;
+        mix-blend-mode: multiply;
+        z-index: 1;
+    }
+    
+    &__description {
+        margin: 1.5rem 0;
+        position: relative;
+    }
+    
+    &__divider {
+        width: 100%;
+        height: 0.0625rem; // 1px
+        background: #E0E0E5;
+        margin: 1rem 0;
+        
+        &:first-child {
+            margin-top: 0;
+        }
+        
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    
+    &__lead {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-bold;
+        font-size: 1rem; // 16px from Figma
+        color: #787b83;
+        letter-spacing: 0.02rem; // 0.32px from Figma
+        line-height: 1.35;
+        margin: 1rem 0;
+        padding: 0;
+    }
+    
+    &__texts {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem; // 12px gap
+        margin-bottom: 2rem; // 32px from Figma
+        flex-grow: 1;
+        
+        // インプラントセクション専用の調整
+        .crown-treatments-section__item--implant & {
+            flex-grow: 1;
+            margin-bottom: 1.5rem;
+        }
+    }
+    
+    &__text {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-regular;
+        font-size: 1rem; // 16px from Figma
+        color: #595a5d; // txt-595A5D from Figma
+        letter-spacing: 0.02rem; // 0.32px from Figma
+        line-height: 1.5;
+        margin: 0;
+        position: relative;
+        
+        // Yellow highlight marker for implant section
+        .crown-treatments-section__item--implant & {
+            &:nth-child(2) {
+                &::after {
+                    content: '';
+                    position: absolute;
+                    background-color: #fffad7; // yellow-FFFAD7 from Figma
+                    height: 0.625rem; // 10px
+                    width: 11.125rem; // 178px from Figma
+                    top: 0.375rem;
+                    left: 14.75rem; // 236px from left
+                    z-index: -1;
+                }
+            }
+        }
+        
+        @include respond-below('lg') {
+            // Hide markers on smaller screens for better readability
+            &::after {
+                display: none;
+            }
+        }
+    }
+    
+    &__simple-text {
+        margin-bottom: 2rem;
+        flex-grow: 1;
+    }
+    
+    &__simple-description {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-regular;
+        font-size: 1rem; // 16px from Figma
+        color: #595a5d; // txt-595A5D from Figma
+        letter-spacing: 0.02rem; // 0.32px from Figma
+        line-height: 1.5;
+        margin: 0;
+    }
+    
+    &__button {
+        @extend .btn-section-cta;
+        align-self: flex-start;
+        flex-shrink: 0;
+        margin-top: auto; // Push to bottom
+        
+        // Different widths for different items
+        .crown-treatments-section__item--implant & {
+            width: 22rem; // 352px for implant
+        }
+        
+        .crown-treatments-section__item--denture & {
+            width: 18.3125rem; // 293px for denture
+        }
+        
+        @include respond-below('md') {
+            align-self: center;
+            width: 22rem; // Reset to default on mobile
+            max-width: 100%;
+        }
+    }
+    
+    @include respond-below('lg') {
+        margin-top: 4rem;
+        
+        &__item {
+            height: auto;
+            min-height: 25rem;
+            
+            &--implant {
+                .crown-treatments-section__content {
+                    flex-direction: column;
+                    gap: 1.5rem;
+                }
+                
+                .crown-treatments-section__image {
+                    margin: 0 auto;
+                    width: 15rem;
+                    height: 15rem;
+                }
+            }
+            
+            &--denture .crown-treatments-section__image {
+                height: 12rem;
+            }
+        }
+        
+        &__title {
+            font-size: 1.25rem;
+        }
+        
+        &__subtitle {
+            font-size: 0.8125rem;
+        }
+        
+        &__lead {
+            font-size: 0.9375rem;
+        }
+        
+        &__text,
+        &__simple-description {
+            font-size: 0.9375rem;
+        }
+    }
+    
+    @include respond-below('md') {
+        margin-top: 3rem;
+        
+        &__item {
+            min-height: 20rem;
+            
+            &--implant {
+                .crown-treatments-section__content {
+                    flex-direction: column;
+                    gap: 1.5rem;
+                }
+                
+                .crown-treatments-section__image {
+                    width: 12rem;
+                    height: 12rem;
+                    margin: 0 auto;
+                }
+            }
+            
+            &--denture .crown-treatments-section__image {
+                height: 10rem;
+            }
+        }
+    }
+}

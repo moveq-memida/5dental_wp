@@ -1,0 +1,1435 @@
+/* 当院の特徴セクション */
+.features {
+    background-color: #f8f8f9;
+    padding: 7rem 0 5rem;
+    position: relative;
+}
+
+.features__container {
+    max-width: 75rem;
+    margin: 0 auto;
+    padding: 0 1.875rem;
+}
+
+/* タイトル */
+.features__title {
+    text-align: center;
+    margin-bottom: 7.25rem;
+    position: relative;
+}
+
+.features__title-en {
+    font-family: 'Pinyon Script', cursive;
+    font-size: 6.5rem;
+    color: #e9ecf2;
+    display: block;
+    line-height: 0.5;
+    margin-bottom: -1rem;
+}
+
+.features__title-jp {
+    font-family: 'Zen Old Mincho', serif;
+    font-weight: 700;
+    font-size: 2rem;
+    color: #595A5D;
+    letter-spacing: 0.2rem;
+    margin: 0;
+}
+
+/* 特徴一覧 */
+.features__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    margin-bottom: 5rem;
+}
+
+/* 特徴アイテム */
+.features__item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.features__item-number {
+    position: absolute;
+    font-family: 'Pinyon Script', cursive;
+    font-size: 4rem;
+    color: transparent;
+    z-index: 10;
+    line-height: 0.5;
+    opacity: 0.5;
+    top: -1rem;
+    right: 0;
+}
+
+.features__item-image {
+    position: relative;
+    margin-bottom: 2rem;
+    z-index: 2;
+}
+
+/* 特徴1の画像 */
+.features__item:nth-child(1) .features__item-image {
+    width: 100%;
+    max-width: 22.31rem;
+    height: 14.88rem;
+}
+
+.features__item:nth-child(1) .features__item-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 特徴2の画像 */
+.features__item:nth-child(2) .features__item-image {
+    width: 100%;
+    max-width: 22.31rem;
+    height: 14.88rem;
+}
+
+.features__item:nth-child(2) .features__item-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 特徴3の画像 */
+.features__item:nth-child(3) .features__item-image {
+    width: 100%;
+    max-width: 22.31rem;
+    height: 14.88rem;
+}
+
+.features__item:nth-child(3) .features__item-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.features__item-content {
+    max-width: 22.3125rem;
+    text-align: left;
+}
+
+/* タイトル */
+.features__item-title {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.features__item-title-large {
+    font-family: 'Zen Old Mincho', serif;
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: #787B83;
+    letter-spacing: 0.125rem;
+    flex-shrink: 0;
+}
+
+.features__item-title-text {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.features__item-title-text span {
+    font-family: 'Zen Old Mincho', serif;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #595A5D;
+    letter-spacing: 0.0625rem;
+    line-height: 1.35;
+}
+
+/* 説明文 */
+.features__item-description {
+    font-family: 'Zen Old Mincho', serif;
+    font-weight: 500;
+    font-size: 1rem;
+    color: #595A5D;
+    letter-spacing: 0.05rem;
+    line-height: 1.6;
+    margin: 0 0 1rem;
+}
+
+/* リンク */
+.features__item-link {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    color: #787B83;
+    text-decoration: underline;
+    text-decoration-thickness: 0.0625rem;
+    text-underline-offset: 0.25rem;
+    font-family: 'Zen Old Mincho', serif;
+    font-weight: 700;
+    font-size: 0.875rem;
+    letter-spacing: 0.04375rem;
+    transition: color 0.3s ease;
+    text-align: right;
+    margin-top: 1rem;
+}
+
+.features__item-link:hover {
+    color: #595A5D;
+}
+
+.features__item-link-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    flex-shrink: 0;
+}
+
+/* メインボタン */
+.features__main-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1.5rem;
+    width: 22.5rem;
+    height: 3.75rem;
+    margin: 0 auto;
+    background-color: #fafafb;
+    border-radius: 1.875rem;
+    box-shadow: 0.3125rem 0.3125rem 0.625rem 0 rgba(122, 134, 158, 0.2);
+    color: #787B83;
+    text-decoration: none;
+    font-family: 'Zen Old Mincho', serif;
+    font-weight: 900;
+    font-size: 1.125rem;
+    letter-spacing: 0.05625rem;
+    transition: all 0.3s ease;
+}
+
+.features__main-button:hover {
+    background-color: #f0f0f1;
+    color: #595A5D;
+    transform: translateY(-0.125rem);
+    box-shadow: 0.3125rem 0.5rem 0.75rem 0 rgba(122, 134, 158, 0.3);
+}
+
+.features__main-button-icon {
+    width: 2.625rem;
+    height: 2.625rem;
+    flex-shrink: 0;
+}
+
+/* デスクトップ対応 */
+@media (min-width: 1024px) {
+    .features {
+        padding: 9rem 0 7rem;
+    }
+
+    .features__title-en {
+        font-size: 6.5rem;
+    }
+
+    .features__title-jp {
+        font-size: 2rem;
+    }
+
+    .features__list {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 3rem;
+    }
+
+    .features__item {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .features__item-content {
+        max-width: 22.3125rem;
+    }
+
+    .features__item-image {
+        margin-bottom: 2rem;
+        align-self: center;
+    }
+
+    .features__item-number {
+        font-size: 4rem;
+        top: -1rem;
+    }
+}
+
+/* Instagramバナーセクション */
+.instagram-banner {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 2rem 0;
+    background-color: #ffffff;
+}
+
+.instagram-banner__img {
+    max-width: 75rem;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+/* ラミネートベニアセクション */
+.laminate-veneer {
+    position: relative;
+    padding: 6rem 0 8rem;
+    overflow: hidden;
+    min-height: 54.25rem;
+}
+
+.laminate-veneer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../images/bg-trouble.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(7.5px);
+    z-index: 0;
+}
+
+.laminate-veneer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(257deg, #C6C8CD 0%, #5C5E62 100%);
+    mix-blend-mode: multiply;
+    z-index: 1;
+}
+
+.laminate-veneer__container {
+    position: relative;
+    z-index: 10;
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0 1.875rem;
+}
+
+/* 背景テキスト */
+.laminate-veneer__bg-text {
+    position: absolute;
+    top: 2.5rem;
+    left: 7.1875rem;
+    font-family: 'Pinyon Script', cursive;
+    font-size: 6.5rem;
+    color: rgba(233, 236, 242, 0.1);
+    z-index: 2;
+    line-height: 0.5;
+    font-weight: 400;
+}
+
+.laminate-veneer__bg-veneer {
+    position: absolute;
+    top: 6rem;
+    left: 7.1875rem;
+    font-family: 'Pinyon Script', cursive;
+    font-size: 6.5rem;
+    color: rgba(233, 236, 242, 0.1);
+    z-index: 2;
+    line-height: 0.5;
+    font-weight: 400;
+}
+
+/* ヘッダー */
+.laminate-veneer__header {
+    position: relative;
+    margin-bottom: 5rem;
+    text-align: left;
+}
+
+.laminate-veneer__title {
+    font-family: 'Zen Old Mincho', serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #ffffff;
+    letter-spacing: 0.15rem;
+    line-height: 1.35;
+    margin-bottom: 1.25rem;
+    max-width: 30rem;
+}
+
+.laminate-veneer__header-bottom {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.laminate-veneer__subtitle {
+    font-family: 'Zen Old Mincho', serif;
+    font-weight: 600;
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: 0.05625rem;
+    margin: 0;
+    flex: 1;
+}
+
+.laminate-veneer__top-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    padding: 0;
+    background: none;
+    border: none;
+    text-decoration: none;
+    color: #ffffff;
+    font-family: 'Zen Old Mincho', serif;
+    font-weight: 900;
+    font-size: 1.125rem;
+    letter-spacing: 0.05625rem;
+    transition: all 0.3s ease;
+    text-align: right;
+    flex-shrink: 0;
+}
+
+.laminate-veneer__top-button:hover {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.laminate-veneer__top-button-icon {
+    flex-shrink: 0;
+}
+
+/* コンテンツエリア */
+.laminate-veneer__content {
+    background-color: #ffffff;
+    border-radius: 0;
+    padding: 5rem 2.5rem 8.25rem;
+    position: relative;
+    box-shadow: 0.625rem 0.625rem 0.625rem 0 rgba(122, 134, 158, 0.03);
+    max-width: 70rem;
+    margin: 0 auto;
+}
+
+/* 問題一覧 */
+.laminate-veneer__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    margin-bottom: 0;
+}
+
+/* 最後の行のコンテナ */
+.laminate-veneer__last-row {
+    grid-column: 1 / span 2;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    justify-content: space-between;
+}
+
+/* 最後の行の中のアイテム */
+.laminate-veneer__last-row .laminate-veneer__item {
+    flex: 0 0 auto;
+    width: calc((100% - 0.5rem) / 2);
+    max-width: none;
+}
+
+/* 問題アイテム */
+.laminate-veneer__item {
+    background-color: #f8f8f9;
+    border-radius: 0;
+    padding: 1rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    position: relative;
+    min-height: 8.25rem;
+}
+
+.laminate-veneer__item-icon {
+    flex-shrink: 0;
+    background-color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem;
+}
+
+.laminate-veneer__item-content {
+    flex: 1;
+    padding-right: 2.5rem;
+}
+
+.laminate-veneer__item-title {
+    font-family: 'Zen Old Mincho', serif;
+    font-weight: 900;
+    font-size: 1.25rem;
+    color: #787B83;
+    letter-spacing: 0.0625rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.35;
+}
+
+.laminate-veneer__item-description {
+    font-family: 'Zen Old Mincho', serif;
+    font-weight: 500;
+    font-size: 1rem;
+    color: #595A5D;
+    letter-spacing: 0.05rem;
+    line-height: 1.35;
+}
+
+.laminate-veneer__item-button {
+    position: absolute;
+    top: 3.375rem;
+    right: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 50%;
+    color: #787B83;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.laminate-veneer__item-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.laminate-veneer__item-button:hover {
+    background-color: #787B83;
+    color: #ffffff;
+    transform: scale(1.1);
+}
+
+/* メインボタン */
+.laminate-veneer__main-button {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    padding: 0;
+    background: none;
+    border: none;
+    text-decoration: none;
+    color: #787B83;
+    font-family: 'Zen Old Mincho', serif;
+    font-weight: 900;
+    font-size: 1.125rem;
+    letter-spacing: 0.05625rem;
+    transition: all 0.3s ease;
+    text-align: right;
+    height: 2.75rem;
+    width: 22.25rem;
+    flex: 0 0 auto;
+    align-self: center;
+}
+
+.laminate-veneer__main-button:hover {
+    color: #595A5D;
+}
+
+.laminate-veneer__main-button-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: #787B83;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    flex-shrink: 0;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 1024px) {
+    .laminate-veneer__bg-text {
+        font-size: 4rem;
+        top: 1.5rem;
+        left: 6rem;
+    }
+
+    .laminate-veneer__bg-veneer {
+        font-size: 4rem;
+        top: 4rem;
+        left: 3rem;
+    }
+
+    .laminate-veneer__top-button {
+        position: static;
+        display: inline-flex;
+        margin-top: 1.5rem;
+        width: auto;
+    }
+
+    .laminate-veneer__content {
+        padding: 3rem 1.5rem 6rem;
+    }
+
+    .laminate-veneer__last-row {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .laminate-veneer__last-row .laminate-veneer__item {
+        width: 100%;
+        max-width: 100%;
+        flex: 1;
+    }
+
+    .laminate-veneer__main-button {
+        width: auto;
+        align-self: flex-start;
+    }
+}
+
+@media (max-width: 768px) {
+    .laminate-veneer {
+        padding: 3rem 0 5rem;
+    }
+
+    .laminate-veneer__bg-text {
+        font-size: 3rem;
+        top: 1rem;
+        left: 3rem;
+    }
+
+    .laminate-veneer__bg-veneer {
+        font-size: 3rem;
+        top: 2.5rem;
+        left: 1rem;
+    }
+
+    .laminate-veneer__header {
+        margin-bottom: 3rem;
+    }
+
+    .laminate-veneer__title {
+        font-size: 1.25rem;
+    }
+
+    .laminate-veneer__content {
+        padding: 2rem 1rem 4rem;
+    }
+
+    .laminate-veneer__list {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .laminate-veneer__last-row {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .laminate-veneer__last-row .laminate-veneer__item {
+        width: 100%;
+        max-width: 100%;
+        flex: 1;
+    }
+
+    .laminate-veneer__main-button {
+        width: auto;
+        justify-content: flex-start;
+        align-self: flex-start;
+    }
+}
+
+/* バナーセクション */
+.banners {
+    background-color: #ffffff;
+    padding: 4rem 0;
+}
+
+.banners__container {
+    max-width: 75rem;
+    margin: 0 auto;
+    padding: 0 1.875rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.banners__item {
+    width: 25rem;
+    height: 18.75rem;
+    flex-shrink: 0;
+}
+
+.banners__link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+}
+
+.banners__link:hover {
+    opacity: 0.9;
+}
+
+.banners__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .banners {
+        padding: 2rem 0;
+    }
+
+    .banners__container {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .banners__item {
+        width: 100%;
+        max-width: 25rem;
+        height: 18.75rem;
+    }
+}
+
+/* 診療メニューセクション */
+.services {
+    background-color: #f8f8f9;
+    padding: 5rem 0;
+}
+
+.services__container {
+    max-width: 75rem;
+    margin: 0 auto;
+    padding: 0 1.875rem;
+}
+
+/* タイトル */
+.services__title {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.services__title-en {
+    font-family: 'Pinyon Script', cursive;
+    font-size: 6.5rem;
+    color: #e9ecf2;
+    display: block;
+    line-height: 0.5;
+    margin-bottom: -1rem;
+}
+
+.services__title-jp {
+    font-family: 'Zen Old Mincho', serif;
+    font-weight: 700;
+    font-size: 2rem;
+    color: #595A5D;
+    letter-spacing: 0.2rem;
+    margin: 0;
+}
+
+/* ナビゲーションボタン */
+.services__nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 4rem;
+}
+
+.services__nav-button {
+    background-color: #f8f8f9;
+    border: 0.09375rem solid #e8e8f0;
+    border-radius: 0;
+    padding: 1rem 2rem;
+    font-family: 'Zen Old Mincho', serif;
+    font-weight: 900;
+    font-size: 1.25rem;
+    color: #787B83;
+    letter-spacing: 0.0625rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    min-height: 3.75rem;
+}
+
+.services__nav-button--active {
+    background-color: #787B83;
+    color: #ffffff;
+}
+
+.services__nav-button:hover {
+    background-color: #787B83;
+    color: #ffffff;
+}
+
+.services__nav-icon {
+    width: 0.9375rem;
+    height: 0.9375rem;
+    border-radius: 50%;
+    background-color: #e8e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    color: #787B83;
+}
+
+.services__nav-button--active .services__nav-icon {
+    background-color: #ffffff;
+    color: #787B83;
+}
+
+/* メニューセクション */
+.services__sections {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.services__section {
+    background-color: #ffffff;
+    border-radius: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+/* セクション1: 削らないラミネートベニア */
+.services__section--laminate {
+    background: linear-gradient(rgba(120, 123, 131, 0.8), rgba(120, 123, 131, 0.8)), url('../images/menu-bg1.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 35.5rem;
+    display: flex;
+    align-items: stretch;
+}
+
+.services__section-content {
+    display: flex;
+    width: 100%;
+    min-height: 35.5rem;
+    align-items: center;
+}
+
+.services__section-text {
+    flex: 1;
+    padding: 5rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.services__section-number {
+    font-family: 'Pinyon Script', cursive;
+    font-size: 4rem;
+    color: rgba(197, 204, 219, 0.8);
+    line-height: 0.5;
+    margin-bottom: 1rem;
+    text-align: right;
+    margin-right: 2rem;
+}
+
+.services__section-title {
+    font-family: 'Zen Old Mincho', serif;
+    font-weight: 900;
+    font-size: 1.75rem;
+    color: #ffffff;
+    letter-spacing: 0.0875rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.services__section-description {
+    font-family: 'Zen Old Mincho', serif;
+    font-weight: 500;
+    font-size: 1rem;
+    color: #ffffff;
+    letter-spacing: 0.05rem;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+}
+
+.services__section-button {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-family: 'Zen Old Mincho', serif;
+    font-weight: 900;
+    font-size: 1.125rem;
+    letter-spacing: 0.05625rem;
+    text-decoration: none;
+    padding: 0;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    align-self: flex-end;
+    margin-left: 9.625rem;
+}
+
+.services__section-button:hover {
+    opacity: 0.8;
+}
+
+.services__section-button-icon {
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 50%;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.services__section-banners {
+    flex: 0 0 35.625rem;
+    padding: 5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.services__banner {
+    background-color: #ffffff;
+    border-radius: 0;
+    height: 12.5rem;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.services__banner:hover {
+    transform: translateY(-0.125rem);
+}
+
+.services__banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* セクション2&3: 審美歯科・その他 */
+.services__section--regular {
+    background-color: #f8f8f9;
+    min-height: 29.25rem;
+}
+
+.services__section--regular .services__section-title {
+    color: #595A5D;
+}
+
+.services__section--regular .services__section-description {
+    color: #595A5D;
+}
+
+.services__section--regular .services__section-button {
+    color: #787B83;
+}
+
+.services__section--regular .services__section-button-icon {
+    background-color: #787B83;
+    color: #ffffff;
+}
+
+.services__section-menus {
+    flex: 0 0 35.625rem;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    align-content: start;
+}
+
+.services__menu-item {
+    background-color: #f8f8f9;
+    height: 150px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    text-decoration: none;
+    isolation: isolate;
+    margin: 0;
+    padding: 0;
+}
+
+.services__menu-item-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+}
+
+.services__menu-item-content {
+    position: absolute;
+    z-index: 10;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+}
+
+.services__menu-item-title {
+    font-family: 'Zen Old Mincho', serif;
+    font-weight: 900;
+    font-size: 1.1875rem;
+    color: #ffffff;
+    letter-spacing: 0.05938rem;
+    line-height: 1.35;
+    margin: 0;
+}
+
+.services__menu-item-subtitle {
+    font-family: 'Zen Old Mincho', serif;
+    font-weight: 500;
+    font-size: 0.8125rem;
+    color: #ffffff;
+    letter-spacing: 0.04063rem;
+    line-height: 1.35;
+    margin: 0;
+}
+
+.services__menu-item-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    align-self: flex-end;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto;
+}
+
+/* メインボタン */
+.services__main-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1.5rem;
+    width: 22.5rem;
+    height: 3.75rem;
+    margin: 3rem auto 0;
+    background-color: #ffffff;
+    border-radius: 1.875rem;
+    box-shadow: 0.3125rem 0.3125rem 0.625rem 0 rgba(122, 134, 158, 0.2);
+    color: #787B83;
+    text-decoration: none;
+    font-family: 'Zen Old Mincho', serif;
+    font-weight: 900;
+    font-size: 1.125rem;
+    letter-spacing: 0.05625rem;
+    transition: all 0.3s ease;
+}
+
+.services__main-button:hover {
+    background-color: #f0f0f1;
+    color: #595A5D;
+    transform: translateY(-0.125rem);
+    box-shadow: 0.3125rem 0.5rem 0.75rem 0 rgba(122, 134, 158, 0.3);
+}
+
+.services__main-button-icon {
+    width: 2.625rem;
+    height: 2.625rem;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background-color: #787B83;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 1024px) {
+    .services__section-content {
+        flex-direction: column;
+    }
+
+    .services__section-text {
+        padding: 3rem 2rem;
+    }
+
+    .services__section-banners {
+        flex: none;
+        padding: 2rem 1.5rem;
+    }
+
+    .services__section-menus {
+        flex: none;
+        padding: 0;
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .services__nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .services__nav-button {
+        width: 100%;
+        max-width: 24rem;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .services {
+        padding: 3rem 0;
+    }
+
+    .services__title-en {
+        font-size: 4rem;
+    }
+
+    .services__title-jp {
+        font-size: 1.5rem;
+    }
+
+    .services__section-text {
+        padding: 2rem 1rem;
+    }
+
+    .services__section-title {
+        font-size: 1.5rem;
+    }
+
+    .services__section-number {
+        font-size: 3rem;
+        text-align: left;
+        margin-right: 0;
+        margin-bottom: 0.5rem;
+    }
+
+    .services__section-button {
+        margin-left: 0;
+        align-self: flex-start;
+    }
+
+    .services__menu-item-title {
+        font-size: 1rem;
+    }
+
+    .services__menu-item-subtitle {
+        font-size: 0.75rem;
+    }
+}
+
+/* インフォメーションセクション */
+.information {
+    background: linear-gradient(250deg, #9FA3AA 0%, #72757C 100%);
+    box-shadow: 10px 10px 10px 0 rgba(122, 134, 158, 0.03);
+    position: relative;
+    padding: 0;
+    margin: 0;
+}
+
+.information__container {
+    max-width: 70rem;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 33.5rem 1fr;
+    min-height: 37.5rem;
+    align-items: center;
+    padding: 5rem 0;
+    gap: 3rem;
+}
+
+/* マップエリア */
+.information__map-area {
+    display: flex;
+    flex-direction: column;
+    width: 33.5rem;
+    height: 37.5rem;
+    box-shadow: 10px 10px 10px 0 rgba(122, 134, 158, 0.03);
+    padding: 1rem;
+    position: relative;
+}
+
+.information__map-area::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -1.5rem;
+    bottom: 0;
+    width: 1px;
+    background-color: #ffffff;
+}
+
+.information__map {
+    width: 100%;
+    flex: 1;
+    border: none;
+    filter: grayscale(0.2);
+    background: #787B83;
+    box-shadow: 10px 10px 10px 0 rgba(122, 134, 158, 0.03);
+    padding: 1rem;
+}
+
+.information__map-link {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    text-decoration: underline;
+    text-decoration-thickness: 0.0625rem;
+    text-underline-offset: 0.25rem;
+    color: #ffffff;
+    font-family: 'Zen Old Mincho', serif;
+    font-weight: 700;
+    font-size: 0.875rem;
+    letter-spacing: 0.05rem;
+    transition: opacity 0.3s ease;
+    padding: 2rem 0 2rem 2rem;
+    margin-top: auto;
+}
+
+.information__map-link:hover {
+    opacity: 0.8;
+}
+
+.information__map-link-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    flex-shrink: 0;
+}
+
+.information__map-link-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* 情報エリア */
+.information__info-area {
+    padding: 3rem 2.5rem;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0;
+}
+
+/* クリニック情報 */
+.information__clinic-type {
+    font-family: 'Zen Old Mincho', serif;
+    font-weight: 500;
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.8);
+    letter-spacing: 0.04375rem;
+    margin-bottom: 0.5rem;
+}
+
+.information__clinic-name {
+    font-family: 'Zen Old Mincho', serif;
+    font-weight: 900;
+    font-size: 1.5rem;
+    color: #ffffff;
+    letter-spacing: 0.075rem;
+    line-height: 1.35;
+    margin: 0 0 1.5rem 0;
+}
+
+.information__address {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.information__address-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+}
+
+.information__address-text {
+    font-family: 'Zen Old Mincho', serif;
+    font-weight: 500;
+    font-size: 0.875rem;
+    color: #ffffff;
+    letter-spacing: 0.04375rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.information__access {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.information__access-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+}
+
+.information__access-text {
+    font-family: 'Zen Old Mincho', serif;
+    font-weight: 500;
+    font-size: 0.875rem;
+    color: #ffffff;
+    letter-spacing: 0.04375rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* 診療時間 */
+.information__hours-section {
+    border-top: 1px solid #ffffff;
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.information__hours-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Zen Old Mincho', serif;
+    background-color: #787B83;
+    padding: 1.5rem;
+}
+
+.information__hours-header th {
+    padding: 0.75rem 0.5rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: #ffffff;
+    letter-spacing: 0.04375rem;
+    text-align: center;
+}
+
+.information__hours-header th:first-child {
+    text-align: center;
+    padding-left: 0;
+}
+
+.information__hours-row td {
+    padding: 0.75rem 0.5rem;
+    font-weight: 500;
+    font-size: 0.875rem;
+    color: #ffffff;
+    text-align: center;
+}
+
+.information__hours-row td:first-child {
+    text-align: center;
+    padding-left: 0;
+}
+
+.information__hours-circle {
+    display: inline-block;
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: #ffffff;
+    border-radius: 50%;
+}
+
+.information__hours-close {
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+/* 注意事項 */
+.information__notes {
+    margin-top: 2rem;
+    background: none;
+    padding: 0;
+}
+
+.information__note {
+    font-family: 'Zen Old Mincho', serif;
+    font-weight: 500;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.8);
+    letter-spacing: 0.0375rem;
+    line-height: 1.6;
+    margin: 0 0 0.5rem 0;
+}
+
+.information__note:last-child {
+    margin-bottom: 0;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 1120px) {
+    .information__container {
+        max-width: 100%;
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+
+    .information__map-area {
+        width: 100%;
+        height: 25rem;
+    }
+
+    .information__info-area {
+        padding: 2.5rem 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .information__container {
+        padding: 0 1rem;
+    }
+
+    .information__info-area {
+        padding: 2rem 1.5rem;
+    }
+
+    .information__clinic-name {
+        font-size: 1.25rem;
+    }
+
+    .information__map-area {
+        height: 20rem;
+    }
+
+    .information__map-link {
+        font-size: 0.75rem;
+        padding: 1.5rem 0 1.5rem 1.5rem;
+    }
+
+    .information__hours-table {
+        font-size: 0.8125rem;
+    }
+
+    .information__hours-header th,
+    .information__hours-row td {
+        padding: 0.5rem 0.25rem;
+    }
+
+    .information__note {
+        font-size: 0.6875rem;
+    }
+}

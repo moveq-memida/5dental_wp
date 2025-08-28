@@ -1,0 +1,329 @@
+// ========================================
+// Features Section & Header Visual
+// ========================================
+
+// 背景装飾画像
+.bg-decoration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    pointer-events: none;
+    width: 100%;
+    overflow: hidden;
+    min-height: 300px;
+    mix-blend-mode: multiply;
+    
+    @include respond-below('lg') {
+        min-height: 100%;
+    }
+    
+    @include respond-below('md') {
+        min-height: 100%;
+    }
+    
+    &__img {
+        display: block;
+        height: 100%;
+        min-height: 100%;
+        object-fit: cover;
+        object-position: right top;
+        width: 100%;
+        min-width: 100%;
+        
+        @include respond-below('lg') {
+            width: auto;
+            height: 100%;
+            min-width: 800px;
+            min-height: 100%;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+        
+        @include respond-below('md') {
+            width: 100%;
+            height: 100%;
+            min-width: 100%;
+            min-height: 100%;
+            position: relative;
+            right: auto;
+            top: auto;
+        }
+    }
+}
+
+// ヘッダービジュアル (当院の特徴)
+.orthodontics-fv {
+    position: relative;
+    min-height: 25rem; // 400px
+    background-color: transparent;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding: 5rem 0 5rem 0;
+
+    @include respond-to('lg') {
+        padding: 5rem 0 5rem 0;
+    }
+
+    &__container {
+        @include container;
+        position: relative;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 15rem;
+    }
+
+    // 背景テキスト
+    &__bg-text {
+        position: absolute;
+        top: -3.5rem;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        font-family: $font-family-script;
+        font-size: 9rem; // 144px
+        color: #e9ecf2;
+        z-index: 1;
+        line-height: 0.5;
+        white-space: nowrap;
+        pointer-events: none;
+        height: 100%;
+        padding-left: 2rem;
+
+        @include respond-below('lg') {
+            font-size: 7rem;
+            padding-left: 1.5rem;
+            top: -2.75rem;
+        }
+
+        @include respond-below('md') {
+            font-size: 5rem;
+            padding-left: 1rem;
+            top: -2rem;
+        }
+    }
+
+    // コンテンツエリア
+    &__content {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        align-items: flex-start;
+    }
+
+    // メインタイトル
+    &__title {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-black;
+        font-size: 3rem; // 48px
+        color: transparent;
+        background: linear-gradient(90deg, $color-primary-dark 0%, rgba($color-primary-dark, 0.8) 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        letter-spacing: 0.3rem;
+        line-height: 1.35;
+        margin: 0;
+
+        @include respond-below('lg') {
+            font-size: 2.5rem;
+            letter-spacing: 0.25rem;
+        }
+
+        @include respond-below('md') {
+            font-size: 2rem;
+            letter-spacing: 0.2rem;
+        }
+    }
+
+    // パンくずリスト
+    &__breadcrumb {
+        // パンくずのスタイルは既存のbrreadcrumbコンポーネントで対応
+    }
+}
+
+.features {
+    background-color: $color-background-light;
+    padding: $spacing-5xl 0 $spacing-4xl;
+    position: relative;
+
+    @media (min-width: $breakpoint-lg) {
+        padding: 9rem 0 $spacing-5xl;
+    }
+
+    &__container {
+        @include container;
+    }
+
+    // タイトル
+    &__title {
+        @extend .section-title;
+        margin-bottom: 7.25rem;
+
+        &-en {
+            @extend .section-title__en;
+        }
+
+        &-jp {
+            @extend .section-title__jp;
+        }
+    }
+
+    // 特徴一覧
+    &__list {
+        @include grid-responsive(1, 1, 3);
+        margin-bottom: $spacing-4xl;
+    }
+
+    // 特徴アイテム
+    &__item {
+        position: relative;
+        @include flex-column-center;
+        text-align: center;
+
+        @media (min-width: $breakpoint-lg) {
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+        }
+
+        // 番号
+        &-number {
+            position: absolute;
+            @include decorative-number;
+            z-index: $z-index-elevated;
+            top: -1rem;
+            right: 0;
+        }
+
+        // 画像
+        &-image {
+            position: relative;
+            margin-bottom: $spacing-xl;
+            z-index: $z-index-content;
+            width: 100%;
+            max-width: 22.31rem;
+            height: 14.88rem;
+
+            @media (min-width: $breakpoint-lg) {
+                align-self: center;
+            }
+        }
+
+        &-img {
+            @include image-mask('assets/images/feature1.webp');
+        }
+
+        // 特徴2の画像
+        &:nth-child(2) &-img {
+            @include image-mask('assets/images/feature2.webp');
+        }
+
+        // 特徴3の画像
+        &:nth-child(3) &-img {
+            @include image-mask('assets/images/feature3.webp');
+        }
+
+        // コンテンツ
+        &-content {
+            max-width: 22.3125rem;
+            text-align: left;
+        }
+
+        // タイトル
+        &-title {
+            @include flex-center;
+            justify-content: flex-start;
+            gap: $spacing-base;
+            margin-bottom: $spacing-lg;
+
+            &-large {
+                font-family: $font-family-primary;
+                font-weight: $font-weight-bold;
+                font-size: $font-size-5xl;
+                color: $color-primary;
+                letter-spacing: $letter-spacing-wider;
+                flex-shrink: 0;
+            }
+
+            &-text {
+                display: flex;
+                flex-direction: column;
+                text-align: left;
+
+                span {
+                    font-family: $font-family-primary;
+                    font-weight: $font-weight-bold;
+                    font-size: $font-size-xl;
+                    color: $color-primary-dark;
+                    letter-spacing: $letter-spacing-wide;
+                    line-height: $line-height-tight;
+                }
+            }
+        }
+
+        // 説明文
+        &-description {
+            @include text-body;
+            margin: 0 0 $spacing-base;
+        }
+
+        // リンク
+        &-link {
+            @extend .btn-link;
+            justify-content: flex-end;
+        }
+    }
+
+    // メインボタン
+    &__main-button {
+        @extend .btn-main;
+        margin: 0 auto;
+    }
+}
+
+// 動画セクション
+.features-video {
+    background-color: $color-background-light;
+    padding: 8rem 0 5rem; // 上側のpaddingを増やす
+
+    &__container {
+        @include container;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__wrapper {
+        position: relative;
+        width: 50rem; // 800px
+        height: 28.125rem; // 450px
+        overflow: hidden;
+        background-color: #000;
+        border-radius: 0;
+        aspect-ratio: 16/9;
+
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        @include respond-below('md') {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16/9;
+        }
+    }
+} 

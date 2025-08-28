@@ -1,0 +1,60 @@
+// ========================================
+// Appointment Info Section
+// ========================================
+
+.appointment-info {
+    background-color: $color-background-light;
+    padding: 0 0 5rem 0; // 上0px、下80px (first-visitの下padding 160pxで間隔調整済み)
+    position: relative;
+
+    @include respond-to('lg') {
+        padding: 0 0 5rem 0; // 上0px、下80px
+    }
+
+    &__container {
+        @include container;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 50rem; // 800px
+        margin: 0 auto;
+    }
+
+    // コンテンツエリア
+    &__content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+        gap: $spacing-3xl; // 48px
+    }
+
+    // 説明文
+    &__description {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-regular;
+        font-size: $font-size-base;
+        color: $color-text-body;
+        line-height: 2; // 200%
+        letter-spacing: $letter-spacing-normal;
+        margin: 0;
+
+        @include respond-to('lg') {
+            font-size: 0.9375rem; // 15px
+            line-height: 2.13; // 213%
+        }
+    }
+
+    // CTAボタン
+    &__cta {
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    // ボタンのホバー時にアイコンをアニメーション
+    &__cta .btn-section-cta:hover::after {
+        transform: translateX(0.25rem);
+        transition: transform $transition-normal;
+    }
+}

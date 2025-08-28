@@ -1,0 +1,211 @@
+// ========================================
+// Price Page Styles
+// 料金表ページのスタイル
+// ========================================
+
+// お支払い方法セクション - 中央寄せレイアウト
+.price-payment {
+    text-align: center;
+    margin-top: 60px;
+    
+    &__title {
+        font-family: $font-family-primary;
+        font-size: 30px;
+        font-weight: bold;
+        color: #737484;
+        letter-spacing: 1.5px;
+        line-height: 1.35;
+        margin-bottom: 24px;
+    }
+
+    &__text {
+        font-family: $font-family-primary;
+        font-size: 16px;
+        color: #595A5D;
+        letter-spacing: 0.32px;
+        line-height: 1.5;
+        margin-bottom: 0;
+    }
+
+    &__link-wrapper {
+        display: inline-flex;
+        justify-content: center;
+        margin-top: 16px;
+    }
+}
+
+// cleaning-buttonスタイルはすでに_cleaning.scssで定義済み
+// デンタルローンのリンクボタンはこの既存スタイルを使用
+
+// 料金一覧セクション
+.price-list {
+    margin-top: 80px;
+    
+    .section-title-with-subtitle {
+        margin-bottom: 60px;
+    }
+}
+
+// 料金テーブル
+.price-table {
+    margin-bottom: 80px;
+    
+    &:last-child {
+        margin-bottom: 40px;
+    }
+    
+    &__category {
+        font-family: $font-family-primary;
+        font-size: 20px;
+        font-weight: $font-weight-bold;
+        color: #737484;
+        letter-spacing: 0.8px;
+        line-height: 1.35;
+        margin-bottom: 32px;
+        text-align: center;
+        position: relative;
+        
+        @include respond-to('md') {
+            font-size: 24px;
+            letter-spacing: 1px;
+            margin-bottom: 40px;
+        }
+        
+        &:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background-color: #e0e0e5;
+            
+            @include respond-to('md') {
+                bottom: -12px;
+                width: 80px;
+            }
+        }
+    }
+    
+    &__section {
+        margin-bottom: 36px;
+        
+        @include respond-to('md') {
+            margin-bottom: 48px;
+        }
+        
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    
+    &__subtitle {
+        font-family: $font-family-primary;
+        font-size: 16px;
+        font-weight: $font-weight-bold;
+        color: #737484;
+        letter-spacing: 0.4px;
+        line-height: 1.35;
+        margin-bottom: 20px;
+        
+        @include respond-to('md') {
+            font-size: 18px;
+            letter-spacing: 0.5px;
+            margin-bottom: 24px;
+        }
+    }
+    
+    &__table {
+        width: 100%;
+        border-collapse: collapse;
+        
+        tbody {
+            tr {
+                border-bottom: 1px solid #e0e0e5;
+                
+                &:last-child {
+                    border-bottom: none;
+                }
+                
+                &:hover {
+                    background-color: #fafafa;
+                }
+            }
+        }
+        
+        td {
+            padding: 12px 8px;
+            vertical-align: top;
+            
+            @include respond-to('md') {
+                padding: 20px 16px;
+            }
+        }
+    }
+    
+    &__item {
+        font-family: $font-family-primary;
+        font-size: 14px;
+        font-weight: $font-weight-regular;
+        color: #595a5d;
+        letter-spacing: 0.28px;
+        line-height: 1.5;
+        width: 65%;
+        
+        @include respond-to('md') {
+            font-size: 16px;
+            letter-spacing: 0.32px;
+            width: 75%;
+        }
+    }
+    
+    &__price {
+        font-family: $font-family-primary;
+        font-size: 14px;
+        font-weight: $font-weight-bold;
+        color: #737484;
+        letter-spacing: 0.28px;
+        line-height: 1.5;
+        text-align: right;
+        width: 35%;
+        
+        @include respond-to('md') {
+            font-size: 16px;
+            letter-spacing: 0.32px;
+            width: 25%;
+        }
+    }
+    
+    &__note {
+        font-family: $font-family-primary;
+        font-size: 14px;
+        font-weight: $font-weight-regular;
+        color: #8b8b8b;
+        letter-spacing: 0.28px;
+        line-height: 1.5;
+        margin-top: 16px;
+        margin-bottom: 0;
+    }
+    
+    &__footer {
+        margin-top: 60px;
+        padding-top: 40px;
+        border-top: 1px solid #e0e0e5;
+        text-align: center;
+        
+        p {
+            font-family: $font-family-primary;
+            font-size: 14px;
+            font-weight: $font-weight-regular;
+            color: #8b8b8b;
+            letter-spacing: 0.28px;
+            line-height: 1.6;
+            margin: 0 0 8px 0;
+            
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}

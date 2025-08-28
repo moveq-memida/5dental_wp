@@ -1,0 +1,113 @@
+// ========================================
+// Occlusion Page
+// ========================================
+
+// 噛み合わせページ用の2カラムレイアウト
+.occlusion-content-wrapper {
+    display: flex;
+    gap: 1.5rem; // 24px gap between image and text
+    align-items: flex-start;
+    margin-bottom: 3rem; // Space before the bottom paragraph
+
+    @include respond-below('lg') {
+        flex-direction: column;
+        gap: 2rem;
+        margin-bottom: 2rem;
+    }
+}
+
+.occlusion-content-left {
+    flex: 0 0 23rem; // 368px fixed width to match Figma design
+    
+    @include respond-below('lg') {
+        flex: none;
+        width: 100%;
+    }
+}
+
+.occlusion-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 0;
+    
+    @include respond-below('lg') {
+        max-width: 23rem; // 368px max width on smaller screens
+        margin: 0 auto;
+        display: block;
+    }
+}
+
+.occlusion-content-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; // 16px gap between paragraphs as shown in Figma
+    
+    .implant-content__text {
+        margin-bottom: 0; // Override the default margin since we're using gap
+        
+        p {
+            font-family: $font-family-primary;
+            font-weight: $font-weight-regular;
+            font-size: 1rem; // 16px
+            color: #595a5d; // txt-595A5D from Figma
+            letter-spacing: 0.02rem; // 0.32px from Figma
+            line-height: 1.5; // 24px/16px = 1.5 as shown in Figma
+            margin: 0;
+        }
+    }
+}
+
+// Occlusion page specific highlight styles - underlined links only
+.occlusion-content-wrapper,
+.implant-content__section {
+    .highlight {
+        text-decoration: underline;
+        text-decoration-skip-ink: none;
+        text-decoration-style: solid;
+        text-underline-position: from-font;
+        font-weight: $font-weight-bold;
+        color: inherit; // Keep the same color as parent text
+        background-color: transparent; // No background color
+        
+        &:hover {
+            color: inherit; // Maintain color on hover
+        }
+    }
+}
+
+// Enhanced treatment method headings
+.implant-content__text {
+    h3 {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-bold;
+        font-size: 1.125rem; // 18px
+        color: #737484;
+        letter-spacing: 0.0225rem; // 0.36px
+        line-height: 1.35;
+        margin: 0 0 0.5rem 0;
+    }
+}
+
+// List styling for symptoms
+.implant-content__text {
+    ul {
+        margin: 0;
+        padding-left: 1.5rem;
+        
+        li {
+            font-family: $font-family-primary;
+            font-weight: $font-weight-regular;
+            font-size: 1rem; // 16px
+            color: #595a5d;
+            letter-spacing: 0.02rem;
+            line-height: 1.5;
+            margin-bottom: 0.5rem;
+            
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}

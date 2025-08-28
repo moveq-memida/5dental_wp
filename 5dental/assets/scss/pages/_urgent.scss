@@ -1,0 +1,77 @@
+// ========================================
+// Urgent Page
+// ========================================
+
+// 緊急治療コンテンツ
+.urgent-content {
+    margin-top: 2rem;
+    
+    p {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-regular;
+        font-size: 1rem; // 16px
+        color: #595a5d; // txt-595A5D from Figma
+        letter-spacing: 0.02rem; // 0.32px
+        line-height: 1.5;
+        margin: 0 0 1.5rem 0;
+        
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+// 緊急治療用のハイライトスタイル（黄色マーカー）
+.urgent-highlight {
+    position: relative;
+    background-color: #fffad7; // yellow-FFFAD7 from Figma
+    padding: 0 0.125rem; // 2px horizontal padding
+    font-weight: $font-weight-bold;
+}
+
+// 親知らずセクション
+.wisdom-tooth-section {
+    margin-top: 4rem;
+    
+    &__content {
+        display: grid;
+        grid-template-columns: 1fr 398px;
+        gap: 3rem;
+        align-items: start;
+        margin-top: 2rem;
+        
+        @include respond-to('md') {
+            gap: 4rem;
+        }
+        
+        // モバイルでは縦に積む
+        @media (max-width: $breakpoint-md - 1px) {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+    }
+    
+    &__image {
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+    }
+    
+    &__text {
+        p {
+            font-family: $font-family-primary;
+            font-weight: $font-weight-regular;
+            font-size: 1rem; // 16px
+            color: #595a5d; // txt-595A5D from Figma
+            letter-spacing: 0.02rem; // 0.32px
+            line-height: 1.5;
+            margin: 0 0 1.5rem 0;
+            
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}

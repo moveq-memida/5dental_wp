@@ -1,0 +1,74 @@
+// ========================================
+// Breadcrumb Component
+// ========================================
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 0.5rem;
+
+    &__item {
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        // セパレーター（最後のアイテム以外）
+        &:not(:last-child)::after {
+            content: "";
+            position: absolute;
+            right: -1.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: .875rem;
+            height: .6875rem;
+            background-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="11" viewBox="0 0 14 11" fill="none"><mask id="mask0_136_17462" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="14" height="11"><rect width="14" height="11" fill="%23D9D9D9"/></mask><g mask="url(%23mask0_136_17462)"><path d="M0.5 10.5L13.5 0.5" stroke="%23787B83"/></g></svg>');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: .6;
+        }
+    }
+
+    &__link {
+        font-family: "Zen Old Mincho", serif;
+        font-weight: 500;
+        font-size: 0.875rem; // 14px
+        color: #787B83;
+        text-decoration: none;
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: #595A5D;
+        }
+    }
+
+    &__text {
+        font-family: "Zen Old Mincho", serif;
+        font-weight: 500;
+        font-size: 0.875rem; // 14px
+        color: #787B83;
+    }
+
+    // 現在のページ
+    &__item--current &__text {
+        color: #595A5D;
+        font-weight: 600;
+    }
+
+    // レスポンシブ時は縦並び
+    @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+
+        &__item {
+            // セパレーターを非表示
+            &:not(:last-child)::after {
+                display: none;
+            }
+        }
+    }
+}

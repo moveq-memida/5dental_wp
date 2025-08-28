@@ -1,0 +1,1862 @@
+/* 全ページ共通のスタイル調整 */
+.orthodontics-stage__image {
+    background-color: initial !important;
+    min-height: initial !important;
+}
+
+/* ハイライトの位置調整 - グラデーションで下半分に背景 */
+.highlight {
+    background: linear-gradient(transparent 50%, #fffad7 50%) !important;
+    padding: 0 0.125rem !important;
+}
+
+/* サイドバーメニューの現在ページ表示 - 最終版 */
+.category-menu__item--current .category-menu__link {
+    position: relative !important;
+    padding-left: 1rem !important;
+}
+
+.content__sidebar .category-menu .category-menu__item--current .category-menu__link::before {
+    content: "" !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: 6px !important;
+    height: 6px !important;
+    background-color: #d6d6e5 !important;
+    border-radius: 50% !important;
+    display: block !important;
+    z-index: 999 !important;
+}
+
+@media (max-width: 768px) {
+    .breadcrumb {
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 0.5rem !important;
+    }
+    
+    .breadcrumb__item:not(:last-child)::after {
+        display: block !important;
+        content: "" !important;
+        position: absolute !important;
+        right: -1.75rem !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        width: .875rem !important;
+        height: .6875rem !important;
+        background-image: url("../images/arw-circle-line.svg") !important;
+        background-size: contain !important;
+        background-repeat: no-repeat !important;
+        background-position: center !important;
+        opacity: .6 !important;
+    }
+}
+
+/* ハンバーガーメニュースタイル */
+/* ボディのスクロール制御 */
+body.menu-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+}
+
+/* ハンバーガーメニュー全画面オーバーレイ */
+.hamburger-menu {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    z-index: 9999 !important;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(100%);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.hamburger-menu.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+.hamburger-menu__container {
+    display: flex !important;
+    flex-direction: row !important;
+    height: 100vh !important;
+    width: 100% !important;
+    background: linear-gradient(135deg, #949ba9 0%, #75818f 100%);
+}
+
+/* 左側: クリニック情報エリア */
+.hamburger-menu__left {
+    flex: 0 0 70.31%;
+    width: 70.31%;
+    padding: 3rem 2rem 3rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    background: linear-gradient(250deg, rgba(109, 114, 125, 0.80) 0%, rgba(59, 64, 74, 0.80) 100%);
+    backdrop-filter: blur(5px);
+}
+
+/* ロゴ */
+.hamburger-menu__logo {
+    margin-bottom: 3rem;
+}
+
+.hamburger-menu__logo svg {
+    width: 145px;
+    height: 48px;
+    color: #ffffff;
+}
+
+.hamburger-menu__logo img {
+    width: 145px;
+    height: 48px;
+    object-fit: contain;
+}
+
+/* クリニック情報 */
+.hamburger-menu__clinic-info {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 3rem;
+    margin-bottom: 5rem;
+}
+
+.hamburger-menu__clinic-type {
+    font-family: 'Zen Old Mincho', serif;
+    font-weight: 400;
+    font-size: 0.875rem;
+    color: #ffffff;
+    opacity: 0.8;
+    letter-spacing: 0.05rem;
+    margin-bottom: 0.5rem;
+}
+
+.hamburger-menu__clinic-name {
+    font-family: 'Zen Old Mincho', serif;
+    font-weight: 700;
+    font-size: 1.75rem;
+    color: #ffffff;
+    letter-spacing: 0.1rem;
+    margin-bottom: 2rem;
+    line-height: 1.4;
+}
+
+/* 住所 */
+.hamburger-menu__address {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.hamburger-menu__address-icon {
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+    margin-top: 0.125rem;
+}
+
+.hamburger-menu__address-icon svg {
+    width: 100%;
+    height: 100%;
+    color: #ffffff;
+    opacity: 0.8;
+}
+
+.hamburger-menu__train-access {
+    margin-bottom: 1rem;
+}
+
+.hamburger-menu__address-text {
+    font-family: 'Zen Old Mincho', serif;
+    font-weight: 400;
+    font-size: 0.875rem;
+    color: #ffffff;
+    opacity: 0.9;
+    line-height: 1.6;
+    letter-spacing: 0.05rem;
+}
+
+/* アクセスリンク */
+.hamburger-menu__access-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    font-family: 'Zen Old Mincho', serif;
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: #ffffff;
+    opacity: 0.9;
+    letter-spacing: 0.05rem;
+    transition: opacity 0.3s ease;
+}
+
+.hamburger-menu__access-link:hover {
+    opacity: 1;
+}
+
+.hamburger-menu__access-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.hamburger-menu__access-icon svg {
+    width: 100%;
+    height: 100%;
+    color: #ffffff;
+}
+
+/* 左側のテキストコンテンツ */
+.hamburger-menu__left-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.hamburger-menu__left-content .hamburger-menu__access-link {
+    justify-self: flex-end;
+    margin-left: auto;
+}
+
+/* 右側のCTAボタンエリア */
+.hamburger-menu__right-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-self: flex-end;
+}
+
+/* CTAボタン */
+.hamburger-menu__cta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.hamburger-menu__web-btn,
+.hamburger-menu__tel-btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 1rem 1.5rem 1rem 0.6rem;
+    text-decoration: none;
+    border-radius: 0;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    gap: 0.4rem;
+    font-family: 'Zen Old Mincho', serif;
+    font-weight: 900;
+    font-size: 1rem;
+    letter-spacing: 0.05rem;
+}
+
+.hamburger-menu__web-btn {
+    background: linear-gradient(267deg, #9FA3AA 0%, #72757C 100%);
+    color: #ffffff;
+    height: 4rem;
+    width: 200px;
+}
+
+.hamburger-menu__tel-btn {
+    background: #595a5d;
+    color: #ffffff;
+    height: 3rem;
+    width: 200px;
+}
+
+.hamburger-menu__web-btn:hover,
+.hamburger-menu__tel-btn:hover {
+    opacity: 0.8;
+    transform: none;
+}
+
+.hamburger-menu__btn-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.hamburger-menu__btn-icon svg {
+    width: 100%;
+    height: 100%;
+    color: #ffffff;
+}
+
+.hamburger-menu__web-btn span,
+.hamburger-menu__tel-btn span {
+    font-family: 'Zen Old Mincho', serif;
+    font-weight: 900;
+    font-size: 1rem;
+    color: #ffffff;
+    letter-spacing: 0.05rem;
+    flex: 1;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.hamburger-menu__btn-arrow {
+    width: 9px;
+    height: 9px;
+    flex-shrink: 0;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-top: -0.625rem;
+}
+
+.hamburger-menu__btn-arrow svg {
+    width: 100%;
+    height: 100%;
+    color: #ffffff;
+}
+
+/* 右側: ナビゲーションメニューエリア */
+.hamburger-menu__right {
+    flex: 0 0 29.69%;
+    width: 29.69%;
+    background: #ffffff;
+    padding: 3rem 3rem 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow-y: auto;
+}
+
+/* 閉じるボタン */
+.hamburger-menu__close-btn {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'Zen Old Mincho', serif;
+    font-weight: 400;
+    font-size: 0.875rem;
+    color: #787b83;
+    letter-spacing: 0.05rem;
+    transition: color 0.3s ease;
+    z-index: 10;
+}
+
+.hamburger-menu__close-btn:hover {
+    color: #595a5d;
+}
+
+.hamburger-menu__close-btn svg {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+/* セクション */
+.hamburger-menu__section {
+    margin-bottom: 3rem;
+    margin-top: 1rem;
+}
+
+.hamburger-menu__section:first-of-type {
+    margin-top: 4rem;
+}
+
+.hamburger-menu__section-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.hamburger-menu__section-label {
+    font-family: 'Zen Old Mincho', serif;
+    font-weight: 900;
+    font-size: 0.8125rem;
+    color: #787B83;
+    letter-spacing: 0.040625rem;
+    line-height: 135%;
+    position: relative;
+    padding-left: 0.25rem;
+}
+
+.hamburger-menu__section-label::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 3px;
+    bottom: 0;
+    width: 1px;
+    background: #787B83;
+    height: 72%;
+}
+
+.hamburger-menu__section-count {
+    font-family: 'Zen Old Mincho', serif;
+    font-weight: 700;
+    font-size: 0.875rem;
+    color: #787B83;
+    text-align: right;
+    line-height: 135%;
+    flex: 1;
+    text-decoration: underline;
+}
+
+.hamburger-menu__section-number {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* ナビゲーションリンク */
+.hamburger-menu__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.hamburger-menu__nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5625rem 1rem;
+    text-decoration: none;
+    border: 1.5px solid #E8E8F0;
+    background: #F8F8F9;
+    transition: all 0.3s ease;
+    border-radius: 0;
+}
+
+.hamburger-menu__nav-link:hover {
+    background-color: rgba(120, 123, 131, 0.05);
+}
+
+.hamburger-menu__nav-link span {
+    font-family: 'Zen Old Mincho', serif;
+    font-weight: 900;
+    font-size: 1rem;
+    color: #595A5D;
+    letter-spacing: 0.05rem;
+    line-height: 135%;
+    transition: color 0.3s ease;
+}
+
+.hamburger-menu__nav-link:hover span {
+    color: #787b83;
+}
+
+.hamburger-menu__nav-arrow {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    opacity: 1;
+    transition: all 0.3s ease;
+}
+
+.hamburger-menu__nav-link:hover .hamburger-menu__nav-arrow {
+    opacity: 1;
+    transform: translateX(4px);
+}
+
+.hamburger-menu__nav-arrow svg {
+    width: 100%;
+    height: 100%;
+    color: #787b83;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .hamburger-menu__left {
+        padding: 1.5rem;
+    }
+    
+    .hamburger-menu__right {
+        padding: 1.5rem;
+    }
+    
+    .hamburger-menu__clinic-name {
+        font-size: 1.25rem;
+    }
+    
+    .hamburger-menu__web-btn,
+    .hamburger-menu__tel-btn {
+        padding: 0.75rem 1rem;
+    }
+    
+    .hamburger-menu__web-btn {
+        height: 4rem;
+    }
+    
+    .hamburger-menu__tel-btn {
+        height: 3rem;
+    }
+    
+    .hamburger-menu__close-btn {
+        top: 1.5rem;
+        right: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hamburger-menu {
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+    }
+    
+    .hamburger-menu__container {
+        max-width: none;
+        width: 100vw;
+        height: 100vh;
+    }
+    
+    .hamburger-menu__left {
+        padding: 1rem;
+    }
+    
+    .hamburger-menu__right {
+        padding: 1rem;
+    }
+    
+    .hamburger-menu__close-btn {
+        top: 1rem;
+        right: 1rem;
+    }
+}
+
+/* アニメーション */
+@keyframes slideInFromRight {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOutToRight {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(100%);
+    }
+}
+
+.hamburger-menu.slide-in {
+    animation: slideInFromRight 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.hamburger-menu.slide-out {
+    animation: slideOutToRight 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* メッセージセクション */
+.message {
+    position: relative;
+    padding: 12.625rem 0 4rem;
+    overflow: hidden;
+}
+
+.message__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 3.5rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.message__bg-text {
+    position: absolute;
+    top: -10%;
+    left: 0%;
+    transform: translate(-50%, -50%);
+    font-family: 'Pinyon Script', cursive;
+    color: #FBFCFE;
+    font-size: 200px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 50%; /* 100px */
+    z-index: 1;
+    pointer-events: none;
+    user-select: none;
+}
+
+.message__content {
+    position: relative;
+    z-index: 2;
+}
+
+.message__text-main {
+    max-width: 536px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.message__text-intro {
+    margin: 0;
+}
+
+.message__text-intro p {
+    color: #595A5D;
+    font-family: "Zen Old Mincho", serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 160%; /* 25.6px */
+    letter-spacing: 1.6px;
+    margin: 0;
+}
+
+.message__text-highlight {
+    background: var(--gradation, linear-gradient(250deg, #9FA3AA 0%, #72757C 100%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 600;
+}
+
+.message__text-philosophy {
+    margin: 0;
+}
+
+.message__text-line {
+    color: #595A5D;
+    font-family: "Zen Old Mincho", serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 160%; /* 25.6px */
+    letter-spacing: 1.6px;
+    margin: 0;
+}
+
+.message__text-emphasis {
+    background: var(--gradation, linear-gradient(250deg, #9FA3AA 0%, #72757C 100%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: "Zen Old Mincho", serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 160%;
+    letter-spacing: 1.6px;
+    margin: 0;
+}
+
+.message__text-approach {
+    margin: 0;
+}
+
+.message__text-approach p {
+    color: #595A5D;
+    font-family: "Zen Old Mincho", serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 160%; /* 25.6px */
+    letter-spacing: 1.6px;
+    margin: 0;
+}
+
+
+.message__tagline-wrapper {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+}
+
+.message__tagline {
+    text-align: center;
+    white-space: nowrap;
+}
+
+.message__tagline p {
+    text-align: center;
+    font-family: "Zen Old Mincho", serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 180%; /* 43.2px */
+    letter-spacing: 2.4px;
+    background: linear-gradient(268deg, #949BA9 3.88%, #697181 100.68%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .message {
+        padding: 4rem 0 3rem;
+    }
+    
+    .message__container {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 0 1rem;
+    }
+    
+    .message__bg-text {
+        font-size: 8rem;
+    }
+    
+    .message__content {
+        text-align: left;
+    }
+    
+    .message__text-main {
+        max-width: 100%;
+    }
+    
+    .message__text-intro p,
+    .message__text-line,
+    .message__text-emphasis,
+    .message__text-approach p {
+        font-size: 0.875rem;
+        text-align: left;
+    }
+    
+    .message__tagline-wrapper {
+        text-align: center;
+    }
+    
+    .message__tagline p {
+        font-size: 1.25rem;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .message__bg-text {
+        font-size: 6rem;
+    }
+    
+    .message__tagline p {
+        font-size: 1.125rem;
+    }
+}
+
+/* 当院の特徴セクション */
+.features {
+    padding: 5rem 0 4rem;
+}
+
+@media (min-width: 1024px) {
+    .features {
+        padding: 8rem 0 7rem;
+    }
+}
+
+.features__item {
+    justify-content: flex-start;
+}
+
+@media (max-width: 1023px) {
+    .features__item-image {
+        height: auto !important;
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+}
+
+/* Instagramバナー */
+.instagram-banner {
+    text-align: center;
+    background: none;
+    background-color: transparent;
+    padding-bottom: 10rem;
+}
+
+.instagram-banner__img {
+    max-width: 700px;
+    width: 100%;
+    height: auto;
+}
+
+/* アクセス情報セクション */
+.information {
+    position: relative;
+    background: #787B83;
+    padding: 6.5rem 0;
+}
+
+.information__bg-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-family: "Pinyon Script", serif;
+    font-size: 104px;
+    color: #595A5D;
+    opacity: 0.2;
+    line-height: 0.5;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.information__container {
+    max-width: 1120px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-start;
+    gap: 3rem;
+    position: relative;
+    z-index: 2;
+    background: #787B83;
+    box-shadow: 10px 10px 10px 0px rgba(122, 134, 158, 0.03);
+    padding: 4rem 2rem;
+    border-radius: 0;
+}
+
+.information__content {
+    flex: 1;
+    color: #FFFFFF;
+}
+
+.information__clinic-name {
+    margin-bottom: 3rem;
+}
+
+.information__clinic-name-company {
+    font-family: "Zen Old Mincho", serif;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 0.8px;
+    line-height: 1.35;
+    margin-bottom: 0.5rem;
+}
+
+.information__clinic-name-main {
+    font-family: "Zen Old Mincho", serif;
+    font-weight: 900;
+    font-size: 26px;
+    letter-spacing: 1.3px;
+    line-height: 1.35;
+    margin: 0;
+}
+
+.information__details {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.information__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.information__icon {
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+}
+
+.information__icon-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.information__text {
+    font-family: "Zen Old Mincho", serif;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 0.8px;
+    line-height: 1.35;
+    color: #FFFFFF;
+}
+
+.information__map {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.information__map-container {
+    width: 480px;
+    height: 250px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 10px 10px 10px 0px rgba(122, 134, 158, 0.03);
+}
+
+.information__map-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.information__access-link {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: #FFFFFF;
+    font-family: "Zen Old Mincho", serif;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.7px;
+    line-height: 1.35;
+    margin-top: 0.5rem;
+}
+
+.information__access-link span {
+    text-decoration: underline;
+    text-underline-position: from-font;
+}
+
+.information__access-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 1199px) {
+    .information__container {
+        max-width: 100%;
+        margin: 0 2rem;
+        padding: 3rem 2rem;
+    }
+    
+    .information__map-container {
+        width: 100%;
+        max-width: 480px;
+    }
+}
+
+@media (max-width: 767px) {
+    .information {
+        padding: 4rem 0;
+    }
+    
+    .information__bg-text {
+        font-size: 60px;
+        top: 1rem;
+        left: 1rem;
+    }
+    
+    .information__container {
+        flex-direction: column;
+        margin: 0 1rem;
+        padding: 2rem 1.5rem;
+        gap: 2rem;
+    }
+    
+    .information__clinic-name {
+        margin-bottom: 2rem;
+        text-align: left;
+    }
+    
+    .information__clinic-name-main {
+        font-size: 22px;
+    }
+    
+    .information__details {
+        gap: 1.5rem;
+    }
+    
+    .information__item {
+        gap: 0.75rem;
+    }
+    
+    .information__icon {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .information__text {
+        font-size: 14px;
+    }
+    
+    .information__map-container {
+        width: 100%;
+        height: 200px;
+    }
+    
+    .information__access-link {
+        justify-content: center;
+        margin-top: 1rem;
+    }
+}
+
+/* FV Slideshow Styles */
+.fv-slideshow {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.fv-swiper {
+    width: 1600px;
+    margin: 50px auto 0 auto;
+    max-width: calc(100% - 0px);
+}
+
+.fv-slide {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fv-slide__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.fv-slide__image img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Swiper Navigation Buttons */
+.fv-swiper .swiper-button-next,
+.fv-swiper .swiper-button-prev {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.fv-swiper .swiper-button-next:after,
+.fv-swiper .swiper-button-prev:after {
+    font-size: 16px;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.fv-swiper .swiper-button-next:hover,
+.fv-swiper .swiper-button-prev:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: scale(1.1);
+}
+
+@media (max-width: 767px) {
+    .fv-swiper .swiper-button-next,
+    .fv-swiper .swiper-button-prev {
+        width: 40px;
+        height: 40px;
+        margin-top: -20px;
+    }
+    
+    .fv-swiper .swiper-button-next:after,
+    .fv-swiper .swiper-button-prev:after {
+        font-size: 14px;
+    }
+}
+
+/* 基本リセットとレイアウト */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Zen Old Mincho", serif;
+    line-height: 1.6;
+    color: #595a5d;
+    background: #f8f8f9;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+button {
+    background: none;
+    border: none;
+    font: inherit;
+    cursor: pointer;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ヘッダースタイル */
+.header {
+    background-color: rgba(0,0,0,0);
+    border-bottom: none;
+    position: relative;
+    width: 100%;
+    z-index: 1200;
+}
+
+.header__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 5rem;
+    padding-left: 40px;
+    padding-right: 40px;
+    width: 100%;
+    max-width: none;
+    position: relative;
+}
+
+@media (min-width: 768px) {
+    .header__container {
+        height: 6.25rem;
+    }
+}
+
+.header__logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    flex-shrink: 0;
+    color: #231815;
+    transition: color 0.3s ease;
+}
+
+.header__logo-svg {
+    height: 3rem;
+    width: auto;
+    max-width: 9.4375rem;
+}
+
+@media (min-width: 768px) {
+    .header__logo-svg {
+        height: 3.125rem;
+    }
+}
+
+.header__logo-img {
+    height: 3rem;
+    width: auto;
+    max-width: 9.4375rem;
+}
+
+@media (min-width: 768px) {
+    .header__logo-img {
+        height: 3.125rem;
+    }
+}
+
+.header__hamburger {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.25rem;
+    gap: 0.125rem;
+    flex-shrink: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    justify-content: center;
+}
+
+.header__hamburger-icon {
+    width: 1.5rem;
+    height: 0.9375rem;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.header__hamburger-icon svg {
+    width: 100%;
+    height: 100%;
+    fill: #787b83;
+    transition: fill 0.3s ease;
+}
+
+.header__hamburger-text {
+    font-size: 0.75rem;
+    color: #787b83;
+    font-weight: 700;
+    letter-spacing: 0.040625rem;
+    margin-top: 0.125rem;
+    line-height: 1;
+}
+
+.header__hamburger:hover .header__hamburger-icon svg {
+    fill: #595a5d;
+}
+
+.header__hamburger:hover .header__hamburger-text {
+    color: #595a5d;
+}
+
+/* フッタースタイル */
+.footer {
+    position: relative;
+    background-color: #fff;
+}
+
+.footer__cta {
+    position: relative;
+    padding: 14.5rem 0 8rem;
+    overflow: hidden;
+    min-height: 21.75rem;
+    background: linear-gradient(180deg, rgba(232, 232, 240, 0) 0%, #E8E8F0 100%);
+}
+
+.footer__cta-content {
+    position: relative;
+    z-index: 10;
+    max-width: 75rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-areas: "text buttons";
+    gap: 5.625rem;
+    height: 100%;
+    padding-top: 0.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: start;
+    justify-content: center;
+}
+
+@media (max-width: 767px) {
+    .footer__cta-content {
+        display: flex;
+        flex-direction: column;
+        gap: 4rem;
+        padding-top: 1rem;
+    }
+}
+
+.footer__cta-bg-text {
+    position: absolute;
+    bottom: -2rem;
+    left: 100%;
+    font-family: "Zen Old Mincho", serif;
+    font-size: 10rem;
+    color: rgba(89,90,93,0.1);
+    z-index: 1;
+    line-height: 1.6;
+    font-weight: 900;
+    white-space: nowrap;
+    letter-spacing: 0.5rem;
+    pointer-events: none;
+    animation: scroll-left 20s linear infinite;
+}
+
+@media (max-width: 1023px) {
+    .footer__cta-bg-text {
+        font-size: 8rem;
+        bottom: -1.5rem;
+        animation: scroll-left 15s linear infinite;
+    }
+}
+
+@media (max-width: 767px) {
+    .footer__cta-bg-text {
+        font-size: 6rem;
+        bottom: -1rem;
+        animation: scroll-left 12s linear infinite;
+    }
+}
+
+.footer__cta-text {
+    grid-area: text;
+    max-width: 35rem;
+    align-self: start;
+    margin-top: -6rem;
+}
+
+.footer__cta-text-title {
+    font-family: "Zen Old Mincho", serif;
+    font-weight: 900;
+    font-size: 2rem;
+    color: transparent;
+    background: linear-gradient(90deg, #595A5D 0%, rgba(89, 90, 93, 0.8) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    letter-spacing: 0.2rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    white-space: nowrap;
+}
+
+@media (max-width: 1200px) {
+    .footer__cta-text-title {
+        white-space: normal;
+    }
+}
+
+@media (max-width: 767px) {
+    .footer__cta-text-title {
+        font-size: 1.5rem;
+        text-align: center;
+        white-space: normal;
+    }
+    .footer__cta-text {
+        grid-area: unset;
+    }
+}
+
+.footer__cta-text-description {
+    font-family: "Zen Old Mincho", serif;
+    font-weight: 500;
+    font-size: 1rem;
+    color: #787b83;
+    letter-spacing: 0.05rem;
+    line-height: 1.6;
+}
+
+@media (max-width: 767px) {
+    .footer__cta-text-description {
+        text-align: center;
+    }
+}
+
+.footer__cta-buttons {
+    grid-area: buttons;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 23.75rem;
+    align-self: center;
+}
+
+@media (max-width: 767px) {
+    .footer__cta-buttons {
+        grid-area: unset;
+        align-self: unset;
+        width: 100%;
+        max-width: 23.75rem;
+        margin: 0 auto;
+    }
+}
+
+/* CTAボタンスタイル */
+.cta-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.cta-button--web {
+    height: 6.25rem;
+    background: linear-gradient(267deg, #9FA3AA 0%, #72757C 100%);
+}
+
+.cta-button--web:hover {
+    background: linear-gradient(267deg, rgba(159, 163, 170, 0.9) 0%, rgba(114, 117, 124, 0.9) 100%);
+}
+
+.cta-button--tel {
+    height: 4.375rem;
+    background: #595A5D;
+}
+
+.cta-button--tel:hover {
+    background: rgba(89,90,93,0.9);
+}
+
+.cta-button__content {
+    position: absolute;
+    left: 24.211%;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.cta-button__icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    flex-shrink: 0;
+}
+
+.cta-button__text {
+    font-family: "Zen Old Mincho", serif;
+    font-weight: 900;
+    font-size: 1.25rem;
+    letter-spacing: 0.0625rem;
+    line-height: 1.35;
+    color: #fff;
+    white-space: nowrap;
+}
+
+.cta-button__arrow {
+    position: absolute;
+    right: 8.421%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0.5rem;
+    height: 0.5rem;
+    flex-shrink: 0;
+}
+
+/* フッターメニュー */
+.footer__menu {
+    background-color: #f8f8f9;
+    padding: 3.5rem 0 5rem;
+}
+
+.footer__menu-container {
+    max-width: 75rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.footer__menu-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas: 
+        "about-us about-us doctor-staff others"
+        "about-us about-us news-updates others"
+        "about-us about-us news-updates others"
+        "menu-header menu-header menu-header menu-header"
+        "menu-laminate aesthetic general general";
+    gap: 0.75rem 2.5rem;
+    min-height: 25rem;
+}
+
+@media (max-width: 1023px) {
+    .footer__menu-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+            "about-us doctor-staff"
+            "about-us news-updates"
+            "others others"
+            "menu-header menu-header"
+            "menu-laminate aesthetic"
+            "general general";
+        gap: 0.75rem 2rem;
+        min-height: auto;
+    }
+}
+
+.footer__menu-category__header {
+    margin-bottom: 0.75rem;
+}
+
+.footer__menu-category__title {
+    font-family: "Zen Old Mincho", serif;
+    font-weight: 900;
+    font-size: 0.8125rem;
+    color: #787b83;
+    letter-spacing: 0.040625rem;
+    line-height: 1.35;
+    margin: 0;
+    position: relative;
+    padding-left: 0.375rem;
+}
+
+.footer__menu-category__title::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 0.0625rem;
+    height: 0.875rem;
+    background-color: #787b83;
+}
+
+.footer__menu-category__link {
+    display: block;
+    font-family: "Zen Old Mincho", serif;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    color: #595a5d;
+    letter-spacing: 0.046875rem;
+    line-height: 1.35;
+    text-decoration: underline;
+    margin-bottom: 0.625rem;
+    transition: color 0.3s ease;
+}
+
+.footer__menu-category__link:hover {
+    color: #787b83;
+}
+
+.footer__menu-category__child {
+    position: relative;
+    margin-bottom: 0.625rem;
+    padding-left: 0.75rem;
+}
+
+.footer__menu-category__child::before {
+    content: "";
+    position: absolute;
+    left: 0.1875rem;
+    top: 0.5625rem;
+    width: 0.0625rem;
+    height: 0.375rem;
+    background-color: #595a5d;
+}
+
+.footer__menu-category__child::after {
+    content: "";
+    position: absolute;
+    left: 0.1875rem;
+    top: 0.875rem;
+    width: 0.3125rem;
+    height: 0.0625rem;
+    background-color: #595a5d;
+}
+
+.footer__menu-category__child-link {
+    font-family: "Zen Old Mincho", serif;
+    font-weight: 500;
+    font-size: 0.875rem;
+    color: #595a5d;
+    letter-spacing: 0.04375rem;
+    line-height: 1.35;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer__menu-category__child-link:hover {
+    color: #787b83;
+}
+
+/* グリッドエリアの設定 */
+.footer__menu-about { grid-area: about-us; }
+.footer__menu-doctor-staff { grid-area: doctor-staff; }
+.footer__menu-news-updates { grid-area: news-updates; }
+.footer__menu-others { grid-area: others; }
+.footer__menu-menu-header { grid-area: menu-header; }
+.footer__menu-menu-laminate { grid-area: menu-laminate; }
+.footer__menu-aesthetic { grid-area: aesthetic; }
+.footer__menu-general { grid-area: general; }
+
+.footer__menu-about-content {
+    display: flex;
+}
+
+@media (max-width: 767px) {
+    .footer__menu-about-content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+}
+
+.footer__menu-about-left {
+    flex: 1;
+}
+
+.footer__menu-about-right {
+    flex: 1.4;
+}
+
+.footer__menu-general-content {
+    display: flex;
+}
+
+@media (max-width: 767px) {
+    .footer__menu-general-content {
+        flex-direction: column;
+    }
+}
+
+.footer__menu-general-left {
+    flex: 1;
+}
+
+.footer__menu-general-right {
+    flex: 1.4;
+}
+
+/* フッター情報セクション */
+.footer__info {
+    background-color: #f8f8f9;
+    padding: 1.5rem 2rem 7.5rem;
+}
+
+.footer__info-container {
+    max-width: 75rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+    background-color: #f1f1f6;
+    border: 1.5px solid #e8e8f0;
+    border-radius: 0;
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@media (max-width: 767px) {
+    .footer__info-container {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+        padding: 1.5rem 1rem;
+    }
+}
+
+.footer__info-logo {
+    flex-shrink: 0;
+    width: 9.0625rem;
+    height: 3rem;
+}
+
+.footer__info-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.footer__info-details {
+    flex: 1;
+    margin-left: 2rem;
+}
+
+@media (max-width: 767px) {
+    .footer__info-details {
+        margin-left: 0;
+    }
+}
+
+.footer__info-details-name {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.5rem;
+}
+
+.footer__info-details-name-company {
+    font-family: "Zen Old Mincho", serif;
+    font-weight: 900;
+    font-size: 0.8125rem;
+    color: #595a5d;
+    letter-spacing: 0.040625rem;
+    line-height: 1.35;
+    margin-bottom: 0.125rem;
+}
+
+.footer__info-details-name-clinic {
+    font-family: "Zen Old Mincho", serif;
+    font-weight: 900;
+    font-size: 1.25rem;
+    color: #595a5d;
+    letter-spacing: 0.0625rem;
+    line-height: 1.35;
+}
+
+.footer__info-details-address {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    font-family: "Zen Old Mincho", serif;
+    font-weight: 500;
+    font-size: 0.875rem;
+    color: #595a5d;
+    letter-spacing: 0.04375rem;
+    line-height: 1.35;
+}
+
+@media (max-width: 767px) {
+    .footer__info-details-address {
+        justify-content: center;
+    }
+}
+
+.footer__info-details-address-icon {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+}
+
+.footer__info-social {
+    flex-shrink: 0;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.footer__info-social-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 2.5rem;
+    padding: 0.625rem 1rem;
+    font-family: "Zen Old Mincho", serif;
+    font-weight: 900;
+    font-size: 0.875rem;
+    color: #787b83;
+    letter-spacing: 0.04375rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    gap: 0.75rem;
+    min-width: 7rem;
+}
+
+.footer__info-social-link:hover {
+    color: #595a5d;
+}
+
+.footer__info-social-text {
+    flex: 1;
+    white-space: nowrap;
+}
+
+.footer__info-social-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    flex-shrink: 0;
+    object-fit: contain;
+}
+
+/* コピーライトセクション */
+.footer__copyright {
+    background: linear-gradient(250deg, #9FA3AA 0%, #72757C 100%);
+    padding: 0.5rem 0;
+    box-shadow: 10px 10px 10px 0px rgba(122,134,158,0.03);
+}
+
+.footer__copyright-text {
+    text-align: center;
+    font-family: "Zen Old Mincho", serif;
+    font-weight: 900;
+    font-size: 0.875rem;
+    color: #fff;
+    letter-spacing: 0.04375rem;
+    line-height: 1.35;
+}
+
+/* アニメーション */
+@keyframes scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-120%); }
+}
+
+/* 基本的なSwiperスタイル */
+.swiper {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    display: block;
+    padding: 0;
+    box-sizing: content-box;
+}
+
+.swiper-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    transition-property: transform;
+    box-sizing: content-box;
+}
+
+.swiper-slide {
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition-property: transform;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    position: absolute;
+    top: 50%;
+    width: calc(var(--swiper-navigation-size)/ 44 * 27);
+    height: var(--swiper-navigation-size);
+    margin-top: calc(0px - (var(--swiper-navigation-size)/ 2));
+    z-index: 10;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--swiper-navigation-color, var(--swiper-theme-color));
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+    font-family: swiper-icons;
+    font-size: var(--swiper-navigation-size);
+    text-transform: none !important;
+    letter-spacing: 0;
+    font-variant: initial;
+    line-height: 1;
+}
+
+.swiper-button-prev {
+    left: 10px;
+    right: auto;
+}
+
+.swiper-button-next {
+    right: 10px;
+    left: auto;
+}
+
+.swiper-button-prev:after {
+    content: 'prev';
+}
+
+.swiper-button-next:after {
+    content: 'next';
+}
+
+@media (min-width: 1024px) {
+    .laminate-veneer__content {
+        position: absolute;
+        left: 0;
+        top: 2.5rem;
+        width: 100%;
+        max-width: 70rem;
+        order: 1;
+    }
+}

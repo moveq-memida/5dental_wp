@@ -1,0 +1,501 @@
+// ========================================
+// Invisalign GO Page
+// ========================================
+
+// インビザラインGOページのファーストビュー
+.invisalign-go-fv {
+    position: relative;
+    min-height: 25rem; // 400px
+    background-color: transparent; // 背景色を透明に変更
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding: 5rem 0;
+
+    &__container {
+        @include container;
+        position: relative;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 15rem;
+    }
+
+    // 背景テキスト "Invisalign GO"
+    &__bg-text {
+        position: absolute;
+        top: -3.5rem; // Adjust position down slightly
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        font-family: $font-family-script;
+        font-size: 9rem; // 144px from Figma
+        color: #e9ecf2;
+        z-index: 1;
+        line-height: 0.5;
+        white-space: nowrap;
+        pointer-events: none;
+        height: 100%;
+        padding-left: 2rem; // Left offset to match design
+
+        @include respond-below('lg') {
+            font-size: 7rem;
+            padding-left: 1.5rem;
+            top: -2.75rem;
+        }
+
+        @include respond-below('md') {
+            font-size: 5rem;
+            padding-left: 1rem;
+            top: -2rem;
+        }
+    }
+
+    // コンテンツエリア
+    &__content {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        align-items: flex-start;
+    }
+
+    // メインタイトル "インビザラインGO"
+    &__title {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-black;
+        font-size: 3rem; // 48px from Figma
+        color: transparent;
+        background: linear-gradient(90deg, $color-primary-dark 0%, rgba($color-primary-dark, 0.8) 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        letter-spacing: 0.3rem; // 4.8px from Figma
+        line-height: 1.35;
+        margin: 0;
+
+        @include respond-below('lg') {
+            font-size: 2.5rem;
+            letter-spacing: 0.25rem;
+        }
+
+        @include respond-below('md') {
+            font-size: 2rem;
+            letter-spacing: 0.2rem;
+        }
+    }
+
+    // パンくずリスト
+    &__breadcrumb {
+        // No additional styling needed, just remove positioning
+    }
+}
+
+// メインコンテンツセクション
+.invisalign-go-content {
+    background-color: transparent; // 背景色を透明に変更
+    padding: 5rem 0;
+
+    &__container {
+        @include container;
+        display: grid;
+        grid-template-columns: 1fr 15.625rem; // メイン + サイドバー(250px)
+        gap: 5rem; // 80px gap
+        align-items: start;
+
+        @include respond-below('lg') {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+    }
+
+    &__main {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    &__hero {
+        border-radius: 0;
+        overflow: hidden;
+        margin-bottom: 1.5rem;
+
+        @include respond-below('lg') {
+            margin-left: -2rem;
+            margin-right: -2rem;
+            width: calc(100% + 4rem);
+        }
+    }
+
+    &__hero-img {
+        width: 100%;
+        height: 20rem; // 320px height
+        object-fit: cover;
+        object-position: center;
+    }
+
+    // メインタイトル（画像の下）
+    &__main-title {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-black;
+        font-size: 1.5rem; // 24px
+        color: #595a5d; // txt-595A5D from Figma
+        letter-spacing: 0.075rem; // 1.2px
+        line-height: 1.35;
+        margin: 0 0 2rem;
+        padding: 0 0 1.125rem; // 18px padding bottom for underline spacing
+        border-bottom: 1.5px solid #E0E0E5; // Underline with correct color and thickness
+    }
+
+    &__section {
+        margin-bottom: 3rem;
+    }
+
+    &__section-title {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-black;
+        font-size: 1.125rem; // 18px
+        color: #595a5d;
+        letter-spacing: 0.05625rem; // 0.9px
+        line-height: 1.35;
+        margin: 0 0 3rem; // 48px bottom margin
+        padding: 0.75rem 1rem;
+        background-color: #f0f0f2; // グレー背景 from Figma
+        border-radius: 0;
+    }
+
+    &__section-content {
+        padding: 0;
+    }
+
+    &__text {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-regular;
+        font-size: 1rem; // 16px
+        color: #595a5d;
+        letter-spacing: 0.02rem; // 0.32px
+        line-height: 1.5; // From Figma
+        margin: 0 0 1rem; // Add bottom margin for paragraph spacing
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        // 大きいマージン用のモディファイア
+        &--large-margin {
+            margin-bottom: 3rem; // 48px margin
+        }
+    }
+
+    // サイドバー
+    &__sidebar {
+        position: sticky;
+        top: 2rem;
+        align-self: start;
+
+        @include respond-below('lg') {
+            display: none;
+        }
+    }
+
+    // テキストコンテンツ
+    &__text-content {
+        margin-top: 2rem;
+    }
+}
+
+// インビザラインGO画像セクション
+.invisalign-go-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem; // 8px
+    margin-bottom: 2rem;
+
+    @include respond-below('md') {
+        grid-template-columns: 1fr;
+        gap: 0.5rem; // 8px
+    }
+
+    &__item {
+        background-color: #ffffff;
+        border-radius: 0;
+        overflow: hidden;
+    }
+
+    &__img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        display: block;
+
+        @include respond-below('md') {
+            object-fit: contain;
+        }
+    }
+}
+
+// インビザラインGO単体画像セクション
+.invisalign-go-single-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem; // 80px
+    margin-bottom: 5rem; // 80px
+    background-color: #ffffff;
+    border-radius: 0;
+    overflow: hidden;
+
+    &__img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        max-width: 100%;
+    }
+}
+
+// インビザラインGO症例画像セクション
+.invisalign-go-case-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0; // gapなし
+    margin-bottom: 2rem;
+
+    @include respond-below('md') {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    &__item {
+        position: relative;
+        background-color: #ffffff;
+        border-radius: 0;
+        overflow: hidden;
+    }
+
+    &__img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        display: block;
+    }
+
+    &__label {
+        position: absolute;
+        bottom: 1rem;
+        left: 1rem;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: #ffffff;
+        padding: 0.5rem 1rem;
+        font-family: $font-family-primary;
+        font-weight: $font-weight-bold;
+        font-size: 0.875rem;
+        border-radius: 0;
+    }
+}
+
+// インビザラインGO症例情報表
+.invisalign-go-case-table {
+    margin-top: 2rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 0;
+    border-collapse: collapse;
+    width: 100%;
+
+    tbody {
+        tr {
+            border-bottom: 1px solid #e0e0e0;
+
+            &:last-child {
+                border-bottom: none;
+            }
+
+            // 偶数行の背景色設定を削除
+        }
+    }
+
+    &__row {
+        // 追加のスタイリングが必要な場合はここに
+    }
+
+    th,
+    td {
+        border: 1px solid #e0e0e0;
+        border-left: none;
+        border-top: none;
+        
+        &:first-child {
+            border-left: none;
+        }
+        
+        &:last-child {
+            border-right: none;
+        }
+    }
+
+    &__item {
+        width: 10rem; // 160px - 幅を広く
+        padding: 1rem 1.5rem;
+        font-family: $font-family-primary;
+        font-weight: $font-weight-bold;
+        font-size: 0.875rem; // 14px
+        color: #595a5d;
+        letter-spacing: 0.02rem;
+        line-height: 1.5;
+        border-right: 1px solid #e0e0e0;
+        background-color: #f0f0f2; // 項目欄は薄いグレー背景
+        text-align: center; // 中央寄せ
+        vertical-align: middle;
+
+        @include respond-below('md') {
+            width: 7rem; // モバイルでも少し広く
+            padding: 0.75rem 1rem;
+            font-size: 0.75rem;
+        }
+    }
+
+    &__cost {
+        padding: 1rem 1.5rem;
+        font-family: $font-family-primary;
+        font-weight: $font-weight-regular;
+        font-size: 0.875rem; // 14px
+        color: #595a5d;
+        letter-spacing: 0.02rem;
+        line-height: 1.6;
+        vertical-align: middle;
+        border-right: none; // 右側の枠線を削除
+
+        @include respond-below('md') {
+            padding: 0.75rem 1rem;
+            font-size: 0.75rem;
+        }
+    }
+}
+
+// インビザラインGOのメリットセクション
+.invisalign-go-merit {
+    margin-bottom: 3rem; // 48px spacing between merit items
+    
+    &:last-child {
+        margin-bottom: 0;
+    }
+    
+    &__title {
+        position: relative;
+        font-family: $font-family-primary;
+        font-weight: $font-weight-black;
+        font-size: 1.375rem; // 22px
+        color: #737484; // txt-737484 from Figma
+        letter-spacing: 0.06875rem; // 1.1px
+        line-height: 1.35;
+        margin: 0 0 1rem;
+        padding-left: 1.1875rem; // 19px for the side bar
+        
+        // グレーバー（左側）
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 0.1875rem; // 3px
+            height: 1.9375rem; // 31px  
+            background-color: #d8d8e3; // グレーバー色
+        }
+    }
+    
+    &__text {
+        position: relative;
+        font-family: $font-family-primary;
+        font-weight: $font-weight-regular;
+        font-size: 1rem; // 16px
+        color: #595a5d; // txt-595A5D from Figma
+        letter-spacing: 0.02rem; // 0.32px
+        line-height: 1.5;
+        margin: 0;
+        
+        // ハイライト用スタイル
+        .highlight {
+            position: relative;
+            background-color: #fffad7; // yellow-FFFAD7 from Figma
+            padding: 0 0.125rem; // 2px horizontal padding for better appearance
+        }
+    }
+}
+
+// インビザラインGO適用ケース画像セクション
+.invisalign-go-apply {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem; // 48px spacing
+    border-radius: 0;
+    overflow: hidden;
+    
+    &__img {
+        width: 100%;
+        height: auto;
+        max-height: 18.75rem; // 300px from Figma
+        object-fit: cover;
+        object-position: center;
+        
+        @include respond-below('md') {
+            max-height: 15rem; // Reduced height on mobile
+        }
+    }
+}
+
+// インビザラインGOケースセクション
+.invisalign-go-case {
+    margin-bottom: 3rem; // 48px spacing between case items
+    
+    &:last-child {
+        margin-bottom: 0;
+    }
+    
+    &__title {
+        position: relative;
+        font-family: $font-family-primary;
+        font-weight: $font-weight-black;
+        font-size: 1.375rem; // 22px
+        color: #737484; // txt-737484 from Figma
+        letter-spacing: 0.06875rem; // 1.1px
+        line-height: 1.35;
+        margin: 0 0 1rem;
+        padding-left: 1.1875rem; // 19px for the side bar
+        
+        // グレーバー（左側）
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 0.1875rem; // 3px
+            height: 1.9375rem; // 31px  
+            background-color: #d8d8e3; // グレーバー色
+        }
+    }
+    
+    &__text {
+        position: relative;
+        font-family: $font-family-primary;
+        font-weight: $font-weight-regular;
+        font-size: 1rem; // 16px
+        color: #595a5d; // txt-595A5D from Figma
+        letter-spacing: 0.02rem; // 0.32px
+        line-height: 1.5;
+        margin: 0 0 1rem;
+        
+        &:last-child {
+            margin-bottom: 0;
+        }
+        
+        // ハイライト用スタイル
+        .highlight {
+            position: relative;
+            background-color: #fffad7; // yellow-FFFAD7 from Figma
+            padding: 0 0.125rem; // 2px horizontal padding for better appearance
+        }
+    }
+}

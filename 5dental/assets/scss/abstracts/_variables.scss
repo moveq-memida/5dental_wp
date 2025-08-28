@@ -1,0 +1,106 @@
+// ========================================
+// 変数定義
+// ========================================
+
+// カラーパレット
+$color-primary: #787B83;
+$color-primary-dark: #595A5D;
+$color-white: #ffffff;
+$color-background-light: #f8f8f9;
+$color-background-white: #fafafb;
+$color-border: #e8e8f0;
+$color-text-body: #231815;
+$color-text-light: rgba(255, 255, 255, 0.9);
+$color-text-overlay: rgba(233, 236, 242, 0.1);
+$color-shadow: rgba(122, 134, 158, 0.2);
+$color-shadow-hover: rgba(122, 134, 158, 0.3);
+$color-shadow-light: rgba(122, 134, 158, 0.03);
+
+// グラデーション
+$gradient-laminate: linear-gradient(257deg, #C6C8CD 0%, #5C5E62 100%);
+
+// フォント設定
+$font-family-primary: 'Zen Old Mincho', serif;
+$font-family-script: 'Pinyon Script', cursive;
+
+// フォントウェイト
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-black: 900;
+
+// フォントサイズ
+$font-size-xs: 0.75rem;        // 12px
+$font-size-sm: 0.8125rem;      // 13px
+$font-size-base: 1rem;         // 16px
+$font-size-lg: 1.125rem;       // 18px
+$font-size-xl: 1.25rem;        // 20px
+$font-size-2xl: 1.5rem;        // 24px
+$font-size-3xl: 1.75rem;       // 28px
+$font-size-4xl: 2rem;          // 32px
+$font-size-5xl: 2.5rem;        // 40px
+$font-size-6xl: 3rem;          // 48px
+$font-size-7xl: 4rem;          // 64px
+$font-size-8xl: 6.5rem;        // 104px
+
+// レターサパーシング
+$letter-spacing-tight: 0.04063rem;
+$letter-spacing-normal: 0.05rem;
+$letter-spacing-wide: 0.0625rem;
+$letter-spacing-wider: 0.125rem;
+$letter-spacing-widest: 0.2rem;
+
+// ライン高
+$line-height-tight: 1.35;
+$line-height-normal: 1.6;
+$line-height-script: 0.5;
+
+// ブレークポイント
+$breakpoint-sm: 480px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+
+// スペーシング
+$spacing-xs: 0.25rem;      // 4px
+$spacing-sm: 0.5rem;       // 8px
+$spacing-base: 1rem;       // 16px
+$spacing-lg: 1.5rem;       // 24px
+$spacing-xl: 2rem;         // 32px
+$spacing-2xl: 3rem;        // 48px
+$spacing-3xl: 4rem;        // 64px
+$spacing-4xl: 5rem;        // 80px
+$spacing-5xl: 7rem;        // 112px
+
+// サイズ
+$max-width-container: 75rem;     // 1200px
+$max-width-content: 80rem;       // 1280px
+$max-width-narrow: 70rem;        // 1120px
+
+// ボーダー半径
+$border-radius-none: 0;
+$border-radius-sm: 0.125rem;
+$border-radius-base: 0.25rem;
+$border-radius-lg: 0.5rem;
+$border-radius-xl: 1rem;
+$border-radius-full: 50%;
+$border-radius-pill: 1.875rem;
+
+// シャドウ
+$shadow-sm: 0.3125rem 0.3125rem 0.625rem 0 $color-shadow;
+$shadow-md: 0.3125rem 0.5rem 0.75rem 0 $color-shadow-hover;
+$shadow-lg: 0.625rem 0.625rem 0.625rem 0 $color-shadow-light;
+
+// トランジション
+$transition-fast: 0.15s ease;
+$transition-normal: 0.3s ease;
+$transition-slow: 0.5s ease;
+
+// z-index レイヤー
+$z-index-behind: -1;
+$z-index-base: 0;
+$z-index-overlay: 1;
+$z-index-content: 2;
+$z-index-elevated: 10;
+$z-index-header: 1000; 

@@ -1,0 +1,578 @@
+// ========================================
+// Footer Layout
+// ========================================
+
+.footer {
+        position: relative;
+    background-color: $color-white;
+
+            // CTA セクション
+    &__cta {
+        position: relative;
+        padding: 14.5rem 0 8rem;
+        overflow: hidden;
+        min-height: 21.75rem; // 348px
+        background: linear-gradient(180deg, rgba(232, 232, 240, 0.00) 0%, #E8E8F0 100%);
+
+        &-content {
+            position: relative;
+            z-index: $z-index-elevated;
+            @include container;
+            display: grid;
+            grid-template-columns: auto auto;
+            grid-template-areas: "text buttons";
+            gap: 5.625rem; // 90px
+            height: 100%;
+            padding-top: 0.5rem; // テキストを上に配置するためパディングを減らす
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: start;
+            justify-content: center;
+
+            @media (max-width: 767px) {
+                display: flex;
+                flex-direction: column;
+                gap: $spacing-3xl;
+                padding-top: 1rem;
+            }
+        }
+
+        // 背景テキスト
+        &-bg-text {
+            position: absolute;
+            bottom: -2rem; // セクションの下の方に配置
+            left: 100%; // 右端から開始
+            font-family: $font-family-primary;
+            font-size: 10rem; // 160px
+            color: rgba($color-primary-dark, 0.1);
+            z-index: 1;
+            line-height: 1.6;
+            font-weight: $font-weight-black;
+            white-space: nowrap;
+            letter-spacing: 0.5rem; // 8px
+            pointer-events: none;
+            animation: scroll-left 20s linear infinite;
+
+            @media (max-width: 1023px) {
+                font-size: 8rem;
+                bottom: -1.5rem;
+                animation: scroll-left 15s linear infinite;
+            }
+
+            @media (max-width: 767px) {
+                font-size: 6rem;
+                bottom: -1rem;
+                animation: scroll-left 12s linear infinite;
+            }
+        }
+
+        // テキストエリア
+        &-text {
+            grid-area: text;
+            max-width: 35rem; // 560px - タイトルの改行を防ぐために幅を拡張
+            align-self: start;
+            margin-top: -6rem; // テキストを上にずらす
+
+            &-title {
+                font-family: $font-family-primary;
+                font-weight: $font-weight-black;
+                font-size: 2rem; // 32px
+                color: transparent;
+                background: linear-gradient(90deg, $color-primary-dark 0%, rgba($color-primary-dark, 0.8) 100%);
+                -webkit-background-clip: text;
+                background-clip: text;
+                letter-spacing: 0.2rem; // 3.2px
+                line-height: 1.6;
+                margin-bottom: 1.5rem; // 24px
+                white-space: nowrap; // 改行を防ぐ
+
+                @media (max-width: 1200px) {
+                    white-space: normal; // 小さい画面では改行を許可
+                }
+
+                @media (max-width: 767px) {
+                    font-size: 1.5rem;
+                    text-align: center;
+                    white-space: normal;
+                }
+            }
+
+            @media (max-width: 767px) {
+                grid-area: unset;
+            }
+
+            &-description {
+                font-family: $font-family-primary;
+                font-weight: $font-weight-medium;
+                font-size: 1rem; // 16px
+                color: #787b83;
+                letter-spacing: 0.05rem; // 0.8px
+                line-height: 1.6;
+
+                @media (max-width: 767px) {
+                    text-align: center;
+                }
+            }
+        }
+
+        // CTAボタンエリア
+        &-buttons {
+            grid-area: buttons;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem; // 12px - ボタンの高さ差を考慮して調整
+            width: 23.75rem; // 380px
+            align-self: center; // グリッド内で縦方向中央に
+
+            @media (max-width: 767px) {
+                grid-area: unset;
+                align-self: unset;
+                width: 100%;
+                max-width: 23.75rem;
+                margin: 0 auto;
+            }
+        }
+    }
+
+        // メニューセクション
+    &__menu {
+        background-color: #f8f8f9;
+        padding: 3.5rem 0 5rem;
+
+        &-container {
+            @include container;
+        }
+
+        &-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-areas:
+                "about-us     about-us     doctor-staff  others"
+                "about-us     about-us     news-updates  others"
+                "about-us     about-us     news-updates  others"
+                "menu-header  menu-header  menu-header   menu-header"
+                "menu-laminate aesthetic   general       general";
+            gap: 0.75rem 2.5rem; // 縦のギャップを12pxに変更
+            min-height: 25rem;
+
+            @media (max-width: 1023px) {
+                grid-template-columns: 1fr 1fr;
+                grid-template-areas:
+                    "about-us       doctor-staff"
+                    "about-us       news-updates"
+                    "others         others"
+                    "menu-header    menu-header"
+                    "menu-laminate  aesthetic"
+                    "general        general";
+                gap: 0.75rem 2rem; // 縦のギャップを12pxに変更
+                min-height: auto;
+            }
+        }
+
+        // 共通カテゴリスタイル
+        &-category {
+            &__header {
+                margin-bottom: 0.75rem; // 12px
+            }
+
+            &__title {
+                font-family: $font-family-primary;
+                font-weight: $font-weight-black;
+                font-size: 0.8125rem;
+                color: $color-primary;
+                letter-spacing: 0.040625rem;
+                line-height: 1.35;
+                margin: 0;
+                position: relative;
+                padding-left: 0.375rem; // 6px - ラインとタイトルの間隔
+
+                // 擬似要素でラインを作成
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    left: 0;
+                    transform: translateY(-50%);
+                    width: 0.0625rem; // 1px
+                    height: 0.875rem;
+                    background-color: $color-primary;
+                }
+            }
+
+            &__link {
+                display: block;
+                font-family: $font-family-primary;
+                font-weight: $font-weight-semibold;
+                font-size: 0.9375rem;
+                color: $color-primary-dark;
+                letter-spacing: 0.046875rem;
+                line-height: 1.35;
+                text-decoration: underline;
+                margin-bottom: 0.625rem; // 10px
+                transition: color $transition-normal;
+
+                &:hover {
+                    color: $color-primary;
+                }
+            }
+
+            &__child {
+                position: relative;
+                margin-bottom: 0.625rem; // 10px
+                padding-left: 0.75rem; // 12px - L字ライン分の余白
+
+                // L字型のライン（縦線）- 1行目の中央基準
+                &::before {
+                    content: '';
+                    position: absolute;
+                    left: 0.1875rem; // 3px
+                    top: 0.5625rem; // 9px - 1行目の中央より気持ち下
+                    width: 0.0625rem; // 1px
+                    height: 0.375rem; // 6px - 下に伸びる
+                    background-color: $color-primary-dark;
+                }
+
+                // L字型のライン（横線）- 縦線の下端から右に
+                &::after {
+                    content: '';
+                    position: absolute;
+                    left: 0.1875rem; // 3px - 縦線と同じ位置から開始
+                    top: 0.875rem; // 14px - 縦線の下端（9px + 6px - 1px）
+                    width: 0.3125rem; // 5px
+                    height: 0.0625rem; // 1px
+                    background-color: $color-primary-dark;
+                }
+
+                &-link {
+                    font-family: $font-family-primary;
+                    font-weight: $font-weight-medium;
+                    font-size: 0.875rem;
+                    color: $color-primary-dark;
+                    letter-spacing: 0.04375rem;
+                    line-height: 1.35;
+                    text-decoration: none;
+                    transition: color $transition-normal;
+
+                    &:hover {
+                        color: $color-primary;
+                    }
+                }
+            }
+        }
+
+        // About us カテゴリ
+        &-about {
+            grid-area: about-us;
+        }
+
+        // Doctor/Staff カテゴリ
+        &-doctor-staff {
+            grid-area: doctor-staff;
+        }
+
+        // News/Updates カテゴリ
+        &-news-updates {
+            grid-area: news-updates;
+        }
+
+        // Others カテゴリ
+        &-others {
+            grid-area: others;
+        }
+
+        // Menu ヘッダー（大きな見出し）
+        &-menu-header {
+            grid-area: menu-header;
+            
+            .footer__menu-category__header {
+                margin-bottom: 0; // menu大枠ヘッダーはマージン不要
+            }
+        }
+
+        // Menu（削らないラミネートべニア）カテゴリ
+        &-menu-laminate {
+            grid-area: menu-laminate;
+        }
+
+        // 審美歯科 カテゴリ
+        &-aesthetic {
+            grid-area: aesthetic;
+        }
+
+        // 総合歯科/その他 カテゴリ
+        &-general {
+            grid-area: general;
+        }
+    }
+
+    // 会社情報セクション
+    &__info {
+        background-color: #F8F8F9;
+        padding: $spacing-lg 2rem 7.5rem;
+
+        &-container {
+            @include container;
+            background-color: #F1F1F6;
+            border: 1.5px solid #E8E8F0;
+            border-radius: 0;
+            padding: $spacing-lg $spacing-xl;
+            @include flex-between;
+            align-items: center;
+
+            @media (max-width: 767px) {
+                flex-direction: column;
+                gap: $spacing-lg;
+                text-align: center;
+                padding: $spacing-lg $spacing-base;
+            }
+        }
+
+        &-logo {
+            flex-shrink: 0;
+            width: 9.0625rem;
+            height: 3rem;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+
+        &-details {
+            flex: 1;
+            margin-left: $spacing-xl;
+
+            @media (max-width: 767px) {
+                margin-left: 0;
+            }
+
+            &-name {
+                display: flex;
+                flex-direction: column;
+                margin-bottom: $spacing-sm;
+
+                &-company {
+                    font-family: $font-family-primary;
+                    font-weight: $font-weight-black;
+                    font-size: 0.8125rem;
+                    color: $color-primary-dark;
+                    letter-spacing: 0.04063rem;
+                    line-height: $line-height-tight;
+                    margin-bottom: 0.125rem;
+                }
+
+                &-clinic {
+                    font-family: $font-family-primary;
+                    font-weight: $font-weight-black;
+                    font-size: $font-size-xl;
+                    color: $color-primary-dark;
+                    letter-spacing: 0.0625rem;
+                    line-height: $line-height-tight;
+                }
+            }
+
+            &-address {
+                @include flex-center;
+                justify-content: flex-start;
+                gap: $spacing-sm;
+                font-family: $font-family-primary;
+                font-weight: $font-weight-medium;
+                font-size: 0.875rem;
+                color: $color-primary-dark;
+                letter-spacing: 0.04375rem;
+                line-height: $line-height-tight;
+
+                @media (max-width: 767px) {
+                    justify-content: center;
+                }
+
+                &-icon {
+                    width: 1rem;
+                    height: 1rem;
+                    flex-shrink: 0;
+                }
+            }
+        }
+
+        &-social {
+            flex-shrink: 0;
+            display: flex;
+            gap: $spacing-lg;
+
+            &-link {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                height: 2.5rem;
+                padding: 0.625rem 1rem;
+                font-family: $font-family-primary;
+                font-weight: $font-weight-black;
+                font-size: 0.875rem;
+                color: $color-primary;
+                letter-spacing: 0.04375rem;
+                text-decoration: none;
+                transition: all $transition-normal;
+                gap: 0.75rem;
+                min-width: 7rem;
+
+                &:hover {
+                    color: $color-primary-dark;
+                }
+            }
+
+            &-text {
+                flex: 1;
+                white-space: nowrap;
+            }
+
+            &-icon {
+                width: 1.5rem;
+                height: 1.5rem;
+                flex-shrink: 0;
+                object-fit: contain;
+            }
+        }
+    }
+
+    // コピーライトセクション
+    &__copyright {
+        background: var(--gradation, linear-gradient(250deg, #9FA3AA 0%, #72757C 100%));
+        padding: $spacing-sm 0;
+        box-shadow: 10px 10px 10px 0px rgba(122, 134, 158, 0.03);
+
+        &-text {
+            text-align: center;
+            font-family: $font-family-primary;
+            font-weight: $font-weight-black;
+            font-size: 0.875rem;
+            color: $color-white;
+            letter-spacing: 0.04375rem;
+            line-height: $line-height-tight;
+        }
+    }
+}
+
+// アニメーション定義
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-120%);
+    }
+}
+
+// About us specific styles
+.footer__menu-about-content {
+    display: flex;
+    
+    @media (max-width: 767px) {
+        flex-direction: column;
+        gap: 2rem;
+    }
+}
+
+.footer__menu-about-left {
+    flex: 1;
+}
+
+.footer__menu-about-right {
+    flex: 1.4;
+}
+
+// General menu specific styles
+.footer__menu-general-content {
+    display: flex;
+    
+    @media (max-width: 767px) {
+        flex-direction: column;
+    }
+}
+
+.footer__menu-general-left {
+    flex: 1;
+}
+
+.footer__menu-general-right {
+    flex: 1.4;
+}
+
+// 総合歯科セクション内の子要素の間隔を調整
+.footer__menu-general {
+    .footer__menu-category__child {
+        margin-bottom: 0.625rem; // 10px
+        
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+// CTAボタンコンポーネント
+.cta-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all $transition-normal;
+    overflow: hidden;
+
+    &--web {
+        height: 6.25rem; // 100px
+        background: linear-gradient(267deg, #9FA3AA 0%, #72757C 100%);
+
+        &:hover {
+            background: linear-gradient(267deg, rgba(#9FA3AA, 0.9) 0%, rgba(#72757C, 0.9) 100%);
+        }
+    }
+
+    &--tel {
+        height: 4.375rem; // 70px
+        background: var(--txt-595A5D, #595A5D);
+
+        &:hover {
+            background: rgba(#595A5D, 0.9);
+        }
+    }
+
+    &__content {
+        position: absolute;
+        left: 24.211%; // Figmaの仕様に合わせて
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        align-items: center;
+        gap: 0.75rem; // 12px
+    }
+
+    &__icon {
+        width: 1.5rem; // 24px
+        height: 1.5rem;
+        flex-shrink: 0;
+    }
+
+    &__text {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-black;
+        font-size: 1.25rem; // 20px
+        letter-spacing: 0.0625rem; // 1px
+        line-height: 1.35;
+        color: $color-white;
+        white-space: nowrap;
+    }
+
+    &__arrow {
+        position: absolute;
+        right: 8.421%; // Figmaの仕様に合わせて
+        top: 50%;
+        transform: translateY(-50%);
+        width: 0.5rem; // 8px
+        height: 0.5rem;
+        flex-shrink: 0;
+    }
+}
+

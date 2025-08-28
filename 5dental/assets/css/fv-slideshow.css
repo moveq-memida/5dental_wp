@@ -1,0 +1,77 @@
+/* FV Slideshow Styles */
+.fv-slideshow {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.fv-swiper {
+    width: 1600px;
+    margin: 80px auto 0 auto;
+    max-width: calc(100% - 80px);
+}
+
+.fv-slide {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fv-slide__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.fv-slide__image img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+
+/* Swiper Navigation Buttons */
+.fv-swiper .swiper-button-next,
+.fv-swiper .swiper-button-prev {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.fv-swiper .swiper-button-next:after,
+.fv-swiper .swiper-button-prev:after {
+    font-size: 16px;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.fv-swiper .swiper-button-next:hover,
+.fv-swiper .swiper-button-prev:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: scale(1.1);
+}
+
+@media (max-width: 767px) {
+    .fv-swiper .swiper-button-next,
+    .fv-swiper .swiper-button-prev {
+        width: 40px;
+        height: 40px;
+        margin-top: -20px;
+    }
+    
+    .fv-swiper .swiper-button-next:after,
+    .fv-swiper .swiper-button-prev:after {
+        font-size: 14px;
+    }
+}
+
+
+/* Responsive adjustments */

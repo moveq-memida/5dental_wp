@@ -1,0 +1,223 @@
+// ========================================
+// No-Pain Page Styles
+// 痛みに配慮した治療についてページのスタイル
+// ========================================
+
+// no-painページ専用の見出し調整
+.no-pain-page .section-title-with-subtitle__subtitle {
+  left: 72% !important;
+}
+
+// no-painページをaccess-infoと同じ横幅にする
+.no-pain-page .access-info {
+    padding: 5rem 0;
+
+    &__container {
+        @include container;
+    }
+}
+
+// 導入文
+.no-pain-intro {
+  padding: 40px 0;
+  max-width: 800px;
+  margin: 0 auto;
+  
+  &__highlight {
+    position: relative;
+    font-family: 'Zen Old Mincho', serif;
+    font-size: 16px;
+    color: #595a5d;
+    letter-spacing: 0.32px;
+    line-height: 1.5;
+    margin-bottom: 16px;
+    padding-right: 4px;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: 0;
+      right: 0;
+      height: 10px;
+      background-color: #fffad7;
+      z-index: -1;
+    }
+  }
+  
+  &__text {
+    font-family: 'Zen Old Mincho', serif;
+    font-size: 16px;
+    color: #595a5d;
+    letter-spacing: 0.32px;
+    line-height: 1.5;
+  }
+}
+
+// セクション
+.no-pain-section {
+  padding: 60px 0 40px;
+  
+  &__title {
+    font-family: 'Zen Old Mincho', serif;
+    font-size: 30px;
+    font-weight: bold;
+    color: #737484;
+    letter-spacing: 1.5px;
+    line-height: 1.35;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  &__content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  &__image-text {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    margin-bottom: 30px;
+    
+    &--reverse {
+      flex-direction: row-reverse;
+    }
+    
+    @include respond-to('md') {
+      flex-direction: column;
+      gap: 20px;
+      
+      &--reverse {
+        flex-direction: column;
+      }
+    }
+  }
+  
+  &__image {
+    flex: 0 0 368px;
+    
+    img {
+      width: 100%;
+      height: 245px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    
+    @include respond-to('md') {
+      flex: none;
+      width: 100%;
+    }
+  }
+  
+  &__text {
+    flex: 1;
+    
+    p {
+      font-family: 'Zen Old Mincho', serif;
+      font-size: 16px;
+      color: #595a5d;
+      letter-spacing: 0.32px;
+      line-height: 1.5;
+      margin-bottom: 16px;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  
+  &__full-text {
+    p {
+      font-family: 'Zen Old Mincho', serif;
+      font-size: 16px;
+      color: #595a5d;
+      letter-spacing: 0.32px;
+      line-height: 1.5;
+      margin-bottom: 16px;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+// セクション見出し（Figmaデザイン通り）
+.no-pain-section-title {
+  font-family: 'Zen Old Mincho', serif;
+  font-size: 30px;
+  font-weight: bold;
+  color: #737484;
+  letter-spacing: 1.5px;
+  line-height: 1.35;
+  text-align: center;
+  margin: 60px 0 40px 0;
+  
+  @include respond-to('md') {
+    font-size: 24px;
+    margin: 40px 0 30px 0;
+  }
+}
+
+// テキストハイライト
+.no-pain-text-highlight {
+  position: relative;
+  font-family: 'Zen Old Mincho', serif;
+  font-size: 16px;
+  color: #595a5d;
+  letter-spacing: 0.32px;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  padding-right: 4px;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background-color: #fffad7;
+    z-index: -1;
+  }
+}
+
+// レスポンシブ対応
+@include respond-to('md') {
+  .no-pain-main-title {
+    padding: 40px 20px 30px;
+    
+    &__title {
+      font-size: 28px;
+      padding: 0 10px;
+    }
+  }
+  
+  .no-pain-intro {
+    padding: 30px 20px;
+    
+    &__highlight,
+    &__text {
+      font-size: 14px;
+    }
+  }
+  
+  .no-pain-section {
+    padding: 40px 20px 30px;
+    
+    &__title {
+      font-size: 24px;
+      margin-bottom: 30px;
+    }
+    
+    &__text p,
+    &__full-text p {
+      font-size: 14px;
+    }
+  }
+  
+  .no-pain-text-highlight {
+    font-size: 14px;
+  }
+}

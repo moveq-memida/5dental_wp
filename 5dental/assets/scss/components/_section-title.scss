@@ -1,0 +1,36 @@
+// ========================================
+// Section Title Component
+// ========================================
+
+.section-title {
+    text-align: center;
+    margin-bottom: $spacing-5xl;
+    position: relative;
+
+    &__en {
+        font-family: $font-family-script;
+        font-size: $font-size-8xl;
+        color: $color-text-overlay;
+        display: block;
+        line-height: $line-height-script;
+        margin-bottom: -1rem;
+        font-weight: $font-weight-regular;
+
+        @media (max-width: 767px) {
+            font-size: $font-size-7xl;
+        }
+    }
+
+    &__jp {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-bold;
+        font-size: $font-size-4xl;
+        color: $color-primary-dark;
+        letter-spacing: $letter-spacing-widest;
+        margin: 0;
+
+        @media (max-width: 767px) {
+            font-size: $font-size-2xl;
+        }
+    }
+} 

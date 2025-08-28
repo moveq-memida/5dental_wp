@@ -1,0 +1,463 @@
+// ========================================
+// Implant Page
+// ========================================
+
+// インプラントページのファーストビュー
+.implant-fv {
+    position: relative;
+    min-height: 25rem; // 400px
+    background-color: transparent; // 背景色を透明に変更
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding: 5rem 0;
+
+    &__container {
+        @include container;
+        position: relative;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 15rem;
+    }
+
+    // 背景テキスト "Implant"
+    &__bg-text {
+        position: absolute;
+        top: -3.5rem; // Adjust position down slightly
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        font-family: $font-family-script;
+        font-size: 9rem; // 144px from Figma
+        color: #e9ecf2;
+        z-index: 1;
+        line-height: 0.5;
+        white-space: nowrap;
+        pointer-events: none;
+        height: 100%;
+        padding-left: 2rem; // Left offset to match design
+
+        @include respond-below('lg') {
+            font-size: 7rem;
+            padding-left: 1.5rem;
+            top: -2.75rem;
+        }
+
+        @include respond-below('md') {
+            font-size: 5rem;
+            padding-left: 1rem;
+            top: -2rem;
+        }
+    }
+
+    // コンテンツエリア
+    &__content {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        align-items: flex-start;
+    }
+
+    // メインタイトル "インプラント"
+    &__title {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-bold;
+        font-size: 3rem; // 48px from Figma
+        color: transparent;
+        background: linear-gradient(90deg, $color-primary-dark 0%, rgba($color-primary-dark, 0.8) 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        letter-spacing: 0.3rem; // 4.8px from Figma
+        line-height: 1.35;
+        margin: 0;
+
+        @include respond-below('lg') {
+            font-size: 2.5rem;
+            letter-spacing: 0.25rem;
+        }
+
+        @include respond-below('md') {
+            font-size: 2rem;
+            letter-spacing: 0.2rem;
+        }
+    }
+
+    // パンくずリスト
+    &__breadcrumb {
+        // No additional styling needed, just remove positioning
+    }
+}
+
+// メインコンテンツセクション
+.implant-content {
+    background-color: transparent; // 背景色を透明に変更
+    padding: 5rem 0;
+
+    &__container {
+        @include container;
+        display: grid;
+        grid-template-columns: 1fr 15.625rem; // メイン + サイドバー(250px)
+        gap: 5rem; // 80px gap
+        align-items: start;
+
+        @include respond-below('lg') {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+    }
+
+    &__main {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    &__hero {
+        border-radius: 0;
+        overflow: hidden;
+        margin-bottom: 1.5rem;
+
+        @include respond-below('lg') {
+            margin-left: -2rem;
+            margin-right: -2rem;
+            width: calc(100% + 4rem);
+        }
+    }
+
+    &__hero-img {
+        width: 100%;
+        height: 20rem; // 320px height
+        object-fit: cover;
+        object-position: center;
+    }
+
+    // メインタイトル（画像の下）
+    &__main-title {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-bold;
+        font-size: 1.875rem; // 30px
+        color: #737484; // txt-737484 from Figma
+        letter-spacing: 0.09375rem; // 1.5px
+        line-height: 1.35;
+        margin: 0 0 2rem;
+        padding: 0 0 1.125rem; // 18px padding bottom for underline spacing
+        border-bottom: 1.5px solid #E0E0E5; // Underline with correct color and thickness
+        
+        @include respond-below('md') {
+            font-size: 1.5rem; // 24px on mobile
+            letter-spacing: 0.075rem; // 1.2px
+        }
+    }
+
+    &__section {
+        margin-bottom: 3rem;
+    }
+
+    &__section-title {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-bold;
+        font-size: 1.5rem; // 24px
+        color: #737484;
+        letter-spacing: 0.075rem; // 1.2px
+        line-height: 1.35;
+        margin: 0 0 2rem;
+        padding: 0.75rem 1rem;
+        background-color: #f0f0f2; // グレー背景 from existing design
+        border-radius: 0;
+    }
+
+    &__section-content {
+        padding: 0;
+    }
+
+    &__text {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-regular;
+        font-size: 1rem; // 16px
+        color: #595a5d;
+        letter-spacing: 0.02rem; // 0.32px
+        line-height: 1.5;
+        margin: 0 0 1rem;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        // ハイライトテキスト用のモディファイア
+        &--highlight {
+            position: relative;
+            
+            &::before {
+                content: '';
+                position: absolute;
+                bottom: 0.2rem;
+                left: 0;
+                right: 0;
+                height: 0.625rem; // 10px
+                background-color: #FFFAD7; // Yellow highlight color from Figma
+                z-index: -1;
+            }
+        }
+    }
+
+    &__notes {
+        margin-top: 2rem;
+        font-size: 0.875rem; // 14px as shown in Figma
+        
+        .implant-content__text {
+            margin-bottom: 0.5rem;
+            
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+        
+        // ハイライト用スタイル
+        .highlight {
+            position: relative;
+            background-color: #fffad7; // yellow-FFFAD7 from Figma
+            padding: 0 0.125rem; // 2px horizontal padding for better appearance
+        }
+    }
+
+
+    // サイドバー
+    &__sidebar {
+        position: sticky;
+        top: 2rem;
+        align-self: start;
+
+        @include respond-below('lg') {
+            display: none;
+        }
+    }
+}
+
+// インプラント詳細画像セクション
+.implant-detail {
+    &__image {
+        margin-bottom: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #ffffff;
+        border-radius: 0;
+        overflow: hidden;
+    }
+
+    &__img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        display: block;
+    }
+}
+
+// インプラント比較表
+.implant-comparison-table {
+    border: 1.5px solid #E0E0E5;
+    border-radius: 0;
+    overflow: hidden;
+    background-color: #fff;
+    margin-top: 2rem;
+
+    &__row {
+        display: flex;
+        border-bottom: 1.5px solid #E0E0E5;
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        &.implant-comparison-table__header-row {
+            .implant-comparison-table__header {
+                background-color: #fff; // White background for top-left empty cell
+            }
+            
+            .implant-comparison-table__content {
+                background-color: rgba(#E0E0E5, 0.3); // Light gray background for header row
+                font-family: $font-family-primary;
+                font-weight: $font-weight-regular;
+                color: #595a5d; // Same dark color as regular text
+            }
+        }
+    }
+
+    &__header {
+        flex: 0 0 11.875rem; // 190px fixed width to match design
+        padding: 1rem;
+        font-family: $font-family-primary;
+        font-weight: $font-weight-semibold;
+        font-size: 1rem; // 16px
+        color: #595a5d; // Changed to match design - same as regular text
+        letter-spacing: 0.02rem; // 0.32px
+        line-height: 1.35;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-right: 1.5px solid #E0E0E5;
+        background-color: rgba(#E0E0E5, 0.3); // Light gray background for left column
+    }
+
+    &__content {
+        flex: 1;
+        padding: 1rem;
+        font-family: $font-family-primary;
+        font-weight: $font-weight-regular;
+        font-size: 1rem; // 16px
+        color: #595a5d;
+        letter-spacing: 0.02rem; // 0.32px
+        line-height: 1.35;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-right: 1.5px solid #E0E0E5;
+
+        &:last-child {
+            border-right: none;
+        }
+    }
+
+    // レスポンシブ対応
+    @include respond-below('lg') {
+        margin-left: -2rem;
+        margin-right: -2rem;
+        width: calc(100% + 4rem);
+
+        &__row {
+            flex-direction: column;
+            
+            &.implant-comparison-table__header-row {
+                flex-direction: row;
+                
+                .implant-comparison-table__header {
+                    display: none;
+                }
+            }
+        }
+
+        &__header {
+            flex: none;
+            border-right: none;
+            border-bottom: 1.5px solid #E0E0E5;
+            text-align: left;
+            justify-content: flex-start;
+        }
+
+        &__content {
+            border-right: none;
+            border-bottom: 1.5px solid #E0E0E5;
+            
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+    }
+
+    @include respond-below('md') {
+        &__header,
+        &__content {
+            padding: 0.75rem;
+            font-size: 0.875rem; // 14px on mobile
+        }
+    }
+}
+
+// インプラント料金表
+.implant-price-table {
+    border: 1.5px solid #E0E0E5;
+    border-radius: 0;
+    overflow: hidden;
+    background-color: #fff;
+    margin-top: 2rem;
+
+    &__row {
+        display: flex;
+        border-bottom: 1.5px solid #E0E0E5;
+
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+
+    &__item {
+        flex: 0 0 21.875rem; // 350px fixed width to match design
+        padding: 1rem;
+        font-family: $font-family-primary;
+        font-weight: $font-weight-semibold;
+        font-size: 1rem; // 16px
+        color: #737484;
+        letter-spacing: 0.02rem; // 0.32px
+        line-height: 1.35;
+        text-align: left;
+        display: flex;
+        align-items: center;
+        border-right: 1.5px solid #E0E0E5;
+        background-color: rgba(#E0E0E5, 0.3); // Light gray background for left column
+    }
+
+    &__cost {
+        flex: 1;
+        padding: 1rem;
+        font-family: $font-family-primary;
+        font-weight: $font-weight-regular;
+        font-size: 1rem; // 16px
+        color: #595a5d;
+        letter-spacing: 0.02rem; // 0.32px
+        line-height: 1.35;
+        text-align: right;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    // レスポンシブ対応
+    @include respond-below('lg') {
+        margin-left: -2rem;
+        margin-right: -2rem;
+        width: calc(100% + 4rem);
+
+        &__row {
+            flex-direction: column;
+        }
+
+        &__item {
+            flex: none;
+            border-right: none;
+            border-bottom: 1.5px solid #E0E0E5;
+            text-align: left;
+            justify-content: flex-start;
+        }
+
+        &__cost {
+            border-bottom: none;
+            text-align: left;
+            justify-content: flex-start;
+            
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+    }
+
+    @include respond-below('md') {
+        &__item,
+        &__cost {
+            padding: 0.75rem;
+            font-size: 0.875rem; // 14px on mobile
+        }
+    }
+}
+

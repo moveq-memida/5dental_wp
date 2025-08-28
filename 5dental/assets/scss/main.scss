@@ -1,0 +1,68 @@
+// ========================================
+// Main SCSS File
+// ========================================
+
+// 1. Abstracts
+// 変数、mixin、function など
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+
+// 2. Base
+// リセットCSS、基本的なHTML要素のスタイル
+@import 'base/reset';
+@import 'base/typography';
+
+// 3. Layout
+// ヘッダー、フッター、サイドバーなどのレイアウト
+@import 'layout/header';
+@import 'layout/footer';
+
+// 4. Components
+// 再利用可能なコンポーネント
+@import 'components/buttons';
+@import 'components/section-title';
+@import 'components/section-title-with-subtitle';
+@import 'components/banners';
+@import 'components/headings';
+@import 'components/hamburger-menu';
+@import 'components/category-menu';
+@import 'components/category-menu-enhanced';
+@import 'components/breadcrumb';
+@import 'components/clinic-features-table';
+
+// 5. Pages
+// ページ固有のスタイル
+@import 'pages/features';
+@import 'pages/first-visit';
+@import 'pages/appointment-info';
+@import 'pages/clinic-features';
+@import 'pages/concept';
+@import 'pages/aesthetic-dentistry';
+@import 'pages/laminate-veneer';
+@import 'pages/whitening';
+@import 'pages/services';
+@import 'pages/information';
+@import 'pages/menu';
+@import 'pages/gum-disease';
+@import 'pages/cavity';
+@import 'pages/orthodontics';
+@import 'pages/invisalign-go';
+@import 'pages/invisalign';
+@import 'pages/gum-shaping';
+@import 'pages/implant';
+@import 'pages/nail-art';
+@import 'pages/denture';
+@import 'pages/direct-bonding';
+@import 'pages/occlusion';
+@import 'pages/cleaning';
+@import 'pages/urgent';
+@import 'pages/no-pain';
+@import 'pages/white-teeth';
+@import 'pages/frontteeth-filling';
+@import 'pages/post-crown';
+@import 'pages/tetracycline';
+@import 'pages/projecting-teeth';
+@import 'pages/pulpectomy';
+@import 'pages/access';
+@import 'pages/tour';
+@import 'pages/price'; 

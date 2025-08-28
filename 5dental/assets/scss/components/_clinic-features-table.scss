@@ -1,0 +1,137 @@
+// ========================================
+// Clinic Features Table Component
+// ========================================
+
+// テーブルセクション全体
+.clinic-features__table-section {
+    background-color: #F8F8F9; // 薄いグレー背景
+    padding: 5rem 0; // 80px 上下
+    width: 100%;
+}
+
+.clinic-features__table-container {
+    max-width: 75rem; // 1200px（コンテナ最大幅）
+    margin: 0 auto;
+    padding: 0 1rem; // 左右16px
+
+    @include respond-to('lg') {
+        padding: 0 2rem; // デスクトップでは左右32px
+    }
+}
+
+.clinic-features__table-wrapper {
+    padding: 5rem; // 上下左右80px
+    background-color: #fff; // 白背景
+}
+
+.clinic-features__table-inner {
+    overflow-x: auto;
+
+    @include respond-to('lg') {
+        overflow-x: visible;
+    }
+}
+
+.clinic-features__table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 0.0625rem solid #E0E0E0; // 1px - テーブル全体の外枠
+    background-color: #fff; // テーブル全体を白背景
+    font-family: $font-family-primary;
+    font-size: $font-size-sm;
+
+    @include respond-to('lg') {
+        font-size: $font-size-base;
+    }
+
+    tbody tr {
+        border-bottom: 0.0625rem solid #E0E0E0; // 1px
+        background-color: #fff; // 全行白背景
+
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+
+    // カテゴリ列
+    &-category {
+        padding: 0.75rem 1rem; // 12px 16px
+        font-weight: $font-weight-medium;
+        color: $color-text-body;
+        line-height: 1.5;
+        width: 25%;
+        vertical-align: middle;
+        text-align: center; // 中央寄せ
+        border-right: 0.0625rem solid #E0E0E0; // 1px
+        font-size: 0.8125rem; // 13px
+        background-color: #E0E0E5; // カテゴリ列のみ薄いグレー背景
+
+        @include respond-to('lg') {
+            padding: 0.875rem 1.25rem; // 14px 20px
+            font-size: 0.875rem; // 14px
+        }
+    }
+
+    // 評価列
+    &-rating {
+        padding: 0.75rem 1rem; // 12px 16px
+        width: 20%;
+        vertical-align: middle;
+        text-align: center; // 中央寄せ
+        border-right: 0.0625rem solid #E0E0E0; // 1px
+        background-color: #fff; // 白背景
+
+        @include respond-to('lg') {
+            padding: 0.875rem 1.25rem; // 14px 20px
+        }
+    }
+
+    // 説明列
+    &-description {
+        padding: 0.75rem 1rem; // 12px 16px
+        font-weight: $font-weight-regular;
+        color: $color-text-body;
+        line-height: 1.6;
+        width: 55%;
+        vertical-align: middle;
+        text-align: left;
+        font-size: 0.8125rem; // 13px
+        background-color: #fff; // 白背景
+
+        @include respond-to('lg') {
+            padding: 0.875rem 1.25rem; // 14px 20px
+            font-size: 0.875rem; // 14px
+            line-height: 1.7;
+        }
+    }
+}
+
+// 星評価コンポーネント
+.star-rating {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center; // 中央寄せ
+    gap: 0.0625rem; // 1px間隔
+    
+    &__star {
+        width: 1rem; // 16px
+        height: 1rem; // 16px
+        display: block;
+        object-fit: contain;
+
+        @include respond-to('lg') {
+            width: 1.125rem; // 18px
+            height: 1.125rem; // 18px
+        }
+    }
+
+    // モバイル対応
+    @include respond-below('sm') {
+        gap: 0.0625rem; // 1px
+        
+        &__star {
+            width: 0.875rem; // 14px
+            height: 0.875rem; // 14px
+        }
+    }
+}

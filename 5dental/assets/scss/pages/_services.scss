@@ -1,0 +1,268 @@
+// ========================================
+// Services Section
+// ========================================
+
+.services {
+    background-color: $color-background-light;
+    padding: $spacing-4xl 0;
+
+    @media (max-width: 767px) {
+        padding: $spacing-2xl 0;
+    }
+
+    &__container {
+        @include container;
+    }
+
+    // タイトル
+    &__title {
+        @extend .section-title;
+        margin-bottom: $spacing-2xl;
+
+        &-en {
+            @extend .section-title__en;
+
+            @media (max-width: 767px) {
+                font-size: $font-size-7xl;
+            }
+        }
+
+        &-jp {
+            @extend .section-title__jp;
+
+            @media (max-width: 767px) {
+                font-size: $font-size-2xl;
+            }
+        }
+    }
+
+    // ナビゲーションボタン
+    &__nav {
+        @include flex-center;
+        gap: $spacing-base;
+        margin-bottom: $spacing-3xl;
+
+        @media (max-width: $breakpoint-lg) {
+            flex-direction: column;
+            align-items: center;
+            gap: $spacing-sm;
+        }
+
+        &-button {
+            @extend .btn-nav;
+
+            @media (max-width: $breakpoint-lg) {
+                width: 100%;
+                max-width: 24rem;
+                justify-content: center;
+            }
+
+            &--active {
+                @extend .btn-nav--active;
+            }
+        }
+    }
+
+    // メニューセクション
+    &__sections {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-xl;
+    }
+
+    &__section {
+        background-color: $color-white;
+        border-radius: $border-radius-none;
+        overflow: hidden;
+        position: relative;
+        min-height: 29.25rem;
+
+        // ラミネートベニアセクション
+        &--laminate {
+            background: linear-gradient(rgba($color-primary, 0.8), rgba($color-primary, 0.8)), url('assets/images/menu-bg1.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: stretch;
+        }
+
+        // 審美歯科・その他セクション
+        &--regular {
+            background-color: $color-background-light;
+
+            .services__section-title {
+                color: $color-primary-dark;
+            }
+
+            .services__section-description {
+                color: $color-primary-dark;
+            }
+
+            .services__section-button {
+                color: $color-primary;
+
+                &-icon {
+                    background-color: $color-primary;
+                    color: $color-white;
+                }
+            }
+        }
+
+        &-content {
+            display: flex;
+            width: 100%;
+            align-items: center;
+
+            @media (max-width: $breakpoint-lg) {
+                flex-direction: column;
+            }
+        }
+
+        &-text {
+            flex: 1;
+            padding: $spacing-4xl $spacing-2xl;
+            @include flex-column-center;
+            justify-content: center;
+
+            @media (max-width: $breakpoint-lg) {
+                padding: $spacing-2xl $spacing-xl;
+            }
+        }
+
+        &-number {
+            font-family: $font-family-script;
+            font-size: $font-size-7xl;
+            color: rgba(197, 204, 219, 0.8);
+            line-height: $line-height-script;
+            margin-bottom: $spacing-base;
+            text-align: right;
+            margin-right: $spacing-xl;
+
+            @media (max-width: 767px) {
+                font-size: $font-size-6xl;
+                text-align: left;
+                margin-right: 0;
+                margin-bottom: $spacing-sm;
+            }
+        }
+
+        &-title {
+            font-family: $font-family-primary;
+            font-weight: $font-weight-black;
+            font-size: $font-size-3xl;
+            color: $color-white;
+            letter-spacing: 0.0875rem;
+            margin-bottom: $spacing-xl;
+            line-height: $line-height-normal;
+
+            @media (max-width: 767px) {
+                font-size: $font-size-2xl;
+            }
+        }
+
+        &-description {
+            font-family: $font-family-primary;
+            font-weight: $font-weight-medium;
+            font-size: $font-size-base;
+            color: $color-white;
+            letter-spacing: $letter-spacing-normal;
+            line-height: $line-height-normal;
+            margin-bottom: 2.5rem;
+        }
+
+        &-button {
+            @include button-base;
+            @include flex-center;
+            gap: 0.75rem;
+            background: none;
+            border: none;
+            color: $color-white;
+            font-size: $font-size-lg;
+            letter-spacing: $letter-spacing-normal;
+            text-decoration: none;
+            padding: 0;
+            cursor: pointer;
+            transition: opacity $transition-normal;
+            align-self: flex-end;
+            margin-left: 9.625rem;
+
+            &:hover {
+                opacity: 0.8;
+            }
+
+            @media (max-width: 767px) {
+                margin-left: 0;
+                align-self: flex-start;
+            }
+
+            &-icon {
+                width: 2.75rem;
+                height: 2.75rem;
+                border-radius: $border-radius-full;
+                background-color: $color-white;
+                @include flex-center;
+                flex-shrink: 0;
+            }
+        }
+
+        // バナーエリア
+        &-banners {
+            flex: 0 0 35.625rem;
+            padding: $spacing-4xl $spacing-lg;
+            display: flex;
+            flex-direction: column;
+            gap: $spacing-base;
+
+            @media (max-width: $breakpoint-lg) {
+                flex: none;
+                padding: $spacing-xl $spacing-lg;
+            }
+        }
+
+        // メニューエリア
+        &-menus {
+            flex: 0 0 35.625rem;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            align-content: start;
+
+            @media (max-width: $breakpoint-lg) {
+                flex: none;
+                grid-template-columns: 1fr;
+            }
+        }
+    }
+
+    // バナー
+    &__banner {
+        @extend .service-banner;
+    }
+
+    // メニューアイテム
+    &__menu-item {
+        @extend .menu-item;
+    }
+
+    // メインボタン
+    &__main-button {
+        @extend .btn-main;
+        margin: $spacing-2xl auto 0;
+        background-color: $color-white;
+
+        &:hover {
+            background-color: #f0f0f1;
+        }
+
+        &-icon {
+            width: 2.625rem;
+            height: 2.625rem;
+            flex-shrink: 0;
+            border-radius: $border-radius-full;
+            background-color: $color-primary;
+            @include flex-center;
+        }
+    }
+} 

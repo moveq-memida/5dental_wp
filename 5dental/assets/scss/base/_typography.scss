@@ -1,0 +1,97 @@
+// ========================================
+// Typography
+// ========================================
+
+// 見出し
+h1, h2, h3, h4, h5, h6 {
+    font-family: $font-family-primary;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-tight;
+    margin: 0;
+}
+
+h1 {
+    font-size: $font-size-4xl;
+    letter-spacing: $letter-spacing-widest;
+}
+
+h2 {
+    font-size: $font-size-3xl;
+    letter-spacing: $letter-spacing-wider;
+}
+
+h3 {
+    font-size: $font-size-2xl;
+    letter-spacing: $letter-spacing-wide;
+}
+
+h4 {
+    font-size: $font-size-xl;
+    letter-spacing: $letter-spacing-wide;
+}
+
+h5 {
+    font-size: $font-size-lg;
+    letter-spacing: $letter-spacing-normal;
+}
+
+h6 {
+    font-size: $font-size-base;
+    letter-spacing: $letter-spacing-normal;
+}
+
+// 段落
+p {
+    font-family: $font-family-primary;
+    font-weight: $font-weight-medium;
+    font-size: $font-size-base;
+    line-height: $line-height-normal;
+    letter-spacing: $letter-spacing-normal;
+    margin: 0;
+}
+
+// スクリプトフォント用のクラス
+.text-script {
+    font-family: $font-family-script;
+    line-height: $line-height-script;
+    font-weight: $font-weight-regular;
+}
+
+// テキストサイズ
+.text-xs { font-size: $font-size-xs; }
+.text-sm { font-size: $font-size-sm; }
+.text-base { font-size: $font-size-base; }
+.text-lg { font-size: $font-size-lg; }
+.text-xl { font-size: $font-size-xl; }
+.text-2xl { font-size: $font-size-2xl; }
+.text-3xl { font-size: $font-size-3xl; }
+.text-4xl { font-size: $font-size-4xl; }
+.text-5xl { font-size: $font-size-5xl; }
+.text-6xl { font-size: $font-size-6xl; }
+.text-7xl { font-size: $font-size-7xl; }
+.text-8xl { font-size: $font-size-8xl; }
+
+// フォントウェイト
+.font-normal { font-weight: $font-weight-regular; }
+.font-medium { font-weight: $font-weight-medium; }
+.font-semibold { font-weight: $font-weight-semibold; }
+.font-bold { font-weight: $font-weight-bold; }
+.font-black { font-weight: $font-weight-black; }
+
+// テキストカラー
+.text-primary { color: $color-primary; }
+.text-primary-dark { color: $color-primary-dark; }
+.text-white { color: $color-white; }
+.text-light { color: $color-text-light; }
+
+// テキスト配置
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+// レターサパーシング
+.tracking-tight { letter-spacing: $letter-spacing-tight; }
+.tracking-normal { letter-spacing: $letter-spacing-normal; }
+.tracking-wide { letter-spacing: $letter-spacing-wide; }
+.tracking-wider { letter-spacing: $letter-spacing-wider; }
+.tracking-widest { letter-spacing: $letter-spacing-widest; } 

@@ -1,0 +1,284 @@
+// ========================================
+// Projecting Teeth Page
+// ========================================
+
+// 出っ歯/八重歯セクション
+.projecting-teeth-section {
+    margin-top: 2rem;
+    
+    &__main-title {
+        margin-bottom: 5rem; // 80px
+    }
+    
+    &__title {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-bold;
+        font-size: 1.875rem; // 30px
+        color: #737484; // txt-737484 from Figma
+        letter-spacing: 0.09375rem; // 1.5px
+        line-height: 1.35;
+        margin: 0 0 1rem 0;
+    }
+    
+    &__title-line {
+        width: 100%;
+        height: 1.5px;
+        background-color: #d4d4d6;
+        margin-bottom: 2rem;
+    }
+}
+
+// サブセクション
+.projecting-teeth-subsection {
+    margin-top: 2rem;
+    
+    &__content {
+        display: grid;
+        grid-template-columns: 398px 1fr;
+        gap: 3rem;
+        align-items: center;
+        margin-top: 2rem;
+        
+        @include respond-to('md') {
+            gap: 4rem;
+        }
+        
+        // モバイルでは縦に積む
+        @media (max-width: $breakpoint-md - 1px) {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+    }
+    
+    &__image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        img {
+            max-width: 200px;
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+    }
+    
+    &__text {
+        p {
+            font-family: $font-family-primary;
+            font-weight: $font-weight-regular;
+            font-size: 1rem; // 16px
+            color: #595a5d; // txt-595A5D from Figma
+            letter-spacing: 0.02rem; // 0.32px
+            line-height: 1.5;
+            margin: 0 0 1.5rem 0;
+            
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+    
+    &__bottom-text {
+        margin-top: 2rem;
+        
+        p {
+            font-family: $font-family-primary;
+            font-weight: $font-weight-regular;
+            font-size: 1rem; // 16px
+            color: #595a5d; // txt-595A5D from Figma
+            letter-spacing: 0.02rem; // 0.32px
+            line-height: 1.5;
+            margin: 0 0 1.5rem 0;
+            
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+// 施術症例紹介セクション（新規追加分）
+.projecting-teeth-content__section {
+    margin-top: 4rem;
+    
+    // 各ケースセクション
+    .gum-shaping-content__section {
+        margin-bottom: 4rem; // 64px - ケース間のスペーシング
+        
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    
+    // 見出しスタイル
+    .h4-left-line {
+        margin-bottom: 1.625rem; // 26px
+    }
+    
+    // 画像関連のスタイル調整（デフォルトはpaddingなし）
+    .gum-shaping-case__images {
+        padding-left: 0;
+        padding-right: 0;
+        overflow: hidden;
+        background: none;
+        box-shadow: none;
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+        margin-bottom: 0.5rem; // 8px
+    }
+    
+    // テキストスタイル（全セクション共通）
+    .gum-shaping-case__text {
+        margin-top: 3rem; // 48px
+        margin-bottom: 1rem; // 16px
+        
+        p {
+            font-family: $font-family-primary;
+            font-weight: $font-weight-regular;
+            font-size: 1rem; // 16px
+            color: #595a5d;
+            letter-spacing: 0.02rem; // 0.32px
+            line-height: 1.5;
+            margin: 0 0 1.5rem 0; // 24px段落間マージン（Figmaデザインに合わせて調整）
+            
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+// 施術症例紹介セクション専用のスタイル（最後のセクションにpadding追加とラベル表示）
+.projecting-teeth-content__section:last-child {
+    .gum-shaping-case__images {
+        padding-left: 2.5rem !important; // 40px
+        padding-right: 2.5rem !important; // 40px
+        
+        @media (max-width: $breakpoint-md - 1px) {
+            padding-left: 1rem !important; // 16px
+            padding-right: 1rem !important; // 16px
+        }
+    }
+    
+    .gum-shaping-case__label {
+        display: block !important;
+        position: absolute;
+        bottom: 1rem;
+        left: 1rem;
+        z-index: 10;
+        color: #ffffff;
+        font-weight: $font-weight-black;
+        font-size: 1.125rem;
+        
+        @media (max-width: $breakpoint-md - 1px) {
+            bottom: 1rem;
+            left: 1rem;
+        }
+    }
+    
+    .gum-shaping-case__image {
+        height: auto !important;
+        max-height: none !important;
+        object-fit: contain;
+        
+        @media (max-width: $breakpoint-md - 1px) {
+            width: 100%;
+            height: auto !important;
+            min-height: unset !important;
+        }
+    }
+    
+    .gum-shaping-case__image-container {
+        position: relative;
+        height: auto !important;
+        min-height: unset !important;
+        
+        @media (max-width: $breakpoint-md - 1px) {
+            width: 100%;
+            height: auto !important;
+            min-height: unset !important;
+        }
+    }
+    
+    // ラベル表示設定（デフォルトは非表示）
+    .gum-shaping-case__label {
+        display: none;
+    }
+    
+    // テーブルスタイル（既存のgum-shapingからコピー）
+    .gum-shaping-case__table {
+        margin-top: 3rem; // 48px
+        border: 1.5px solid #E0E0E5;
+        border-radius: 0;
+        overflow: hidden;
+        
+        &-row {
+            display: flex;
+            align-items: stretch;
+            min-height: 3.5rem; // 56px minimum height
+            border-bottom: 1.5px solid #E0E0E5;
+            
+            &:last-child {
+                border-bottom: none;
+            }
+            
+            @include respond-below('md') {
+                flex-direction: column;
+                min-height: auto;
+            }
+        }
+        
+        &-header {
+            flex: 0 0 11.875rem; // 190px fixed width to match design
+            padding: 1rem;
+            font-family: $font-family-primary;
+            font-weight: $font-weight-semibold;
+            font-size: 1rem; // 16px
+            color: #737484;
+            letter-spacing: 0.02rem; // 0.32px
+            line-height: 1.35;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(#E0E0E5, 0.3); // Light gray background
+            border-right: 1.5px solid #E0E0E5;
+            
+            @include respond-below('md') {
+                flex: none;
+                border-right: none;
+                border-bottom: 1.5px solid #E0E0E5;
+                text-align: left;
+                background-color: #f0f0f2 !important; // モバイルでも背景色を維持
+            }
+        }
+        
+        &-content {
+            flex: 1;
+            padding: 1rem;
+            font-family: $font-family-primary;
+            font-weight: $font-weight-regular;
+            font-size: 1rem; // 16px
+            color: #595a5d;
+            letter-spacing: 0.02rem; // 0.32px
+            line-height: 1.35;
+            display: flex;
+            align-items: center;
+            background-color: #ffffff;
+            
+            @include respond-below('md') {
+                border-bottom: none;
+            }
+        }
+        
+        @include respond-below('sm') {
+            &-header,
+            &-content {
+                padding: 0.75rem;
+                font-size: 0.875rem; // 14px on mobile
+            }
+        }
+    }
+}

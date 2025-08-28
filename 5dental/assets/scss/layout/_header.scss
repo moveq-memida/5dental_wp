@@ -1,0 +1,175 @@
+// ========================================
+// Header Layout
+// ========================================
+
+.header {
+    background-color: transparent; // 背景色を透明に変更
+    border-bottom: none; // ボーダーを削除
+    position: relative;
+    width: 100%;
+    z-index: 1200;
+
+    &__container {
+        @include flex-between;
+        height: 5rem;
+        padding-left: 40px;
+        padding-right: 40px;
+        width: 100%;
+        max-width: none;
+        position: relative; // closeボタンの基準位置
+
+        @media (min-width: $breakpoint-md) {
+            height: 6.25rem;
+        }
+    }
+
+    // ロゴ
+    &__logo {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        flex-shrink: 0;
+        color: #231815; // デフォルトのロゴ色
+        transition: color $transition-normal;
+
+        &-svg {
+            height: 3rem;
+            width: auto;
+            max-width: 9.4375rem;
+
+            @media (min-width: $breakpoint-md) {
+                height: 3.125rem;
+            }
+        }
+
+        &-img {
+            height: 3rem;
+            width: auto;
+            max-width: 9.4375rem;
+
+            @media (min-width: $breakpoint-md) {
+                height: 3.125rem;
+            }
+        }
+    }
+
+    // ナビゲーション
+    &__nav {
+        display: none;
+        flex: 1;
+        margin-left: $spacing-2xl;
+        margin-right: $spacing-xl; // ハンバーガーメニューとの間隔を追加
+
+        @media (min-width: $breakpoint-md) {
+            display: block;
+        }
+
+        &-list {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end; // 右寄せに変更
+            list-style: none;
+            gap: $spacing-lg;
+
+            @media (min-width: $breakpoint-lg) {
+                gap: $spacing-xl;
+            }
+
+            @media (min-width: $breakpoint-xl) {
+                gap: 2.5rem;
+            }
+        }
+
+        &-item {
+            position: relative;
+        }
+
+        &-link {
+            display: block;
+            color: $color-primary-dark;
+            text-decoration: none;
+            font-weight: $font-weight-bold;
+            font-size: 0.9375rem;
+            letter-spacing: $letter-spacing-wide;
+            white-space: nowrap;
+            transition: color $transition-normal;
+            padding: $spacing-sm 0;
+            position: relative;
+
+            &:hover {
+                color: $color-primary;
+            }
+
+            // アクティブ状態
+            &--active {
+                color: $color-primary;
+            }
+
+            // ホバーアニメーション
+            &::after {
+                content: '';
+                position: absolute;
+                width: 0;
+                height: $border-radius-sm;
+                bottom: 0;
+                left: 50%;
+                background-color: $color-primary;
+                transition: all $transition-normal;
+                transform: translateX(-50%);
+            }
+
+            &:hover::after {
+                width: 100%;
+            }
+        }
+    }
+
+    // ハンバーガーメニュー
+    &__hamburger {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: $spacing-xs;
+        gap: $border-radius-sm;
+        flex-shrink: 0;
+        width: 2.5rem;
+        height: 2.5rem;
+        justify-content: center;
+
+        &-icon {
+            width: $spacing-lg;
+            height: 0.9375rem;
+            display: block;
+            transition: all $transition-normal;
+
+            svg {
+                width: 100%;
+                height: 100%;
+                fill: $color-primary;
+                transition: fill $transition-normal;
+            }
+        }
+
+        &-text {
+            font-size: $font-size-xs;
+            color: $color-primary;
+            font-weight: $font-weight-bold;
+            letter-spacing: $letter-spacing-tight;
+            margin-top: $border-radius-sm;
+            line-height: 1;
+        }
+
+        &:hover {
+            .header__hamburger-icon svg {
+                fill: $color-primary-dark;
+            }
+
+            .header__hamburger-text {
+                color: $color-primary-dark;
+            }
+        }
+    }
+} 

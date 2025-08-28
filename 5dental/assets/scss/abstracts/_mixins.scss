@@ -1,0 +1,225 @@
+// ========================================
+// Mixins
+// ========================================
+
+// レスポンシブブレークポイント
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == 'sm' {
+    @media (min-width: $breakpoint-sm) { @content; }
+  }
+  @if $breakpoint == 'md' {
+    @media (min-width: $breakpoint-md) { @content; }
+  }
+  @if $breakpoint == 'lg' {
+    @media (min-width: $breakpoint-lg) { @content; }
+  }
+  @if $breakpoint == 'xl' {
+    @media (min-width: $breakpoint-xl) { @content; }
+  }
+}
+
+@mixin respond-below($breakpoint) {
+  @if $breakpoint == 'sm' {
+    @media (max-width: $breakpoint-sm - 1px) { @content; }
+  }
+  @if $breakpoint == 'md' {
+    @media (max-width: $breakpoint-md - 1px) { @content; }
+  }
+  @if $breakpoint == 'lg' {
+    @media (max-width: $breakpoint-lg - 1px) { @content; }
+  }
+  @if $breakpoint == 'xl' {
+    @media (max-width: $breakpoint-xl - 1px) { @content; }
+  }
+}
+
+// コンテナスタイル
+@mixin container {
+  max-width: $max-width-container;
+  margin: 0 auto;
+  padding: 0 $spacing-base; // 1rem (16px) に変更
+}
+
+// Flexbox センタリング
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-column-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+// ボタンスタイル
+@mixin button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: $transition-normal;
+  font-family: $font-family-primary;
+  font-weight: $font-weight-black;
+}
+
+@mixin button-rounded {
+  @include button-base;
+  border-radius: $border-radius-pill;
+  padding: 0 $spacing-lg;
+  height: 3.75rem;
+  box-shadow: $shadow-sm;
+
+  &:hover {
+    transform: translateY(-0.125rem);
+    box-shadow: $shadow-md;
+  }
+}
+
+// テキストスタイル
+@mixin text-title($size: $font-size-4xl) {
+  font-family: $font-family-primary;
+  font-weight: $font-weight-bold;
+  font-size: $size;
+  color: $color-primary-dark;
+  letter-spacing: $letter-spacing-widest;
+  line-height: $line-height-tight;
+}
+
+@mixin text-script($size: $font-size-8xl) {
+  font-family: $font-family-script;
+  font-size: $size;
+  line-height: $line-height-script;
+  font-weight: $font-weight-regular;
+}
+
+@mixin text-body {
+  font-family: $font-family-primary;
+  font-weight: $font-weight-medium;
+  font-size: $font-size-base;
+  color: $color-primary-dark;
+  letter-spacing: $letter-spacing-normal;
+  line-height: $line-height-normal;
+}
+
+// セクションタイトル
+@mixin section-title {
+  text-align: center;
+  margin-bottom: $spacing-5xl;
+  position: relative;
+
+  &__en {
+    @include text-script;
+    color: $color-text-overlay;
+    display: block;
+    margin-bottom: -1rem;
+  }
+
+  &__jp {
+    @include text-title;
+    margin: 0;
+  }
+}
+
+// 画像マスク
+@mixin image-mask($mask-url) {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+// アイコンボタン
+@mixin icon-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: $border-radius-full;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: $transition-normal;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+// 背景オーバーレイ
+@mixin background-overlay($overlay-color: rgba(0, 0, 0, 0.5)) {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $overlay-color;
+    z-index: $z-index-overlay;
+  }
+}
+
+// 番号スタイル
+@mixin decorative-number {
+  font-family: $font-family-script;
+  font-size: $font-size-7xl;
+  color: transparent;
+  -webkit-text-stroke: 0.0625rem rgba($color-primary, 0.5);
+  text-stroke: 0.0625rem rgba($color-primary, 0.5);
+  line-height: $line-height-script;
+  opacity: 0.5;
+}
+
+// グリッドレスポンシブ
+@mixin grid-responsive($mobile: 1, $tablet: 2, $desktop: 3) {
+  display: grid;
+  grid-template-columns: repeat($mobile, 1fr);
+  gap: $spacing-lg;
+
+  @include respond-to(md) {
+    grid-template-columns: repeat($tablet, 1fr);
+    gap: $spacing-xl;
+  }
+
+  @include respond-to(lg) {
+    grid-template-columns: repeat($desktop, 1fr);
+    gap: $spacing-2xl;
+  }
+}
+
+// ホバーエフェクト
+@mixin hover-lift {
+  transition: $transition-normal;
+
+  &:hover {
+    transform: translateY(-0.125rem);
+  }
+}
+
+// 絶対位置センタリング
+@mixin absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// クリアフィックス
+@mixin clearfix {
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+} 

@@ -1,0 +1,193 @@
+// ========================================
+// Post Crown Page
+// ========================================
+
+// 差し歯の色セクション
+.post-crown-section {
+    margin-top: 2rem;
+    
+    &__main-title {
+        margin-bottom: 5rem; // 80px
+    }
+    
+    &__title {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-bold;
+        font-size: 1.875rem; // 30px
+        color: #737484; // txt-737484 from Figma
+        letter-spacing: 0.09375rem; // 1.5px
+        line-height: 1.35;
+        margin: 0 0 1rem 0;
+    }
+    
+    &__title-line {
+        width: 100%;
+        height: 1.5px;
+        background-color: #d4d4d6;
+        margin-bottom: 2rem;
+    }
+}
+
+// サブセクション
+.post-crown-subsection {
+    margin-top: 2rem;
+    
+    &__content {
+        display: grid;
+        grid-template-columns: 398px 1fr;
+        gap: 3rem;
+        align-items: center;
+        margin-top: 2rem;
+        
+        @include respond-to('md') {
+            gap: 4rem;
+        }
+        
+        // モバイルでは縦に積む
+        @media (max-width: $breakpoint-md - 1px) {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+    }
+    
+    &__image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        img {
+            max-width: 200px;
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+    }
+    
+    &__text {
+        p {
+            font-family: $font-family-primary;
+            font-weight: $font-weight-regular;
+            font-size: 1rem; // 16px
+            color: #595a5d; // txt-595A5D from Figma
+            letter-spacing: 0.02rem; // 0.32px
+            line-height: 1.5;
+            margin: 0 0 1.5rem 0;
+            
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+    
+    &__bottom-text {
+        margin-top: 2rem;
+        
+        p {
+            font-family: $font-family-primary;
+            font-weight: $font-weight-regular;
+            font-size: 1rem; // 16px
+            color: #595a5d; // txt-595A5D from Figma
+            letter-spacing: 0.02rem; // 0.32px
+            line-height: 1.5;
+            margin: 0 0 1.5rem 0;
+            
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+// 施術症例紹介セクション
+.post-crown-content__section {
+    margin-top: 4rem;
+    
+    // 各ケースセクション
+    .gum-shaping-content__section {
+        margin-bottom: 4rem; // 64px - ケース間のスペーシング
+        
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    
+    // white-teethページと同じスタイル調整を適用
+    .h4-left-line {
+        margin-bottom: 1.625rem; // 26px
+    }
+    
+    .gum-shaping-case__images {
+        padding-left: 2.5rem; // 40px
+        padding-right: 2.5rem; // 40px
+        overflow: hidden;
+        background: none;
+        box-shadow: none;
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+        margin-bottom: 0.5rem; // 8px
+        
+        @media (max-width: $breakpoint-md - 1px) {
+            padding-left: 1rem; // 16px
+            padding-right: 1rem; // 16px
+        }
+    }
+    
+    .gum-shaping-case__image {
+        height: auto !important;
+        max-height: none !important;
+        object-fit: contain;
+        
+        @media (max-width: $breakpoint-md - 1px) {
+            width: 100%;
+            height: auto !important;
+            min-height: unset !important;
+        }
+    }
+    
+    .gum-shaping-case__image-container {
+        position: relative;
+        height: auto !important;
+        min-height: unset !important;
+        
+        @media (max-width: $breakpoint-md - 1px) {
+            width: 100%;
+            height: auto !important;
+            min-height: unset !important;
+        }
+    }
+    
+    .gum-shaping-case__label {
+        position: absolute;
+        bottom: 1rem;
+        left: 1rem;
+        z-index: 10;
+        color: #ffffff;
+        font-weight: $font-weight-black;
+        font-size: 1.125rem;
+        
+        @media (max-width: $breakpoint-md - 1px) {
+            bottom: 1rem;
+            left: 1rem;
+        }
+    }
+    
+    .gum-shaping-case__text {
+        margin-top: 1rem; // 16px
+        margin-bottom: 1rem; // 16px
+        
+        p {
+            font-family: $font-family-primary;
+            font-weight: $font-weight-regular;
+            font-size: 1rem; // 16px
+            color: #595a5d;
+            letter-spacing: 0.02rem; // 0.32px
+            line-height: 1.5;
+            margin: 0 0 0.75rem 0; // 12px段落間マージン
+            
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}

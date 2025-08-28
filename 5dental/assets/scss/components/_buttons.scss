@@ -1,0 +1,224 @@
+// ========================================
+// Button Components
+// ========================================
+
+// メインボタン
+.btn-main {
+    @include button-rounded;
+    @include flex-between;
+    width: 22.5rem;
+    background-color: $color-background-white;
+    color: $color-primary;
+    font-size: $font-size-lg;
+    letter-spacing: $letter-spacing-normal;
+
+    &:hover {
+        background-color: #f0f0f1;
+        color: $color-primary-dark;
+    }
+
+    &__icon {
+        width: 2.625rem;
+        height: 2.625rem;
+        flex-shrink: 0;
+    }
+}
+
+// セクションボタン（小さめ）
+.btn-section {
+    @include button-base;
+    @include flex-center;
+    gap: 0.75rem;
+    color: $color-primary;
+    font-size: $font-size-lg;
+    letter-spacing: $letter-spacing-normal;
+    text-align: right;
+    padding: 0;
+
+    &:hover {
+        color: $color-primary-dark;
+    }
+
+    &__icon {
+        width: $spacing-lg;
+        height: $spacing-lg;
+        flex-shrink: 0;
+    }
+
+    // 白色バージョン
+    &--white {
+        color: $color-white;
+
+        &:hover {
+            color: $color-text-light;
+        }
+    }
+}
+
+// アイコンボタン
+.btn-icon {
+    @include icon-button;
+    width: $spacing-lg;
+    height: $spacing-lg;
+    background-color: $color-primary;
+    color: $color-white;
+
+    &:hover {
+        background-color: $color-primary-dark;
+    }
+
+    // 透明バージョン
+    &--transparent {
+        background-color: rgba($color-white, 0);
+
+        &:hover {
+            background-color: $color-primary;
+        }
+    }
+
+    // 小さめサイズ
+    &--sm {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    // 大きめサイズ
+    &--lg {
+        width: 2.75rem;
+        height: 2.75rem;
+    }
+}
+
+// ナビゲーションボタン（サービスセクション用）
+.btn-nav {
+    @include button-base;
+    @include flex-center;
+    background-color: $color-background-light;
+    border: 0.09375rem solid $color-border;
+    border-radius: $border-radius-none;
+    padding: $spacing-base $spacing-xl;
+    font-size: $font-size-xl;
+    color: $color-primary;
+    letter-spacing: $letter-spacing-wide;
+    gap: $spacing-sm;
+    min-height: 3.75rem;
+
+    &:hover {
+        background-color: $color-primary;
+        color: $color-white;
+    }
+
+    // アクティブ状態
+    &--active {
+        background-color: $color-primary;
+        color: $color-white;
+
+        .btn-nav__icon {
+            background-color: $color-white;
+            color: $color-primary;
+        }
+    }
+
+    &__icon {
+        width: 0.9375rem;
+        height: 0.9375rem;
+        border-radius: $border-radius-full;
+        background-color: $color-border;
+        @include flex-center;
+        font-size: $font-size-xs;
+        color: $color-primary;
+    }
+}
+
+// 項目内ボタン（小さなアイコンボタン）
+.btn-item {
+    @include icon-button;
+    position: absolute;
+    top: 3.375rem;
+    right: $spacing-base;
+    width: $spacing-lg;
+    height: $spacing-lg;
+    background-color: rgba($color-white, 0);
+    color: $color-primary;
+
+    &:hover {
+        background-color: $color-primary;
+        color: $color-white;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+}
+
+// リンクボタン（テキスト + アイコン）
+.btn-link {
+    @include flex-center;
+    gap: $spacing-sm;
+    color: $color-primary;
+    text-decoration: underline;
+    text-decoration-thickness: 0.0625rem;
+    text-underline-offset: $spacing-xs;
+    font-family: $font-family-primary;
+    font-weight: $font-weight-bold;
+    font-size: 0.875rem;
+    letter-spacing: $letter-spacing-tight;
+    transition: color $transition-normal;
+    text-align: right;
+    margin-top: $spacing-base;
+
+    &:hover {
+        color: $color-primary-dark;
+    }
+
+    &__icon {
+        width: $spacing-lg;
+        height: $spacing-lg;
+        flex-shrink: 0;
+    }
+}
+
+// セクションCTAボタン（削らないラミネートベニア用）
+.btn-section-cta {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 22rem; // 352px from Figma
+    height: 3.125rem; // 50px from Figma
+    background: linear-gradient(268deg, #949BA9 3.88%, #697181 100.68%);
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 1.875rem; // 30px from Figma
+    padding: 0 1.5rem;
+    font-family: $font-family-primary;
+    font-weight: $font-weight-black;
+    font-size: 1rem; // 16px from Figma
+    letter-spacing: 0.05rem; // 0.8px from Figma
+    line-height: 1.35;
+    transition: all $transition-normal;
+    
+    // Pseudo-element for arrow using SVG
+    &::after {
+        content: '';
+        position: absolute;
+        right: 0.75rem;
+        width: 2.125rem; // 34px from Figma
+        height: 2.125rem; // 34px from Figma
+        background-image: url('../images/arw-circle-line-white.svg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    
+    @include respond-below('md') {
+        width: 100%;
+        max-width: 22rem;
+    }
+
+    &:hover {
+        opacity: 0.9;
+    }
+} 

@@ -1,0 +1,830 @@
+// ========================================
+// Direct Bonding Page
+// ========================================
+
+// ダイレクトボンディングページのファーストビュー
+.direct-bonding-fv {
+    position: relative;
+    min-height: 25rem; // 400px
+    background-color: transparent; // 背景色を透明に変更
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding: 5rem 0;
+
+    &__container {
+        @include container;
+        position: relative;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 15rem;
+    }
+
+    // 背景テキスト "Direct-bonding"
+    &__bg-text {
+        position: absolute;
+        top: -3.5rem; // Adjust position down slightly
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        font-family: $font-family-script;
+        font-size: 9rem; // 144px from Figma
+        color: #e9ecf2;
+        z-index: 1;
+        line-height: 0.5;
+        white-space: nowrap;
+        pointer-events: none;
+        height: 100%;
+        padding-left: 2rem; // Left offset to match design
+
+        @include respond-below('lg') {
+            font-size: 7rem;
+            padding-left: 1.5rem;
+            top: -2.75rem;
+        }
+
+        @include respond-below('md') {
+            font-size: 5rem;
+            padding-left: 1rem;
+            top: -2rem;
+        }
+    }
+
+    // コンテンツエリア
+    &__content {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        align-items: flex-start;
+    }
+
+    // メインタイトル "ダイレクトボンディング"
+    &__title {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-bold;
+        font-size: 3rem; // 48px from Figma
+        color: transparent;
+        background: linear-gradient(90deg, $color-primary-dark 0%, rgba($color-primary-dark, 0.8) 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        letter-spacing: 0.3rem; // 4.8px from Figma
+        line-height: 1.35;
+        margin: 0;
+
+        @include respond-below('lg') {
+            font-size: 2.5rem;
+            letter-spacing: 0.25rem;
+        }
+
+        @include respond-below('md') {
+            font-size: 2rem;
+            letter-spacing: 0.2rem;
+        }
+    }
+
+    // パンくずリスト
+    &__breadcrumb {
+        // No additional styling needed, just remove positioning
+    }
+}
+
+// メインコンテンツセクション
+.direct-bonding-content {
+    background-color: transparent; // 背景色を透明に変更
+    padding: 5rem 0;
+
+    &__container {
+        @include container;
+        display: grid;
+        grid-template-columns: 1fr 15.625rem; // メイン + サイドバー(250px)
+        gap: 5rem; // 80px gap
+        align-items: start;
+
+        @include respond-below('lg') {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+    }
+
+    &__main {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    &__hero {
+        border-radius: 0;
+        overflow: hidden;
+        margin-bottom: 1.5rem;
+
+        @include respond-below('lg') {
+            margin-left: -2rem;
+            margin-right: -2rem;
+            width: calc(100% + 4rem);
+        }
+    }
+
+    &__hero-img {
+        width: 100%;
+        height: 20rem; // 320px height
+        object-fit: cover;
+        object-position: center;
+    }
+
+    // メインタイトル（画像の下）
+    &__main-title {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-bold;
+        font-size: 1.875rem; // 30px
+        color: #737484; // txt-737484 from Figma
+        letter-spacing: 0.09375rem; // 1.5px
+        line-height: 1.35;
+        margin: 0 0 2rem;
+        padding: 0 0 1.125rem; // 18px padding bottom for underline spacing
+        border-bottom: 1.5px solid #E0E0E5; // Underline with correct color and thickness
+        
+        @include respond-below('md') {
+            font-size: 1.5rem; // 24px on mobile
+            letter-spacing: 0.075rem; // 1.2px
+        }
+    }
+
+    &__section {
+        margin-bottom: 3rem;
+    }
+
+    &__text {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-regular;
+        font-size: 1rem; // 16px
+        color: #595a5d;
+        letter-spacing: 0.02rem; // 0.32px
+        line-height: 1.5;
+        margin: 0 0 1rem;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        p {
+            margin: 0 0 1rem;
+            
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    // 特徴セクション
+    &__features {
+        margin-top: 2rem;
+    }
+
+    &__feature-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+
+        @include respond-below('lg') {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+    }
+
+    &__feature-item {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    &__feature-image {
+        position: relative;
+        // Remove negative margins to keep padding on mobile
+    }
+
+    &__feature-img {
+        width: 100%;
+        height: auto;
+        border-radius: 0.5rem;
+        
+        @include respond-below('lg') {
+            border-radius: 0;
+        }
+    }
+
+    &__feature-text {
+        h4 {
+            margin-bottom: 1rem;
+        }
+        
+        p {
+            font-family: $font-family-primary;
+            font-weight: $font-weight-regular;
+            font-size: 1rem; // 16px
+            color: #595a5d;
+            letter-spacing: 0.02rem; // 0.32px
+            line-height: 1.5;
+            margin: 0;
+            
+            @include respond-below('md') {
+                font-size: 0.875rem; // 14px on mobile
+            }
+        }
+    }
+
+    // メリットセクション
+    &__advantages {
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    &__advantage-item {
+        h4 {
+            margin-bottom: 1rem;
+        }
+        
+        p {
+            font-family: $font-family-primary;
+            font-weight: $font-weight-regular;
+            font-size: 1rem; // 16px
+            color: #595a5d;
+            letter-spacing: 0.02rem; // 0.32px
+            line-height: 1.5;
+            margin: 0;
+            
+            @include respond-below('md') {
+                font-size: 0.875rem; // 14px on mobile
+            }
+        }
+    }
+
+    // 治療の流れセクション
+    &__flow {
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    &__flow-item {
+        display: flex;
+        gap: 1.5rem;
+        align-items: flex-start;
+    }
+
+    &__flow-number {
+        flex-shrink: 0;
+        width: 3rem;
+        height: 3rem;
+        background-color: $color-primary;
+        color: #fff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: $font-family-primary;
+        font-weight: $font-weight-bold;
+        font-size: 1.125rem;
+        letter-spacing: 0.02rem;
+    }
+
+    &__flow-content {
+        flex: 1;
+        padding-top: 0.25rem;
+    }
+
+    &__flow-title {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-bold;
+        font-size: 1.125rem; // 18px
+        color: #737484;
+        letter-spacing: 0.05625rem; // 0.9px
+        line-height: 1.35;
+        margin: 0 0 0.75rem;
+    }
+
+    &__flow-content p {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-regular;
+        font-size: 1rem; // 16px
+        color: #595a5d;
+        letter-spacing: 0.02rem; // 0.32px
+        line-height: 1.5;
+        margin: 0;
+        
+        @include respond-below('md') {
+            font-size: 0.875rem; // 14px on mobile
+        }
+    }
+
+    // 症例写真セクション
+    &__case {
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    &__case-image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #ffffff;
+        border-radius: 0;
+        overflow: hidden;
+    }
+
+    &__case-img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        display: block;
+    }
+
+    &__case-text {
+        p {
+            font-family: $font-family-primary;
+            font-weight: $font-weight-regular;
+            font-size: 1rem; // 16px
+            color: #595a5d;
+            letter-spacing: 0.02rem; // 0.32px
+            line-height: 1.5;
+            margin: 0;
+            text-align: center;
+            
+            @include respond-below('md') {
+                font-size: 0.875rem; // 14px on mobile
+            }
+        }
+    }
+
+    // 新しい考え方のセクション
+    &__concept {
+        margin-top: 2rem;
+    }
+
+    &__concept-content {
+        display: grid;
+        grid-template-columns: 23rem 1fr; // 368px for image, rest for text
+        gap: 2rem;
+        align-items: start;
+
+        @include respond-below('lg') {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+    }
+
+    &__concept-image {
+        position: relative;
+        background-color: #ffffff;
+        border-radius: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        @include respond-below('lg') {
+            margin-left: -$spacing-xl;
+            margin-right: -$spacing-xl;
+            width: calc(100% + #{$spacing-xl * 2});
+        }
+    }
+
+    &__concept-img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        border-radius: 0.5rem;
+        
+        @include respond-below('lg') {
+            border-radius: 0;
+        }
+    }
+
+    &__concept-text {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding-top: 1rem;
+
+        p {
+            font-family: $font-family-primary;
+            font-weight: $font-weight-regular;
+            font-size: 1rem; // 16px
+            color: #595a5d;
+            letter-spacing: 0.02rem; // 0.32px
+            line-height: 1.5;
+            margin: 0;
+            
+            @include respond-below('md') {
+                font-size: 0.875rem; // 14px on mobile
+            }
+        }
+
+        // ハイライト用スタイル
+        .highlight {
+            position: relative;
+            background-color: #fffad7; // yellow-FFFAD7 from Figma
+            padding: 0 0.125rem; // 2px horizontal padding for better appearance
+        }
+    }
+
+    // 症例セクション
+    &__case-study {
+        margin-top: 2rem;
+        
+        .h4-left-line {
+            margin-bottom: 1.5rem; // 24px margin bottom for h4 heading
+        }
+    }
+
+    &__case-description {
+        margin-bottom: 2rem;
+        
+        p {
+            font-family: $font-family-primary;
+            font-weight: $font-weight-regular;
+            font-size: 1rem; // 16px
+            color: #595a5d;
+            letter-spacing: 0.02rem; // 0.32px
+            line-height: 1.5;
+            margin: 0;
+            
+            @include respond-below('md') {
+                font-size: 0.875rem; // 14px on mobile
+            }
+        }
+    }
+
+    &__case-images {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    &__case-image-item {
+        display: grid;
+        grid-template-columns: 22.1875rem 1fr; // 355px for image, rest for text
+        gap: 2rem;
+        align-items: start;
+
+        @include respond-below('lg') {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+    }
+
+    &__case-image {
+        position: relative;
+        background-color: #ffffff;
+        overflow: hidden;
+        
+        @include respond-below('lg') {
+            margin-left: -$spacing-xl;
+            margin-right: -$spacing-xl;
+            width: calc(100% + #{$spacing-xl * 2});
+        }
+    }
+
+    &__case-img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    &__case-label {
+        position: absolute;
+        bottom: 1rem;
+        left: 1rem;
+        color: #ffffff;
+        font-family: $font-family-primary;
+        font-weight: $font-weight-black;
+        font-size: 1.125rem; // 18px
+        letter-spacing: 0.0225rem; // 0.36px
+        line-height: 1.35;
+    }
+
+    &__case-text {
+        display: flex;
+        align-items: flex-start;
+        padding: 1rem 0;
+
+        p {
+            font-family: $font-family-primary;
+            font-weight: $font-weight-regular;
+            font-size: 1rem; // 16px
+            color: #595a5d;
+            letter-spacing: 0.02rem; // 0.32px
+            line-height: 1.5;
+            margin: 0;
+            text-align: left;
+            
+            @include respond-below('md') {
+                font-size: 0.875rem; // 14px on mobile
+            }
+        }
+    }
+
+    &__case-summary {
+        margin-bottom: 3rem;
+        
+        p {
+            font-family: $font-family-primary;
+            font-weight: $font-weight-regular;
+            font-size: 1rem; // 16px
+            color: #595a5d;
+            letter-spacing: 0.02rem; // 0.32px
+            line-height: 1.5;
+            margin: 0;
+            
+            @include respond-below('md') {
+                font-size: 0.875rem; // 14px on mobile
+            }
+        }
+    }
+
+    // 治療表
+    &__case-table {
+        margin-top: 3rem;
+        overflow-x: auto;
+        // Remove negative margins to keep padding on mobile
+    }
+
+    // 特徴リスト
+    &__features-list {
+        margin-top: 2rem;
+    }
+
+    // 当院のダイレクトボンディング
+    &__clinic-approach {
+        margin-top: 2rem;
+    }
+
+    &__clinic-layout {
+        display: grid;
+        grid-template-columns: 21.25rem 1fr; // 340px for image, rest for text
+        gap: 2rem;
+        align-items: start;
+        margin-bottom: 2rem;
+
+        @include respond-below('lg') {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+    }
+
+    &__clinic-image {
+        position: relative;
+        background-color: #000000; // Black background as shown in Figma
+        border-radius: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        @include respond-below('lg') {
+            margin-left: -$spacing-xl;
+            margin-right: -$spacing-xl;
+            width: calc(100% + #{$spacing-xl * 2});
+        }
+    }
+
+    &__clinic-img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        
+        @include respond-below('lg') {
+            border-radius: 0;
+        }
+    }
+
+    &__clinic-text {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding-top: 0.5rem;
+        
+        p {
+            font-family: $font-family-primary;
+            font-weight: $font-weight-regular;
+            font-size: 1rem; // 16px
+            color: #595a5d;
+            letter-spacing: 0.02rem; // 0.32px
+            line-height: 1.5;
+            margin: 0;
+            
+            @include respond-below('md') {
+                font-size: 0.875rem; // 14px on mobile
+            }
+        }
+        
+        // ハイライト用スタイル
+        .highlight {
+            position: relative;
+            background-color: #fffad7; // yellow-FFFAD7 from Figma
+            padding: 0 0.125rem; // 2px horizontal padding for better appearance
+        }
+    }
+
+    &__clinic-footer {
+        p {
+            font-family: $font-family-primary;
+            font-weight: $font-weight-regular;
+            font-size: 1rem; // 16px
+            color: #595a5d;
+            letter-spacing: 0.02rem; // 0.32px
+            line-height: 1.5;
+            margin: 0 0 1.5rem;
+            
+            @include respond-below('md') {
+                font-size: 0.875rem; // 14px on mobile
+            }
+        }
+    }
+
+    &__clinic-links {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    // サイドバー
+    &__sidebar {
+        position: sticky;
+        top: 2rem;
+        align-self: start;
+
+        @include respond-below('lg') {
+            display: none;
+        }
+    }
+}
+
+// 特徴リストのスタイル
+.direct-bonding-feature-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(224, 224, 229, 0.3); // 30% opacity gray background
+    border-radius: 0;
+    padding: 2rem;
+
+    @include respond-below('md') {
+        padding: 1.5rem;
+    }
+
+    &__item {
+        position: relative;
+        font-family: $font-family-primary;
+        font-weight: $font-weight-bold;
+        font-size: 1rem; // 16px
+        color: #737484;
+        letter-spacing: 0.02rem; // 0.32px
+        line-height: 1.5;
+        margin: 0 0 1.125rem; // 18px bottom margin
+        padding-left: 1.5rem; // 24px left padding for bullet space
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        // 丸点の擬似要素
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.6rem; // Align with first line of text
+            width: 0.375rem; // 6px
+            height: 0.375rem; // 6px
+            background-color: #737484;
+            border-radius: 50%;
+        }
+
+        @include respond-below('md') {
+            font-size: 0.875rem; // 14px on mobile
+            padding-left: 1.25rem; // 20px left padding on mobile
+            
+            &::before {
+                top: 0.5rem; // Adjust alignment for smaller text
+            }
+        }
+    }
+}
+
+// 治療表のスタイル
+.direct-bonding-treatment-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1.5px solid #e0e0e5;
+    background-color: #fff;
+    
+    @include respond-below('md') {
+        // Remove min-width to prevent horizontal overflow on mobile
+    }
+    
+    &__header {
+        background-color: rgba(224, 224, 229, 0.3); // 30% opacity gray background for all th cells
+        color: #737484;
+        font-family: $font-family-primary;
+        font-weight: $font-weight-semibold;
+        font-size: 1rem; // 16px
+        text-align: center;
+        padding: 1rem 0.75rem;
+        border: 1.5px solid #e0e0e5;
+        vertical-align: middle;
+        letter-spacing: 0.02rem; // 0.32px
+        line-height: 1.35;
+        width: 11.875rem; // 190px
+        
+        @include respond-below('md') {
+            font-size: 0.875rem; // 14px on mobile
+            padding: 0.75rem 0.5rem;
+            width: auto;
+        }
+    }
+    
+    &__cell {
+        background-color: #ffffff;
+        color: #595a5d;
+        font-family: $font-family-primary;
+        font-weight: $font-weight-regular;
+        font-size: 1rem; // 16px
+        text-align: left;
+        padding: 1rem 0.75rem;
+        border: 1.5px solid #e0e0e5;
+        vertical-align: middle;
+        line-height: 1.35;
+        letter-spacing: 0.02rem; // 0.32px
+        
+        @include respond-below('md') {
+            font-size: 0.875rem; // 14px on mobile
+            padding: 0.75rem 0.5rem;
+        }
+    }
+    
+    @include respond-below('md') {
+        // Remove min-width to prevent horizontal overflow on mobile
+    }
+}
+
+// Direct bonding link (text with arrow in circular background)
+.direct-bonding-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem; // 12px gap between text and arrow
+    text-decoration: none;
+    transition: all $transition-normal;
+    
+    // Right arrow in circular background (pseudo-element)
+    &::after {
+        content: '';
+        display: inline-block;
+        width: 1.5rem; // 24px circular button
+        height: 1.5rem; // 24px circular button
+        background-color: #949494; // Gray background matching Figma
+        border-radius: 50%; // Perfect circle
+        transition: background-color $transition-normal;
+        flex-shrink: 0;
+        
+        // Using the specific arrow icon
+        background-image: url("../images/direct-bonding/arw-circle-line-direct.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 1.5rem 1.5rem; // Same size as background circle
+    }
+    
+    &:hover {
+        .direct-bonding-link__text {
+            border-bottom-color: #949494; // Lighter border on hover
+        }
+        
+        &::after {
+            background-color: #737484; // Darker background on hover
+        }
+    }
+    
+    &__text {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-regular;
+        font-size: 1rem; // 16px
+        color: #737484; // Match Figma design color
+        letter-spacing: 0.02rem; // 0.32px
+        line-height: 1.5;
+        padding-bottom: 0.375rem; // Space for border
+        border-bottom: 1px solid #737484; // Bottom border matching text color
+        
+        @include respond-below('md') {
+            font-size: 0.875rem; // 14px on mobile
+        }
+    }
+}

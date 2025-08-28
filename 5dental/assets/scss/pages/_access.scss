@@ -1,0 +1,372 @@
+// ========================================
+// Access Page Styles
+// ========================================
+
+// アクセスセクション
+.access-info {
+    padding: 5rem 0;
+
+    &__container {
+        @include container;
+    }
+
+    // アクセス詳細
+    &__details {
+        margin-top: 3rem;
+        max-width: 60rem; // 960px
+        margin-left: auto;
+        margin-right: auto;
+        padding: 3rem 0;
+        border-top: 1px solid #E0E0E0;
+        border-bottom: 1px solid #E0E0E0;
+    }
+
+    // 住所セクション
+    &__address {
+        margin-bottom: 1.5rem; // 24px
+        display: flex;
+        align-items: center;
+        
+        &-icon {
+            display: inline-block;
+            width: 1rem; // 16px
+            height: 1rem; // 16px
+            margin-right: 0.5rem; // 8px
+            flex-shrink: 0;
+        }
+
+        &-text {
+            font-size: 1rem; // 16px
+            color: #595A5D;
+            font-weight: $font-weight-regular;
+            line-height: 1.5;
+        }
+    }
+
+    // 交通機関情報
+    &__transport {
+        margin-bottom: 2.5rem; // 40px
+        display: flex;
+        align-items: flex-start;
+
+        &-icon {
+            display: inline-block;
+            width: 1rem; // 16px
+            height: 1rem; // 16px
+            margin-right: 0.5rem; // 8px
+            flex-shrink: 0;
+            margin-top: 0.125rem; // 2px - アイコンの位置調整
+        }
+
+        &-list {
+            flex: 1;
+        }
+
+        &-item {
+            font-size: 0.875rem; // 14px
+            color: #595A5D;
+            line-height: 1.8;
+            margin-bottom: 0.25rem; // 4px
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    // アクセス方法リスト
+    &__method {
+        margin-bottom: 2.5rem; // 40px
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        &-title {
+            font-size: 1rem; // 16px
+            color: #595A5D;
+            font-weight: $font-weight-medium;
+            margin-bottom: 1rem; // 16px
+        }
+
+        &-list {
+            margin-bottom: 0.75rem; // 12px
+            padding-left: 1.25rem; // 20px
+            list-style: decimal;
+        }
+
+        &-item {
+            font-size: 0.875rem; // 14px
+            color: #595A5D;
+            line-height: 1.8;
+            margin-bottom: 0.5rem; // 8px
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        &-note {
+            font-size: 0.875rem; // 14px
+            color: #737484;
+            line-height: 1.8;
+            margin-top: 0.5rem; // 8px
+            margin-left: 0;
+        }
+    }
+}
+
+// 地図セクション
+.access-map {
+    padding: 5rem 0;
+
+    &__container {
+        @include container;
+    }
+
+    // 地図ラッパー
+    &__wrapper {
+        margin-top: 3rem;
+        width: 100%;
+        max-width: 60rem; // 960px
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+        padding-bottom: 56.25%; // 16:9 aspect ratio
+        height: 0;
+        overflow: hidden;
+
+        @include respond-below('md') {
+            padding-bottom: 75%; // より正方形に近い比率（モバイル向け）
+        }
+
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    }
+}
+
+// 銀座駅からのアクセスセクション
+.access-steps {
+    padding: 5rem 0;
+    background-color: #F8F8F8;
+
+    &__container {
+        @include container;
+    }
+
+    // ステップリスト
+    &__list {
+        margin-top: 3rem;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem 2rem; // 縦48px、横32px
+        max-width: 60rem; // 960px
+        margin-left: auto;
+        margin-right: auto;
+
+        @include respond-below('md') {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+    }
+
+    // 各ステップ
+    &__item {
+        display: flex;
+        flex-direction: column;
+    }
+
+    // ステップ番号
+    &__number {
+        position: relative;
+        font-size: 1rem; // 16px
+        color: #787B83;
+        font-weight: $font-weight-bold;
+        margin-bottom: 1rem; // 16px
+        padding-left: 1rem; // 16px
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 0.1875rem; // 3px
+            height: 1.9375rem; // 31px
+            background-color: #D8D8E3;
+        }
+    }
+
+    // 画像
+    &__image {
+        width: 100%;
+        height: 15rem; // 240px
+        margin-bottom: 1.5rem; // 24px
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    // テキスト
+    &__text {
+        font-size: 0.875rem; // 14px
+        color: #595A5D;
+        line-height: 1.8;
+    }
+
+    // 最後のアイテム（1列）
+    &__item--full {
+        grid-column: 1 / -1;
+        max-width: 30rem; // 480px
+
+        @include respond-below('md') {
+            max-width: 100%;
+        }
+    }
+}
+
+// 診療時間セクション
+.office-hours {
+    padding: 5rem 0;
+    background-color: $color-background-white;
+
+    &__container {
+        @include container;
+        max-width: 60rem; // 960px
+    }
+
+    // 説明文
+    &__description {
+        margin-top: 2rem;
+        font-size: 1rem; // 16px
+        color: #595A5D;
+        line-height: 1.8;
+        
+        // ハイライト用スタイル
+        .highlight {
+            position: relative;
+            background-color: #fffad7; // yellow-FFFAD7
+        }
+    }
+
+    // テーブルラッパー
+    &__table-wrapper {
+        margin-top: 3rem;
+        overflow-x: auto;
+    }
+
+    // 診療時間テーブル
+    &__table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: #787B83; // グレー背景
+        border-radius: 0.5rem; // 8px
+        overflow: hidden;
+        
+        // テーブルヘッダー
+        thead {
+            position: relative;
+            
+            // thead全体の下線
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 2rem; // 左端のパディングに合わせて開始
+                right: 2rem; // 右端のパディングに合わせて終了
+                height: 1px;
+                background-color: #fff;
+            }
+            
+            th {
+                padding: 1.25rem 1rem; // 20px 16px
+                font-size: 1rem; // 16px
+                font-weight: $font-weight-medium;
+                color: $color-background-white;
+                text-align: center;
+                
+                &:first-child {
+                    text-align: left;
+                    padding-left: 2rem; // 32px
+                    min-width: 10rem; // 160px
+                }
+                
+                &:last-child {
+                    padding-right: 2rem; // 32px
+                }
+            }
+        }
+        
+        // テーブルボディ
+        tbody {
+            tr {
+                td {
+                    padding: 1.25rem 1rem; // 20px 16px
+                    font-size: 1rem; // 16px
+                    color: $color-background-white;
+                    text-align: center;
+                    
+                    &:first-child {
+                        text-align: left;
+                        padding-left: 2rem; // 32px
+                        font-weight: $font-weight-medium;
+                    }
+                    
+                    // 診療時間の丸印
+                    &.office-hours__open {
+                        font-size: 1.25rem; // 20px
+                        color: $color-background-white;
+                        font-weight: bold;
+                    }
+                    
+                    // 休診の×印
+                    &.office-hours__closed {
+                        font-size: 1.125rem; // 18px
+                        color: $color-background-white;
+                        font-weight: bold;
+                    }
+                    
+                    // ダッシュ
+                    &.office-hours__dash {
+                        font-size: 1rem; // 16px
+                        color: $color-background-white;
+                    }
+                }
+            }
+        }
+    }
+
+    // 注意事項
+    &__notes {
+        margin-top: 2rem;
+        padding-left: 1.5rem; // 24px
+        
+        &-item {
+            position: relative;
+            font-size: 0.875rem; // 14px
+            color: #737484;
+            line-height: 1.8;
+            margin-bottom: 0.5rem; // 8px
+            
+            &:last-child {
+                margin-bottom: 0;
+            }
+            
+            &::before {
+                content: '•';
+                position: absolute;
+                left: -1rem;
+                color: #737484;
+            }
+        }
+    }
+}

@@ -1,0 +1,39 @@
+// ========================================
+// Concept Section
+// ========================================
+
+.concept {
+    padding: 5rem 0; // 80px 上下
+    position: relative;
+
+    @include respond-to('lg') {
+        padding: 6.25rem 0; // 100px 上下
+    }
+
+    &__container {
+        @include container;
+        max-width: 50rem; // 800px (コンテンツ幅)
+        margin: 0 auto;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem; // 16px 段落間
+        text-align: left; // 左寄せ
+        
+        @include respond-to('lg') {
+            gap: 1rem; // 16px
+        }
+    }
+
+    &__paragraph {
+        font-family: $font-family-primary;
+        font-weight: 400;
+        font-size: 1rem; // 16px
+        color: #595A5D;
+        line-height: 1.5; // 150%
+        letter-spacing: 0.02rem; // 0.32px
+        margin: 0;
+    }
+}
